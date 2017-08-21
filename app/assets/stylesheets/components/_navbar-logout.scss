@@ -1,7 +1,6 @@
-/* Main navbar */
-.navbar-wagon {
+.navbar-shape {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #0b132b;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -11,37 +10,50 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-briefcases-brand img {
+  height: 70px;
+  width: auto;
 }
 
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
 
 /* Right section */
-.navbar-wagon-right {
+.navbar-briefcases-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Basic navbar item */
-.navbar-wagon-item {
+.navbar-briefcases-item {
   cursor: pointer;
   padding: 0 20px;
 }
 
 /* Navbar link */
-.navbar-wagon-link {
-  color: #616668;
+.navbar-briefcases-link {
+  color: white;
   font-size: 14px;
+  font-weight: light;
+  font-family: $headers-font;
 }
-.navbar-wagon-link:hover {
-  color: #da552f;
+.navbar-briefcases-link:hover {
+  color: #5bc0be;
+  text-decoration: none;
+}
+
+/* Sign up button design */
+.btn-signup {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #3a506b;
+  transition: background 0.3s ease;
+}
+
+.btn-signup:hover {
+  background: #c44e00;
+  color: white;
   text-decoration: none;
 }
 
@@ -75,3 +87,12 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* User Avatar */
+.navbar-wagon .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+
