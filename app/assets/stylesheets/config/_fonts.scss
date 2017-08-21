@@ -1,11 +1,14 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-@import url('https://fonts.googleapis.com/css?family=Rubik');
-@import url('https://fonts.googleapis.com/css?family=Nunito:200|Rubik');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200');
 
 // Define fonts for body and headers
-$body-font: 'Rubik', "sans-serif";
-$headers-font: 'Nunito', "sans-serif";
+$body-font: "Rubik", "Helvetica", "sans-serif";
+$headers-font: "Nunito", "Helvetica", "sans-serif";
+$variables-font: "inconsolata", "Helvetica", "sans-serif";
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
