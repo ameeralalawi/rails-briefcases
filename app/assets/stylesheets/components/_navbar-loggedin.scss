@@ -16,8 +16,8 @@
 }
 
 
-/* Right section */
-.navbar-in-briefcases-right {
+/* Left section */
+.navbar-in-briefcases-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,38 +30,9 @@
   padding: 0 20px;
 }
 
-/* Navbar-in link */
-.navbar-in-briefcases-link {
-  color: white;
-  font-size: 14px;
-  font-weight: light;
-  font-family: $headers-font;
-}
-.navbar-in-briefcases-link:hover {
-  color: #5bc0be;
-  text-decoration: none;
-}
-
-.navbar-in-briefcases-logout {
-  color: white;
-  font-size: 14px;
-  font-weight: light;
-  font-family: $headers-font;
-}
-
-.navbar-in-briefcases-logout:hover {
-  color: #c44e00;
-  text-decoration: none;
-}
-
-/* User Avatar */
-.navbar-in-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
 
 
+/* logout items */
 .logout {
   display: flex;
   align-items: center;
@@ -81,4 +52,16 @@
 
 .logout-circle:hover {
    background-color: #c44e00;
+}
+
+.navbar-in-briefcases-logout {
+  color: white;
+  font-size: 14px;
+  font-weight: light;
+  font-family: $headers-font;
+}
+
+.navbar-in-briefcases-logout:hover {
+  color: #c44e00;
+  text-decoration: none;
 }
