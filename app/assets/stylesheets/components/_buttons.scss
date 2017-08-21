@@ -1,0 +1,45 @@
+/* -------------------------------------
+ * All buttons and CTAs
+* ------------------------------------- */
+
+
+.btn-CTA {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-weight: bold;
+  background: $cta-green;
+  transition: background 0.3s ease;
+}
+.btn-CTA:hover {
+  opacity: 1;
+  background: $cta-green-hover;
+  text-decoration: none;
+  color: white;
+}
+
+.input-field {
+  min-width: 50px;
+  height: 100%;
+  background-color: $dark-filling;
+  border-radius: $border-radius-base;
+  font-family: $body-font;
+  color: $white;
+  text-align: center;
+  padding: 20px;
+  font-size: $font-size-large;
+}
+
+.output-field {
+  min-width: 50px;
+  height: 100%;
+  background-color: $white;
+  border-radius: $border-radius-base;
+  font-family: $body-font;
+  color: $text-black;
+  text-align: center;
+  padding: 20px;
+  font-size: $font-size-large;
+  border: 1px solid;
+  border-color: $border-grey;
+}
