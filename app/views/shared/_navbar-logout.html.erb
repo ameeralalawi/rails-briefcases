@@ -1,37 +1,24 @@
 <div class="navbar-out-shape">
 
-  <!-- Right Navigation -->
-  <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
-
-     <%= link_to "Features", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
-  <%= link_to "Pricing", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
-  <%= link_to "About", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
-
-    <!-- Profile picture with dropdown list
-    <div class="navbar-in-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-in-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-in-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    </div>-->
+  <!-- Left Navigation -->
+  <div class="navbar-out-briefcases-left hidden-xs hidden-sm">
+    <%= link_to "Features", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+    <%= link_to "Pricing", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+    <%= link_to "About", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
   </div>
 
-   <!-- Logo -->
+  <!-- Logo -->
   <%= link_to root_path, class: "navbar-out-briefcases-brand" do %>
     <%= image_tag "logo_briefcases.png" %>
   <% end %>
 
-
- <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
- <div class="login">
-  <%= link_to new_user_session_path, method: :get do %><i class="fa fa-user-circle" aria-hidden="true" "></i><% end %>
-  <%= link_to "Log in",  new_user_session_path, method: :get, class: "navbar-out-briefcases-item navbar-out-briefcases-link paddi" %>
-  </div>
-  <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-signup" %>
+  <!-- Registration -->
+  <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
+    <div class="login">
+      <%= link_to new_user_session_path, method: :get do %><i class="fa fa-user-circle" aria-hidden="true" "></i><% end %>
+      <%= link_to "Log in",  new_user_session_path, method: :get, class: "navbar-out-briefcases-item navbar-out-briefcases-link space" %>
+    </div>
+    <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-signup" %>
   </div>
 </div>
 

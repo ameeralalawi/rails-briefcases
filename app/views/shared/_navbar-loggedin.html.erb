@@ -1,22 +1,9 @@
 <div class="navbar-in-shape">
 
-  <!-- Right Navigation -->
-  <div class="navbar-in-briefcases-right hidden-xs hidden-sm">
-
- <%= link_to "#" do %><i class="fa fa-user-circle " aria-hidden="true" "></i><% end %>
- <%= link_to "#" do %><i class="fa fa-bell " aria-hidden="true"></i><% end %>
-
-    <!-- Profile picture with dropdown list
-    <div class="navbar-in-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-in-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-in-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    </div>-->
+  <!-- Profile and notifications links -->
+  <div class="navbar-in-briefcases-left hidden-xs hidden-sm">
+     <%= link_to "#" do %><i class="fa fa-user-circle " aria-hidden="true" "></i><% end %>
+     <%= link_to "#" do %><i class="fa fa-bell " aria-hidden="true"></i><% end %>
   </div>
 
    <!-- Logo -->
@@ -25,35 +12,13 @@
   <% end %>
 
 
-
-
-
-<div class="logout">
-<div class="logout-circle">
-  <%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %>
-</div>
-<div>
-<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-in-briefcases-logout" %>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-in-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-in-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
-      </ul>
+  <!-- Log out link -->
+  <div class="logout">
+    <div class="logout-circle">
+      <%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %>
+    </div>
+    <div>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-in-briefcases-logout" %>
     </div>
   </div>
 </div>
