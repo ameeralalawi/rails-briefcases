@@ -1,17 +1,17 @@
-<div class="navbar-shape">
+<div class="navbar-out-shape">
 
   <!-- Right Navigation -->
-  <div class="navbar-briefcases-right hidden-xs hidden-sm">
+  <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-briefcases-item navbar-briefcases-link">Features</a>
-    <a href="" class="navbar-briefcases-item navbar-briefcases-link">Pricing</a>
-    <a href="" class="navbar-briefcases-item navbar-briefcases-link">About</a>
+     <%= link_to "Features", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+  <%= link_to "Pricing", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+  <%= link_to "About", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
 
     <!-- Profile picture with dropdown list
-    <div class="navbar-wagon-item">
+    <div class="navbar-in-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-in-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-in-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Log Out</a></li>
@@ -21,14 +21,17 @@
   </div>
 
    <!-- Logo -->
-  <%= link_to root_path, class: "navbar-briefcases-brand" do %>
+  <%= link_to root_path, class: "navbar-out-briefcases-brand" do %>
     <%= image_tag "logo_briefcases.png" %>
   <% end %>
 
 
-  <div class="navbar-briefcases-right hidden-xs hidden-sm">
-    <a href="" class="navbar-briefcases-item navbar-briefcases-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Log in</a>
-    <a href="" class="btn-signup">Sign up</a>
+ <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
+ <div class="login">
+  <%= link_to new_user_session_path, method: :get do %><i class="fa fa-user-circle" aria-hidden="true" "></i><% end %>
+  <%= link_to "Log in",  new_user_session_path, method: :get, class: "navbar-out-briefcases-item navbar-out-briefcases-link paddi" %>
+  </div>
+  <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-signup" %>
   </div>
 </div>
 
@@ -38,14 +41,11 @@
 
 
 
-
-
-
   <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="navbar-out-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right navbar-out-wagon-dropdown-menu">
         <li><a href="#">Host</a></li>
         <li><a href="#">Trips</a></li>
         <li><a href="#">Messagese</a></li>
