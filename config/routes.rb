@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'cases/:id/leads', to: 'leads#index'
-    post 'cases/:id/variables', to: 'variable#create'
-    post 'cases/:id/lines', to: 'line#create'
-    patch 'lines/:id', to: 'line#update'
-    delete 'lines/:id', to: 'line#destroy'
+    post 'cases/:id/variables', to: 'variables#create'
+    post 'cases/:id/lines', to: 'lines#create'
+    patch 'lines/:id', to: 'lines#update'
+    delete 'lines/:id', to: 'lines#destroy'
     get 'cases', to: 'cases#index'
     post 'cases', to: 'cases#create'
     delete 'cases/:id', to: 'cases#delete'

@@ -1,4 +1,4 @@
-class Admin::LineController < ApplicationController
+class Admin::LinesController < ApplicationController
   def create
   end
 
