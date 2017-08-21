@@ -98,7 +98,7 @@ Variable.create!([
  {:expression => '{"data":["(","(",{"value":"#(TotalUserBulbs)#","type":"item"},"*",{"value":"#(UserHoursOfUse)#","type":"item"},"*",{"value":"#(UserBulbWattage)#","type":"item"},")","/",{"value":"1,000","type":"unit"},")","*",{"value":"#(UserElecPrice)#","type":"item"},"*","(",{"value":"365","type":"unit"},"/",{"value":"12","type":"unit"},")"],"filterData":{"status":true,"data":{"operator":"*","operand1":{"operator":"*","operand1":{"operator":"/","operand1":{"operator":"*","operand1":{"operator":"*","operand1":{"value":"#(TotalUserBulbs)#","type":"item"},"operand2":{"value":"#(UserHoursOfUse)#","type":"item"},"length":5},"operand2":{"value":"#(UserBulbWattage)#","type":"item"},"length":5},"operand2":{"value":"1,000","type":"unit"},"length":9},"operand2":{"value":"#(UserElecPrice)#","type":"item"},"length":19},"operand2":{"operator":"/","operand1":{"value":"365","type":"unit"},"operand2":{"value":"12","type":"unit"},"length":3},"length":19}}}',
   :name => 'ScenarioB_CostpMonth',
   :case_id => seedcase.id},
- {:expression => '{"data":[{"value":"#(TotalUserBulbs)#","type":"item"},"*",{"value":"$(CostPerHooliBulb)$","type":"item"}],"filterData":{"status":true,"data":{"operator":"*","operand1":{"value":"#(TotalUserBulbs)#","type":"item"},"operand2":{"value":"$(CostPerHooliBulb)$","type":"item"},"length":3}}}'
+ {:expression => '{"data":[{"value":"#(TotalUserBulbs)#","type":"item"},"*",{"value":"$(CostPerHooliBulb)$","type":"item"}],"filterData":{"status":true,"data":{"operator":"*","operand1":{"value":"#(TotalUserBulbs)#","type":"item"},"operand2":{"value":"$(CostPerHooliBulb)$","type":"item"},"length":3}}}',
   :name => 'InitialInvestment',
   :case_id => seedcase.id}
 ])
@@ -121,18 +121,19 @@ Variable.create!([
 
 # Twenty leads and 10 more empty responses are added to the only "published" case.
 # Subsequently, fake form data is added to these leads
-20.times do {
+20.times do |x|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  Lead.create({
-  :case_id => seedcase.id,
-  :first_name => first_name,
-  :last_name => last_name,
-  :email => "#{first_name}.#{last_name}@gmail.com"})
-}
-10.times do {
+  Lead.create!({
+    :case_id => seedcase.id,
+    :first_name => first_name,
+    :last_name => last_name,
+    :email => "#{first_name}.#{last_name}@gmail.com"
+    })
+end
+10.times do |x|
   Lead.create({
   :case_id => seedcase.id})
-}
+end
 
 puts 'Finished!'
