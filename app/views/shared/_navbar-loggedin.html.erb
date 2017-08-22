@@ -1,0 +1,24 @@
+<div class="navbar-in-shape">
+
+  <!-- Profile and notifications links -->
+  <div class="navbar-in-briefcases-left hidden-xs hidden-sm">
+     <%= link_to "#" do %><i class="fa fa-user-circle " aria-hidden="true" "></i><% end %>
+     <%= link_to "#" do %><i class="fa fa-bell " aria-hidden="true"></i><% end %>
+  </div>
+
+   <!-- Logo -->
+  <%= link_to root_path, class: "navbar-in-briefcases-brand" do %>
+    <%= image_tag "logo_briefcases.png" %>
+  <% end %>
+
+
+  <!-- Log out link -->
+  <div class="logout">
+    <div class="logout-circle">
+      <%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %>
+    </div>
+    <div>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-in-briefcases-logout" %>
+    </div>
+  </div>
+</div>

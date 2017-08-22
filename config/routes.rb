@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post 'cases/:id/leads', to: 'leads#create'
   patch 'leads/:id', to: 'leads#update'
   get '/cases/:id', to: 'cases#show'
+  get 'pages/components', to: 'pages#components'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

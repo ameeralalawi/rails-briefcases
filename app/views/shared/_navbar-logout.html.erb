@@ -1,0 +1,42 @@
+<div class="navbar-out-shape">
+
+  <!-- Left Navigation -->
+  <div class="navbar-out-briefcases-left hidden-xs hidden-sm">
+    <%= link_to "Features", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+    <%= link_to "Pricing", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+    <%= link_to "About", "#", class: "navbar-out-briefcases-item navbar-out-briefcases-link" %>
+  </div>
+
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-out-briefcases-brand" do %>
+    <%= image_tag "logo_briefcases.png" %>
+  <% end %>
+
+  <!-- Registration -->
+  <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
+    <div class="login">
+      <%= link_to new_user_session_path, method: :get do %><i class="fa fa-user-circle" aria-hidden="true" "></i><% end %>
+      <%= link_to "Log in",  new_user_session_path, method: :get, class: "navbar-out-briefcases-item navbar-out-briefcases-link space" %>
+    </div>
+    <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-signup" %>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-out-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-out-wagon-dropdown-menu">
+        <li><a href="#">Host</a></li>
+        <li><a href="#">Trips</a></li>
+        <li><a href="#">Messagese</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
