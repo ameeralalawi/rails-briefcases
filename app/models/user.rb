@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :cases
 
   validates :email, uniqueness: true, presence: true
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  # validates :firstname, presence: true
+  # validates :lastname, presence: true
 end
