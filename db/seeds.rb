@@ -12,8 +12,8 @@ User.destroy_all
 puts 'Seeding database...'
 # A Single User is added to the App
 User.create!({
-  :firstname => "Mr. John",
-  :lastname => "Smith",
+  :first_name => "Mr. John",
+  :last_name => "Smith",
   :email => "test@test.com",
   :password => "password",
   :title => "Senior Media Director"
