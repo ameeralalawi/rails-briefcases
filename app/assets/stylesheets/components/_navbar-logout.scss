@@ -64,20 +64,8 @@ text-decoration: none;
 }
 
 /* Sign up button design */
-.btn-signup {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 14px;
-  background: #3a506b;
-  transition: background 0.3s ease;
-}
+/* cf the _button.scss file */
 
-.btn-signup:hover {
-  background: #c44e00;
-  color: white;
-  text-decoration: none;
-}
 
 
 
