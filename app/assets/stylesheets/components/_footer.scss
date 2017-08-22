@@ -3,9 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: white;
 }
 .footer-links {
   display: flex;
@@ -19,5 +19,5 @@
   padding: 0px 15px;
 }
 .footer-links a:hover {
-  color: $text-black;
+  color: $dark-filling;
 }
