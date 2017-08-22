@@ -15,7 +15,7 @@
   <!-- Log out link -->
   <div class="logout">
     <div class="logout-circle">
-      <%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" id="trigger" aria-hidden="true"></i><% end %>
     </div>
     <div>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-in-briefcases-logout" %>

@@ -13,12 +13,12 @@
   <% end %>
 
   <!-- Registration -->
-  <div class="navbar-out-briefcases-right hidden-xs hidden-sm">
+  <div class="navbar-out-briefcases-left hidden-xs hidden-sm">
     <div class="login">
       <%= link_to new_user_session_path, method: :get do %><i class="fa fa-user-circle" aria-hidden="true" "></i><% end %>
       <%= link_to "Log in",  new_user_session_path, method: :get, class: "navbar-out-briefcases-item navbar-out-briefcases-link space" %>
     </div>
-    <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-signup" %>
+    <%= link_to "Sign up", new_user_registration_path, method: :get, class: "btn-CTA" %>
   </div>
 </div>
 
