@@ -13,7 +13,7 @@
 }
 .btn-CTA:hover {
   opacity: 1;
-  background: $cta-green-hover;
+  background: $cta-green 0.7;
   text-decoration: none;
   color: white;
 }
@@ -41,5 +41,5 @@
   padding: 20px;
   font-size: $font-size-large;
   border: 1px solid;
-  border-color: $border-grey;
+  border-color: $border-gray;
 }

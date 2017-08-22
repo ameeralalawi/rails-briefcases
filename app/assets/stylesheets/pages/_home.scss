@@ -1,1 +1,63 @@
-// Specific CSS for your home-page
+#section-1 {
+  background: url('road_vector.svg');
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+#intro-paragraph {
+  width: 700px;
+  background:rgba(255,255,255,0.5);
+  border-radius: 6px;
+  h1 {
+    font-size: 40px
+  }
+  h3 {
+    font-size: 25px
+  }
+}
+
+#get-started {
+  color: white;
+  background-color: #3A506B;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 17px;
+}
+
+#learn-more {
+  color: $dark-filling,
+}
+
+#section-2 {
+  background-color: #3A506B;
+  width: 100vw;
+  height: 100vh;
+  color: #D8D8D8;
+
+}
+#section-3 {
+  background: url('blue_round_vector.svg');
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 200px;
+}
+#section-4 {
+  width: 100vw;
+  height: 90vh;
+}
+
+.demo-illustration {
+  background-color: #D8D8D8;
+  width: 80%;
+  height: 200px;
+}
+
+.demo-step {
+  h1{
+    display: inline-block;
+  }
+  h4{
+    display: inline-block;
+  }
+}
