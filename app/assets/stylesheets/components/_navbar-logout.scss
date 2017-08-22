@@ -11,7 +11,7 @@
 
 /* Logo */
 .navbar-out-briefcases-brand img {
-  height: 70px;
+  height: 60px;
   width: auto;
 }
 
@@ -47,16 +47,21 @@
   margin: 0px;
 }
 
-.fa:hover {
-color: $cta-green;
-text-decoration: none;
-}
 
 /* Login link */
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login:hover {
+  a {
+    color: $cta-green;
+  }
+  .fa {
+    color: $cta-green;
+  }
 }
 
 .space {

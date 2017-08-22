@@ -11,7 +11,7 @@
 
 /* Logo */
 .navbar-in-briefcases-brand img {
-  height: 70px;
+  height: 60px;
   width: auto;
 }
 
@@ -40,8 +40,9 @@
   padding-top: 4px;
 }
 
+
 .logout-circle {
-  background-color: #5bc0be;
+  background-color: $cta-green;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -50,9 +51,6 @@
   justify-content: center;
 }
 
-.logout-circle:hover {
-   background-color: $cta-green;
-}
 
 .navbar-in-briefcases-logout {
   color: $example-gray;
@@ -61,11 +59,18 @@
   font-family: $headers-font;
 }
 
-.navbar-in-briefcases-logout:hover {
-  color: #c44e00;
-  text-decoration: none;
-}
 
+.logout:hover {
+  .logout-circle:hover {
+   background-color: $variable-blue;
+  }
+
+  .navbar-in-briefcases-logout:hover {
+  color: $cta-green;
+  text-decoration: none;
+  }
+}
 .fa #trigger:hover{
   color: $example-gray;
 }
+
