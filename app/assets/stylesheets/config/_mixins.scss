@@ -1,0 +1,10 @@
+@mixin shadow {
+  box-shadow: 3px 3px 8px 0px $border-gray;
+}
+
+
+@mixin border {
+  border: 1px solid;
+  border-color: $border-gray;
+  border-radius: $border-radius-base;
+}
