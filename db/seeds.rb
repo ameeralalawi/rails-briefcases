@@ -1,12 +1,12 @@
 require 'faker'
 
 puts 'Cleaning database...'
-User.destroy_all
-Case.destroy_all
-Lead.destroy_all
 VariableUse.destroy_all
-Variable.destroy_all
 Line.destroy_all
+Variable.destroy_all
+Lead.destroy_all
+Case.destroy_all
+User.destroy_all
 
 
 puts 'Seeding database...'
@@ -16,7 +16,7 @@ User.create!({
   :lastname => "Smith",
   :email => "test@test.com",
   :password => "password",
-  :photo_url => "http://res.cloudinary.com/charlescazals/image/upload/v1502900804/luenmvsw4kamlpib7tai.jpg"
+  :title => "Senior Media Director"
 })
 
 admin = User.last
@@ -113,27 +113,77 @@ Variable.create!([
 
 # Case lineitems are seeded here
 
-
-
-
-
-
+Line.create!([
+ {:name => 'InitialInvestment',
+  :scenario => 'A',
+  :category => 'cost',
+  :recurrence => 'oneoff',
+  :start_date => '01/09/2017',
+  :end_date => '01/09/2017',
+  :variable_id => Variable.where("name = 'InitialInvestment'").first.id,
+  :case_id => seedcase.id},
+ {:name => 'ScenarioA_CostpMonth',
+  :scenario => 'A',
+  :category => 'cost',
+  :recurrence => 'monthly',
+  :start_date => '01/09/2017',
+  :end_date => '01/09/2020',
+  :variable_id => Variable.where("name = 'ScenarioA_CostpMonth'").first.id,
+  :case_id => seedcase.id},
+ {:name => 'ScenarioB_CostpMonth',
+  :scenario => 'B',
+  :category => 'cost',
+  :recurrence => 'monthly',
+  :start_date => '01/09/2017',
+  :end_date => '01/09/2020',
+  :variable_id => Variable.where("name = 'ScenarioB_CostpMonth'").first.id,
+  :case_id => seedcase.id}
+])
 
 # Twenty leads and 10 more empty responses are added to the only "published" case.
 # Subsequently, fake form data is added to these leads
 20.times do |x|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  Lead.create!({
+  lead = Lead.create!({
     :case_id => seedcase.id,
     :first_name => first_name,
     :last_name => last_name,
     :email => "#{first_name}.#{last_name}@gmail.com"
-    })
+  })
+  VariableUse.create!([
+ {:value => rand(4.0...50.0),
+  :variable_id => Variable.where("name = 'TotalUserBulbs'").first.id,
+  :lead_id => lead.id},
+ {:value => [35.5, 40.0, 45.0, 50.0, 55.0, 60.0].sample,
+  :variable_id => Variable.where("name = 'UserBulbWattage'").first.id,
+  :lead_id => lead.id},
+ {:value => rand(0.05...0.20),
+  :variable_id => Variable.where("name = 'UserElecPrice'").first.id,
+  :lead_id => lead.id},
+ {:value => [3.0, 4.0, 5.0, 6.0, 7.0].sample,
+  :variable_id => Variable.where("name = 'UserHoursOfUse'").first.id,
+  :lead_id => lead.id}
+  ])
 end
-10.times do |x|
-  Lead.create({
-  :case_id => seedcase.id})
+8.times do |x|
+  lead = Lead.create!({
+  :case_id => seedcase.id
+  })
+  VariableUse.create!([
+ {:value => rand(4.0...50.0),
+  :variable_id => Variable.where("name = 'TotalUserBulbs'").first.id,
+  :lead_id => lead.id},
+ {:value => [35.5, 40.0, 45.0, 50.0, 55.0, 60.0].sample,
+  :variable_id => Variable.where("name = 'UserBulbWattage'").first.id,
+  :lead_id => lead.id},
+ {:value => rand(0.05...0.20),
+  :variable_id => Variable.where("name = 'UserElecPrice'").first.id,
+  :lead_id => lead.id},
+ {:value => [3.0, 4.0, 5.0, 6.0, 7.0].sample,
+  :variable_id => Variable.where("name = 'UserHoursOfUse'").first.id,
+  :lead_id => lead.id}
+  ])
 end
 
 puts 'Finished!'
