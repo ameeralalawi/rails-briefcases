@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822082839) do
+ActiveRecord::Schema.define(version: 20170822094052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170822082839) do
     t.bigint "case_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "escalator"
     t.index ["case_id"], name: "index_lines_on_case_id"
     t.index ["variable_id"], name: "index_lines_on_variable_id"
   end

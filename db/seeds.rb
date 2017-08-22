@@ -121,6 +121,7 @@ Line.create!([
   :start_date => '01/09/2017',
   :end_date => '01/09/2017',
   :variable_id => Variable.where("name = 'InitialInvestment'").first.id,
+  :escalator => 0.0,
   :case_id => seedcase.id},
  {:name => 'ScenarioA_CostpMonth',
   :scenario => 'A',
@@ -129,6 +130,7 @@ Line.create!([
   :start_date => '01/09/2017',
   :end_date => '01/09/2020',
   :variable_id => Variable.where("name = 'ScenarioA_CostpMonth'").first.id,
+  :escalator => 0.0,
   :case_id => seedcase.id},
  {:name => 'ScenarioB_CostpMonth',
   :scenario => 'B',
@@ -137,6 +139,7 @@ Line.create!([
   :start_date => '01/09/2017',
   :end_date => '01/09/2020',
   :variable_id => Variable.where("name = 'ScenarioB_CostpMonth'").first.id,
+  :escalator => 0.0,
   :case_id => seedcase.id}
 ])
 
