@@ -5,7 +5,6 @@ class Variable < ApplicationRecord
 
   validates :name, presence: true
   validates :expression, presence: true
-  validates :expert_value, presence: true
   validates :case_id, presence: true
 
 end
