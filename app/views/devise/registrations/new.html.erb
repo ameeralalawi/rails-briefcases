@@ -1,17 +1,76 @@
-<h2>Sign up</h2>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1906675102919296";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="page-body">
+  <div class="bc-main container">
+    <h1>Welcome to BriefCases</h1>
+    <p>Sign in or create an account</p>
+    <div class="form-container">
+      <div class="simple-form">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="input">
+                <%= f.input :firstname, required: false, label: false, input_html: { type: "text", placeholder: "First Name" } %>
+                <span><i class="fa fa-user"></i></span>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="input">
+                <%= f.input :lastname, required: false, label: false, input_html: { type: "text", placeholder: "Last Name" } %>
+                <span><i class="fa fa-user"></i></span>
+              </div>
+            </div>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+
+
+          <div class="input">
+            <%= f.input :title, required: false, label: false, input_html: { type: "text", placeholder: "Title" } %>
+            <span><i class="fa fa-envelope-o"></i></span>
+          </div>
+
+          <div class="input">
+            <%= f.input :email, required: false, label: false, input_html: { type: "email", placeholder: "Email" } %>
+            <span><i class="fa fa-envelope-o"></i></span>
+          </div>
+
+          <div class="input">
+            <%= f.input :password, required: false, label: false, input_html: { type: 'password', placeholder: 'Password' , autocomplete: 'off' } %>
+            <span id="lock"><i class="fa fa-lock"></i></span>
+          </div>
+
+          <div class="input">
+            <%= f.input :password_confirmation, required: false, label: false, input_html: { type: 'password', placeholder: 'Confirm Password' , autocomplete: 'off' } %>
+            <span id="lock"><i class="fa fa-lock"></i></span>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign Up", class: "submit" %>
+          </div>
+
+          <div style="margin-top: 16px; margin-bottom: 16px;">
+            <div class="line-container">
+              <span class="line-content">
+                <span class="line-text">
+                  <span>or</span>
+                </span>
+              </span>
+            </div>
+          </div>
+
+         <a href=<%=user_facebook_omniauth_authorize_path%> class="btn-lg btn-block btn-social btn-facebook">
+          <span class="fa fa-facebook-official"></span> Continue with Facebook
+          </a>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

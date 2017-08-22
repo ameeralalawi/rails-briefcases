@@ -1,15 +1,74 @@
-<h2>Log in</h2>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1906675102919296";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="page-body">
+  <div class="bc-main container">
+    <h1>Welcome to BriefCases</h1>
+    <p>Sign in or create an account</p>
+    <div class="form-container">
+      <div class="simple-form">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+
+          <div class="input">
+            <%= f.input :email, required: false, label: false, input_html: { type: "email", placeholder: "Email" } %>
+            <span><i class="fa fa-envelope-o"></i></span>
+          </div>
+
+          <div class="input">
+            <%= f.input :password, required: false, label: false, input_html: { type: 'password', placeholder: 'Password' , autocomplete: 'off' } %>
+            <span id="lock"><i class="fa fa-lock"></i></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <%= f.input :remember_me, class: "", as: :boolean if devise_mapping.rememberable? %>
+            </div>
+            <div class="col-xs-6">
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot password?", new_password_path(resource_name), class: "" %>
+              <% end -%>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Log In", class: "submit" %>
+          </div>
+
+          <div style="margin-top: 16px; margin-bottom: 16px;">
+            <div class="line-container">
+              <span class="line-content">
+                <span class="line-text">
+                  <span>or</span>
+                </span>
+              </span>
+            </div>
+          </div>
+
+                <a href=<%=user_facebook_omniauth_authorize_path%> class="btn-lg btn-block btn-social btn-facebook">
+                <span class="fa fa-facebook-official"></span> Continue with Facebook
+                </a>
+          <hr>
+
+          <div class="sign-up-form">
+            <p style="display: inline;">Don't have an account? </p>
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+
+
+
+              <%= link_to "Sign up", new_registration_path(resource_name), class: 'sign-up' %>
+            <% end -%>
+
+          </div>
+
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
