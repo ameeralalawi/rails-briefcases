@@ -7,18 +7,19 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
+
   <body>
    <% if user_signed_in? %>
+    <%= render 'shared/sidebar' %>
     <%= render "shared/navbar-loggedin" %>
     <% else %>
     <%= render 'shared/navbar-logout' %>
     <% end %>
-    <%= render 'shared/sidebar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 </html>

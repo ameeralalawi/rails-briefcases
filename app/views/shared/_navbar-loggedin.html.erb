@@ -1,10 +1,45 @@
 <div class="navbar-in-shape">
 
-  <!-- Profile and notifications links -->
-  <div class="navbar-in-briefcases-left hidden-xs hidden-sm">
-     <%= link_to "#" do %><i class="fa fa-user-circle " aria-hidden="true" "></i><% end %>
-     <%= link_to "#" do %><i class="fa fa-bell " aria-hidden="true"></i><% end %>
-  </div>
+
+
+<!-- Profile picture loggedin -->
+    <div class="navbar-wagon-item">
+        <div class="dropdown">
+        <% if current_user.facebook_picture_url %>
+            <%= image_tag "#", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% elsif current_user.photo %>
+            <%= cl_image_tag current_user.photo.path, width: 400, height: 300, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+            <%= cl_image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPH5L6M6fkEYaNM5mYLZqufGiIXJP9hnM91L-cekfMyR6Juv-O', width: 400, height: 300, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% end %>
+
+
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to profile_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "My profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-cog"></i> <%= t(".account", default: "My account") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: " Log-out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
 
    <!-- Logo -->
   <%= link_to root_path, class: "navbar-in-briefcases-brand" do %>
