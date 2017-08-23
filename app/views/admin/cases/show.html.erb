@@ -1,26 +1,22 @@
-<h1>Admin::Cases#show</h1>
-<p>Find me in app/views/admin/cases/show.html.erb</p>
+<div class= "container">
 
+  <%= simple_form_for @case, url: admin_case_path(@case), method: :get, html: { id: 'form-builder'} do |f| %>
+    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px"} %>
+  <% end %>
 
-<%= simple_form_for @case, url: admin_case_path(@case), method: :get do |f| %>
-<%= f.input :user_input_text, as: :text, {class: "java"} %>
-<% end %>
-
-
-<div class= "input-text">
+  <div id="preview">
+    <div id="sentence">
+      <p>I have</p>
+      <input type="text" placeholder="" maxlength="5">
+      <p> incandencent lightbulbs with a wattage of</p>
+      <input type="text" placeholder="" maxlength="5">
+      <p>Watts in my home. My electricity price in USD per Kwh is: </p>
+      <input type="text" placeholder="" maxlength="5">
+      <p>. On average I keep my lights on </p>
+      <input type="text" placeholder="" maxlength="5">
+      <p> hours per day (average in Europe is 5 hours per day).</p>
+      <input type="text" placeholder="" maxlength="5">
+    </div>
+  </div>
 
 </div>
-
-
-<!-- javascript try -->
-$document.ready(function({
-  $('.java').on('keyup',function({
-    var input = this.value;
-      console.log(input);
-      $('input-text').append(input)
-
-
-  }));
-
-}));
-
