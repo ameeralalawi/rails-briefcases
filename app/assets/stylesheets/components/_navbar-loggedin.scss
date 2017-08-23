@@ -3,11 +3,14 @@
   background: $dark-filling;
   transition: all 0.3s ease;
   height: 70px;
+  width: calc(100vw - 250px);
   margin-left: 250px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
+  position: fixed;
 }
 
 /* Logo */
@@ -83,6 +86,7 @@
 @media (max-width: 768px) {
     .navbar-in-shape {
         margin-left: 0px;
+        width: 100vw;
   }
 }
 

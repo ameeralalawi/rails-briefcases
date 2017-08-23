@@ -5,42 +5,63 @@
 * ------------------------------------- */
 
 
-.input-field {
-  min-width: 50px;
-  height: 100%;
-  background-color: $dark-filling;
-  border-radius: $border-radius-base;
-  font-family: $body-font;
-  color: $white;
-  text-align: center;
-  padding: 20px;
-  font-size: $font-size-large;
-}
 
-.output-field {
-  min-width: 50px;
-  height: 100%;
-  background-color: $white;
-  font-family: $body-font;
-  color: $text-black;
-  text-align: center;
-  padding: 20px;
-  font-size: $font-size-large;
-  @include border;
-}
 
-.variable-element {
-  width: 150px;
-  height: 100%;
-  background-color: $variable-blue;
-  border-radius: $border-radius-large;
-  font-family: $variables-font;
-  color: $white;
-  text-align: center;
-  padding: 9px;
-  font-size: $font-size-base;
-  @include shadow;
-  &:hover {
-    color: $white;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .input-field {
+//   min-width: 50px;
+//   height: 100%;
+//   background-color: $dark-filling;
+//   border-radius: $border-radius-base;
+//   font-family: $body-font;
+//   color: $white;
+//   text-align: center;
+//   padding: 20px;
+//   font-size: $font-size-large;
+// }
+
+// .output-field {
+//   min-width: 50px;
+//   height: 100%;
+//   background-color: $white;
+//   font-family: $body-font;
+//   color: $text-black;
+//   text-align: center;
+//   padding: 20px;
+//   font-size: $font-size-large;
+//   @include border;
+// }
+
+// .variable-element {
+//   width: 150px;
+//   height: 100%;
+//   background-color: $variable-blue;
+//   border-radius: $border-radius-large;
+//   font-family: $variables-font;
+//   color: $white;
+//   text-align: center;
+//   padding: 9px;
+//   font-size: $font-size-base;
+//   @include shadow;
+//   &:hover {
+//     color: $white;
+//   }
+// }
