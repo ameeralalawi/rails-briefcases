@@ -3,6 +3,12 @@ class Admin::CasesController < ApplicationController
   end
 
   def create
+      @case = Case.new
+    @case.user = current_user
+    @input = params[:user_input_text]
+    @case.user_input_text = @input
+    @case.save
+    raise
   end
 
   def delete
@@ -13,6 +19,7 @@ class Admin::CasesController < ApplicationController
   end
 
   def saveinputbuilder
+
   end
 
   def saveoutputbuilder
