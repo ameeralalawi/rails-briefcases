@@ -1,9 +1,12 @@
-<div class= "container" style="margin-left: 300px;">
+<div class= "section-container">
 
+<div class="around">
   <%= simple_form_for @case, url: admin_case_path(@case), method: :get, html: { class: 'form-builder'} do |f| %>
     <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px"} %>
   <% end %>
+  </div>
 
+<div class="around">
   <div id="preview">
     <div id="input-form" class="text-input">
 <!--       <p>I have</p>
@@ -18,15 +21,15 @@
       <input type="text" placeholder="" maxlength="5"> -->
     </div>
   </div>
-
+</div>
 <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
 </div> -->
-
+<div class="around">
 <div  class="form-builder">
 <ul id="variables-box"></ul>
 </div>
-
+</div>
 
 
 </div>
