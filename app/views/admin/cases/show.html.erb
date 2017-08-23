@@ -1,25 +1,10 @@
 <div class= "section-container">
-
-<div class="around" id="first">
-  <%= simple_form_for @case, url: admin_case_path(@case), method: :get do |f| %>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
-  <% end %>
-  </div>
-
-<div class="around" id="second">
-  <div id="preview">
-    <div id="input-form" class="text-input">
-    </div>
-  </div>
+  <%= render "saveinputbuilder" %>
 </div>
-<!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
-</div> -->
-<div class="around" id="third">
-<div  class="form-builder">
-<ul id="variables-box"></ul>
-</div>
+<div class= "section-container">
+  <%= render "saveoutputbuilder" %>
 </div>
 
 
-</div>
+
