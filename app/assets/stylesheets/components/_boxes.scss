@@ -48,21 +48,21 @@
 //   padding: 20px;
 //   font-size: $font-size-large;
 //   @include border;
-// }
+// // }
 
-.variables-style {
-  width: 150px;
-  height: 100%;
-  background-color: $variable-blue;
-  border-radius: $border-radius-large;
-  font-family: $variables-font;
-  color: $white;
-  text-align: center;
-  padding: 9px;
-  font-size: $font-size-base;
-  list-style-type: none;
-  @include shadow;
-  &:hover {
-    color: $white;
-  }
-}
+// .variables-style {
+//   width: 150px;
+//   height: 100%;
+//   background-color: $variable-blue;
+//   border-radius: $border-radius-large;
+//   font-family: $variables-font;
+//   color: $white;
+//   text-align: center;
+//   padding: 9px;
+//   font-size: $font-size-base;
+//   list-style-type: none;
+//   @include shadow;
+//   &:hover {
+//     color: $white;
+//   }
+// }
