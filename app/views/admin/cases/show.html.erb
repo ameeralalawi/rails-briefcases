@@ -1,2 +1,26 @@
 <h1>Admin::Cases#show</h1>
 <p>Find me in app/views/admin/cases/show.html.erb</p>
+
+
+<%= simple_form_for @case, url: admin_case_path(@case), method: :get do |f| %>
+<%= f.input :user_input_text, as: :text, {class: "java"} %>
+<% end %>
+
+
+<div class= "input-text">
+
+</div>
+
+
+<!-- javascript try -->
+$document.ready(function({
+  $('.java').on('keyup',function({
+    var input = this.value;
+      console.log(input);
+      $('input-text').append(input)
+
+
+  }));
+
+}));
+

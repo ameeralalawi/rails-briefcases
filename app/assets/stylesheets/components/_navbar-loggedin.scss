@@ -33,6 +33,7 @@
 
 
 
+
 /* logout items */
 .logout {
   display: flex;
@@ -70,6 +71,9 @@
   color: $cta-green;
   text-decoration: none;
   }
+}
+.fa #trigger:hover{
+  color: $example-gray;
 }
 
 
