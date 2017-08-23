@@ -19,10 +19,8 @@
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
     height: 70px;
-    background: $light-filling;
-
+    background: $medium-filling;
     color: $example-gray;
     font-size: 14px;
     font-family: $headers-font;
@@ -90,6 +88,24 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
+/* User Avatar */
+.avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 70px;
+}
+
+.user-name {
+  padding-left: 10px;
+  margin-left: 20px;
+}
 
 
 /* ---------------------------------------------------

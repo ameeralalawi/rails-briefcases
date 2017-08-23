@@ -3,7 +3,15 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-          <h3>Bootstrap Sidebar</h3>
+  <!-- AVATAR -->
+  <!-- PART DELETED HERE: Cloudinary photo -->
+  <div class="persona" >
+        <%= image_tag 'https://kitt.lewagon.com/placeholder/users/ssaunier', class: "avatar" %>
+      <div class="user-name">
+      <h4> <%= current_user.firstname %></h4>
+      </div>
+  </div>
+  <!-- AVATAR END -->
         </div>
 
         <ul class="list-unstyled components">
