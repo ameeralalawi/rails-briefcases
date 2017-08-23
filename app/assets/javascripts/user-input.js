@@ -39,7 +39,7 @@ $( document ).ready(function() {
     $('#variables-box').html('');
 
     syntax.forEach(function(s){
-      $('#variables-box').append('<li>' + s + '</li>');
+      $('#variables-box').append('<li class="variables-style">'  + s + '</li>');
       // $(".text-input").append('<input type="text" name="amount"/>');
     });
 
