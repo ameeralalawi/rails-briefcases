@@ -1,0 +1,148 @@
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 70;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: $light-filling;
+    color: $white;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    height: 70px;
+    background: $medium-filling;
+    color: $example-gray;
+    font-size: 14px;
+    font-family: $headers-font;
+}
+
+#sidebar ul.components {
+    padding: 30px 0;
+}
+
+#sidebar ul p {
+    color: $white;
+    padding: 15px;
+}
+
+#sidebar ul li a {
+    padding: 15px;
+    font-size: 1.1em;
+    display: block;
+    color: $white;
+}
+#sidebar ul li a:hover {
+    text-decoration: none;
+    color: $light-filling;
+    background: $white;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: $white;
+    background: $medium-filling;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: lighten( $medium-filling, 0% );
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* User Avatar */
+.avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 70px;
+}
+
+.user-name {
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: calc(100% - 250px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#content.active {
+    width: 100%;
+}
+

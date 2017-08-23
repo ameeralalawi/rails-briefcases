@@ -1,0 +1,74 @@
+
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+  <!-- AVATAR -->
+  <!-- PART DELETED HERE: Cloudinary photo -->
+  <div class="persona" >
+        <%= image_tag 'https://kitt.lewagon.com/placeholder/users/ssaunier', class: "avatar" %>
+      <div class="user-name">
+      <h4> <%= current_user.firstname %></h4>
+      </div>
+  </div>
+  <!-- AVATAR END -->
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#">My Cases</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li><a href="#">Input Form</a></li>
+                    <li><a href="#">Output Message</a></li>
+                    <li><a href="#">Variables</a></li>
+                    <li><a href="#">Test Data</a></li>
+                    <li><a href="#">Business Case</a></li>
+                    <li><a href="#">Publish</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Manage</a>
+            </li>
+            <li>
+                <a href="#">Leads</a>
+            </li>
+            <li>
+                <a href="#">Analytics</a>
+            </li>
+            <li>
+                <a href="#">API</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+<% content_for :after_js do %>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
+
+ <script type="text/javascript">
+     $(document).ready(function () {
+         $("#sidebar").niceScroll({
+             cursorcolor: '#53619d',
+             cursorwidth: 4,
+             cursorborder: 'none'
+         });
+
+         // $(".sidebar ul li").on("click", function(e){
+         //        $(".sidebar ul li").removeClass("active");
+         //        $(this).addClass("active");
+         //  };
+
+         $('#sidebarCollapse').on('click', function () {
+             // $('#sidebar, #content').toggleClass('active');
+             $('#sidebar').toggleClass('active');
+             $('.collapse.in').toggleClass('in');
+             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+         });
+     });
+ </script>
+ <% end %>

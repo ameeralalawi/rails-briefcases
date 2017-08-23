@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
+
   <body>
    <% if user_signed_in? %>
+    <%= render 'shared/sidebar' %>
     <%= render "shared/navbar-loggedin" %>
     <% else %>
     <%= render 'shared/navbar-logout' %>
@@ -20,6 +22,7 @@
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 </html>
 
