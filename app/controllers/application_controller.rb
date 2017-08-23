@@ -21,7 +21,4 @@ private
 def layout_by_resource
   "landing" if devise_controller?
 end
-
-
-
 end

@@ -1,12 +1,12 @@
-<div class= "container">
+<div class= "container" style="margin-left: 300px;">
 
-  <%= simple_form_for @case, url: admin_case_path(@case), method: :get, html: { id: 'form-builder'} do |f| %>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px"} %>
+  <%= simple_form_for @case, url: admin_case_path(@case), method: :get, html: { class: 'form-builder'} do |f| %>
+    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px"} %>
   <% end %>
 
   <div id="preview">
-    <div id="sentence">
-      <p>I have</p>
+    <div id="input-form" class="text-input">
+<!--       <p>I have</p>
       <input type="text" placeholder="" maxlength="5">
       <p> incandencent lightbulbs with a wattage of</p>
       <input type="text" placeholder="" maxlength="5">
@@ -15,8 +15,18 @@
       <p>. On average I keep my lights on </p>
       <input type="text" placeholder="" maxlength="5">
       <p> hours per day (average in Europe is 5 hours per day).</p>
-      <input type="text" placeholder="" maxlength="5">
+      <input type="text" placeholder="" maxlength="5"> -->
     </div>
   </div>
+
+<!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
+
+</div> -->
+
+<div  class="form-builder">
+<ul id="variables-box"></ul>
+</div>
+
+
 
 </div>
