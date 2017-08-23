@@ -1,31 +1,21 @@
 <div class= "section-container">
 
-<div class="around">
-  <%= simple_form_for @case, url: admin_case_path(@case), method: :get, html: { class: 'form-builder'} do |f| %>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px"} %>
+<div class="around" id="first">
+  <%= simple_form_for @case, url: admin_case_path(@case), method: :get do |f| %>
+    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
   <% end %>
   </div>
 
-<div class="around">
+<div class="around" id="second">
   <div id="preview">
     <div id="input-form" class="text-input">
-<!--       <p>I have</p>
-      <input type="text" placeholder="" maxlength="5">
-      <p> incandencent lightbulbs with a wattage of</p>
-      <input type="text" placeholder="" maxlength="5">
-      <p>Watts in my home. My electricity price in USD per Kwh is: </p>
-      <input type="text" placeholder="" maxlength="5">
-      <p>. On average I keep my lights on </p>
-      <input type="text" placeholder="" maxlength="5">
-      <p> hours per day (average in Europe is 5 hours per day).</p>
-      <input type="text" placeholder="" maxlength="5"> -->
     </div>
   </div>
 </div>
 <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
 </div> -->
-<div class="around">
+<div class="around" id="third">
 <div  class="form-builder">
 <ul id="variables-box"></ul>
 </div>
