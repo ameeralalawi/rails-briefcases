@@ -12,13 +12,10 @@
   </head>
 
   <body>
-    <%= render 'shared/sidebar' %>
-    <%= render "shared/navbar-loggedin" %>
+    <%= render 'shared/navbar-logout' %>
     <%= render "shared/flashes" %>
-    <div id="app-screen">
       <%= yield %>
-    </div>
-
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
   </body>
