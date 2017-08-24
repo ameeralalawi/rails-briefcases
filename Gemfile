@@ -12,6 +12,7 @@ gem 'omniauth-facebook'
 gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'faker'
+gem 'fullpage-rails'
 
 
 gem 'autoprefixer-rails'

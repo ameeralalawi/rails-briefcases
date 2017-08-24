@@ -1,6 +1,17 @@
 // to define the application.html.erb layout!
 
-#app-screen {
+#app-screen-show {
+  position: fixed;
+  top: 70px;
+  left: 250px;
+  height: calc(100vh - 70px);
+  width: calc(100vw - 250px);
+  // padding: 20px;
+  // overflow-y: auto;
+}
+
+
+#app-screen-index {
   position: fixed;
   top: 70px;
   left: 250px;
@@ -9,5 +20,3 @@
   // padding: 20px;
   overflow-y: auto;
 }
-
-

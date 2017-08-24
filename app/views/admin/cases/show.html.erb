@@ -1,24 +1,44 @@
-<div class= "section-container" id="input-page">
-  <%= render "saveinputbuilder" %>
-</div>
+<% content_for :after_js do %>
 
-<div class= "section-container" id="output-page">
-  <%= render "saveoutputbuilder" %>
-</div>
+  <div id="app-screen-show">
+    <div id="fullpage">
 
-<div class= "section-container" id="variable-page">
-  <%= render "variablebuilder" %>
-</div>
+      <div class="section " id="firstPage">
+        <div class= "section-container" id="input-page">
+          <%= render "saveinputbuilder" %>
+        </div>
+      </div>
 
-<div class= "section-container" id="testdata-page">
-  <%= render "testdata" %>
-</div>
+      <div class="section " id="secondPage">
+      <div class= "section-container" id="output-page">
+        <%= render "saveoutputbuilder" %>
+      </div>
+      </div>
 
-<div class= "section-container" id="businesscase-page">
-  <%= render "businesscase" %>
-</div>
+      <div class="section " id="thirdPage">
+      <div class= "section-container" id="variable-page">
+        <%= render "variablebuilder" %>
+      </div>
+      </div>
 
-<div class= "section-container" id="publish-page">
-  <%= render "publish" %>
-</div>
+      <div class="section " id="fourthPage">
+      <div class= "section-container" id="testdata-page">
+        <%= render "testdata" %>
+      </div>
+      </div>
 
+      <div class="section " id="fifthPage">
+      <div class= "section-container" id="businesscase-page">
+        <%= render "businesscase" %>
+      </div>
+      </div>
+
+      <div class="section " id="sixtPage">
+      <div class= "section-container" id="publish-page">
+        <%= render "publish" %>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
