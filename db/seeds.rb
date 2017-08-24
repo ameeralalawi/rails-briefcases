@@ -24,13 +24,13 @@ admin = User.last
 # Two cases are added to the app. One which will be populated the other which will be just for show.
 Case.create!({
   :status => "published",
-  :user_input_text => "I have #(TotalUserBulbs)# incandencent lightbulbs with a wattage of #(UserBulbWattage)# Watts in my home. My electricity price in USD per Kwh is: #(UserElecPrice)#. On average I keep my lights on #(UserHoursOfUse)# hours per day (average in Europe is 5 hours per day).",
-  :user_output_text => "By investing a moderate amount as described above in Gen-X Hooli CFL 15 UltraMax type lightbulbs you can save #(NPVY2)# USD in two years. Further, your investment will payback in #(BreakevenMonth)# months",
+  :user_input_text => "I have @TotalUserBulbs incandescent lightbulbs with a wattage of @UserBulbWattage Watts in my home. My electricity price in USD per Kwh is: @UserElecPrice. On average I keep my lights on @UserHoursOfUse hours per day (average in Europe is 5 hours per day).",
+  :user_output_text => "By investing a moderate amount as described above in Gen-X Hooli CFL 15 UltraMax type lightbulbs you can save @NPVY2 USD in two years. Further, your investment will payback in @BreakevenMonth months",
   :name => "Hooli CFL Lightbulb",
   :icon => "fa-lightbulb-o",
   :color => "darkblue",
   :scenario_a => "Gen-X Hooli CFL 15 UltraMax",
-  :scenario_b => "Regular Incandecent Lightbulbs",
+  :scenario_b => "Regular Incandescent Lightbulbs",
   :output_pref_1 => false,
   :output_pref_2 => true,
   :output_pref_3 => false,
@@ -62,31 +62,31 @@ Case.create!({
 
 # Case variables are seeded here
 Variable.create!([
- {:expression => '#(TotalUserBulbs)#',
+ {:expression =>  '@TotalUserBulbs',
   :name => 'TotalUserBulbs',
   :expert_value => 10,
   :category => "input",
   :case_id => seedcase.id},
- {:expression => '#(UserBulbWattage)#',
+ {:expression =>  '@UserBulbWattage',
   :name => 'UserBulbWattage',
   :expert_value => 60,
   :category => "input",
   :case_id => seedcase.id},
- {:expression => '#(UserElecPrice)#',
+ {:expression =>  '@UserElecPrice',
   :name => 'UserElecPrice',
   :expert_value => 0.10,
   :category => "input",
   :case_id => seedcase.id},
- {:expression => '#(UserHoursOfUse)#',
+ {:expression =>  '@UserHoursOfUse',
   :name => 'UserHoursOfUse',
   :expert_value => 5,
   :category => "input",
   :case_id => seedcase.id},
- {:expression => '#(NPVY2)#',
+ {:expression =>  '@NPVY2',
   :name => 'NPVY2',
   :category => "output",
   :case_id => seedcase.id},
- {:expression => '#(BreakevenMonth)#',
+ {:expression =>  '@BreakevenMonth',
   :name => 'BreakevenMonth',
   :category => "output",
   :case_id => seedcase.id},
@@ -113,10 +113,10 @@ Variable.create!([
 ])
 
 #Some helper jquery to use with pigno.se formula builder
-# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="#(TotalUserBulbs)#">TotalUserBulbs</a>')
-# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="#(UserBulbWattage)#">UserBulbWattage</a>')
-# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="#(UserElecPrice)#">UserElecPrice</a>')
-# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="#(UserHoursOfUse)#">UserHoursOfUse</a>')
+# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value= "@TotalUserBulbs">TotalUserBulbs</a>')
+# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value= "@UserBulbWattage">UserBulbWattage</a>')
+# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value= "@UserElecPrice">UserElecPrice</a>')
+# $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value= "@UserHoursOfUse">UserHoursOfUse</a>')
 # $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="$(CostPerHooliBulb)$">CostPerHooliBulb</a>')
 # $('.formula-drop-items').append('<a href="#" class="formula-custom ui-draggable ui-draggable-handle" data-value="$(WattageHooliBulb)$">WattageHooliBulb</a>')
 
