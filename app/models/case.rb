@@ -40,11 +40,14 @@ class Case < ApplicationRecord
       totalarray << line
     end
     mycase[:Atotal] = totalarray.transpose.map {|i| i.reduce(:+)}
+    mycase[:Atotalc] = mycase[:Atotal].inject([]) { |x, y| x + [(x.last || 0) + y] }
     totalarray = []
     mycase[:B].each do |name,line|
       totalarray << line
     end
     mycase[:Btotal] = totalarray.transpose.map {|i| i.reduce(:+)}
+    mycase[:Btotalc] = mycase[:Btotal].inject([]) { |x, y| x + [(x.last || 0) + y] }
+    mycase[:CaseDelta] = [mycase[:Atotalc],mycase[:Btotalc]].transpose.map {|i| i.reduce(:-)}
     return mycase
   end
 
@@ -56,5 +59,28 @@ class Case < ApplicationRecord
       line.end_date > m_end ? m_end = line.end_date : nil
     end
     return {absstart: m_start, absend: m_end, months:(m_end.year * 12 + m_end.month) - (m_start.year * 12 + m_start.month)}
+  end
+
+  def output
+    out = {}
+    build = self.build
+    self.output_pref_1 ? out[:output_pref_1] = b_over_a_value_at_eop(build) : nil
+    self.output_pref_2 ? out[:output_pref_2] = a_over_b_value_at_eop(build) : nil
+    self.output_pref_3 ? out[:output_pref_3] = 0 : nil
+    self.output_pref_4 ? out[:output_pref_4] = 0 : nil
+    self.output_pref_5 ? out[:output_pref_5] = cross_over_months(build) : nil
+    self.output_pref_6 ? out[:output_pref_6] = 0 : nil
+    return out
+  end
+
+  def b_over_a_value_at_eop(build)
+  end
+
+  def a_over_b_value_at_eop(build)
+    return build[:CaseDelta].last
+  end
+
+  def cross_over_months(build)
+    return build[:CaseDelta].find_index{|x| x >= 0 } + 1
   end
 end
