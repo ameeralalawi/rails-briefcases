@@ -12,6 +12,7 @@ class Admin::CasesController < ApplicationController
 
   def show
      @case = Case.find(params[:id])
+     @line = Line.new
   end
 
   def saveinputbuilder

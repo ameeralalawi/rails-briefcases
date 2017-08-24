@@ -134,3 +134,18 @@
   margin: 10px;
   background-color: black;
 }
+
+
+// ----------------Components - Line -----------
+
+.line-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+  }
+
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
+  color: $heading-blue;
+}
