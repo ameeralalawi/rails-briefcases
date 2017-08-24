@@ -3,12 +3,8 @@ class Admin::CasesController < ApplicationController
   end
 
   def create
-      @case = Case.new
-    @case.user = current_user
-    @input = params[:user_input_text]
-    @case.user_input_text = @input
-    @case.save
-    raise
+    # @case = Case.new
+
   end
 
   def delete
@@ -19,6 +15,15 @@ class Admin::CasesController < ApplicationController
   end
 
   def saveinputbuilder
+    # @case = Case.new
+    # @case.user = current_user
+    # @input = case_params["user_input_text"]
+    # @case.user_input_text = @input
+    # #raise
+    # if @case.save
+
+    #   redirect_to admin_case_path(@case)
+    # end
 
   end
 
@@ -33,4 +38,12 @@ class Admin::CasesController < ApplicationController
 
   def updatestatus
   end
+
+  private
+
+  def case_params
+     params.require(:case).permit(:user_input_text)
+
+  end
+
 end

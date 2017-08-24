@@ -13,6 +13,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'faker'
 
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     post 'cases', to: 'cases#create'
     delete 'cases/:id', to: 'cases#delete'
     get 'cases/:id', to: 'cases#show', as: :case
-    patch 'cases/:id/saveinputbuilder', to: 'cases#saveinputbuilder'
+    post 'cases/:id/saveinputbuilder', to: 'cases#saveinputbuilder', as: "save_input"
     patch 'cases/:id/saveoutputbuilder', to: 'cases#saveoutputbuilder'
     patch 'cases/:id/outputpreferences', to: 'cases#outputpreferences'
     post 'cases/:id/testdata', to: 'cases#testdata'
