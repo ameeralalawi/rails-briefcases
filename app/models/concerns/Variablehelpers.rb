@@ -1,4 +1,4 @@
-module Variablehelpers
+module variablehelpers
   def is_number? string
     no_commas =  string.to_s.gsub(',', '')
     true if Float(no_commas) rescue false
