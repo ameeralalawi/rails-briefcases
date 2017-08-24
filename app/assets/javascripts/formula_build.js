@@ -809,6 +809,7 @@ String.prototype.toFormulaString = function (shift) {
         return _PLUGIN_VERSION_;
     };
 }(jQuery));
+
 var FormulaParser = (function () {
     var _PLUGIN_VERSION_ = '2.0.11';
 
