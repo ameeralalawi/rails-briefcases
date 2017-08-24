@@ -15,10 +15,7 @@
     <%= render 'shared/sidebar' %>
     <%= render "shared/navbar-loggedin" %>
     <%= render "shared/flashes" %>
-    <div id="app-screen">
       <%= yield %>
-    </div>
-
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
   </body>
