@@ -1,3 +1,172 @@
+<head>
+  <title>PIGNOSE Formula</title>
+  <% content_for(:after_js) do %>
+  <script type="text/javascript">
+  //<![CDATA[
+  $(function() {
+
+    var $formula = $('.formula').formula();
+
+    // You can load formula expression by wrting JSON type value;
+    var data = {"operator":"+","operand1":{"operator":"+","operand1":{"value":"1","type":"unit"},"operand2":{"value":"2","type":"unit"}},"operand2":{"value":"3","type":"unit"}};
+
+        // .setFormula({:data}) can load new expression.
+    $formula.first().formula('setFormula', data);
+
+        // .draggable is normal jQuery UI plugin. It support to dragging the element by using mouse click and move.
+
+    document.loadDraggables = function() {
+      $('.formula-drop .formula-drop-items .formula-custom').draggable({
+        revert: 'invalid',
+        helper: 'clone',
+        cancel: '',
+        scroll: false
+      });
+    };
+
+    document.loadDraggables();
+
+        // .droppable can detect drop event of draggable element.
+    $('.formula-advanced').droppable({
+      drop: function(event, ui) {
+                // You can clone drop item to move inside formula.
+        var $element = ui.draggable.clone();
+
+                // Position variable describes `where` you put the element.
+                var position = {
+                    x: event.offsetX,
+                    y: event.offsetY
+                };
+
+                // 'insert' command can put the element at some position.
+        $(this).formula('insert', $element, position);
+      }
+    });
+
+        $('.formula-advanced').bind('formula.input', function(event, data) {
+            console.log('input', data);
+        });
+
+    $('.formula-get .compact .item').bind('click', function(event) {
+      event.preventDefault();
+      $('.formula-advanced').formula('getFormula', function(data) {
+                console.log('Formula result:', data);
+                $('.formula-get .formula-get-json .formula-get-json-data').text(JSON.stringify(data));
+            });
+    });
+    $('#button-close-model').on('click', function () {
+      $(".formula-drop-items").append('<a href="javascript:void(0);" class="formula-custom" data-value="'+$("#var-val").val()+'">'+$("#var-name").val()+'</a>');
+      $('.formula-drop .formula-drop-items .formula-custom').draggable({
+        revert: 'invalid',
+        helper: 'clone',
+        cancel: '',
+        scroll: false
+      });
+    });
+  });
+  //]]>
+  </script>
+
+  <% end %>
+
+
+</head>
+<body>
+  <!-- <div class="container">
+    <div class="row Inputs">
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1>Inputs</h1>
+            <br>
+          </div>
+        </div>
+    </div>
+    <div class="row inputs">
+        <div class="col-md-8 formula-box">
+          <div class="formula formula-advanced"></div>
+        </div>
+        <div class="col-md-4 variable-box">
+          <div class="formula-drop">
+            <div class="formula-drop-items">
+              <a href="javascript:void(0);" class="formula-custom" data-value="AMEER IS">TEXT AMEER</a>
+              <a href="javascript:void(0);" class="formula-custom formula-custom-operator" data-value="+">Custom operator (+)</a>
+              <a href="javascript:void(0);" class="formula-custom" data-value="3">Variable (INT 3)</a>
+            </div>
+          </div>
+          <div class="add-var btn btn-primary btn-block" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+          </div>
+        </div>
+    </div>
+  </div> -->
+
+
+<div class="container" id="variable-builder">
+    <div class="row Inputs">
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1>Inputs</h1>
+            <br>
+          </div>
+        </div>
+    </div>
+    <div class="row inputs">
+        <div class="col-md-8 formula-box">
+          <div class="formula formula-advanced"></div>
+        </div>
+        <div class="col-md-4 variable-box">
+          <div class="formula-drop">
+
+            <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
+              <li> <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="">TEXT AMEER</a></li>
+              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="+">Custom operator (+)</a></li>
+              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+            </ul>
+
+
+          </div>
+          <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+          </div>
+        </div>
+    </div>
+  </div>
+
+<div id="AddVarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+        <h4 class="modal-title" id="myModalLabel">Variable Entry</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+          <div class="form-group">
+            <label for="example-text-input" class="col-form-label">Variable name</label>
+            <div>
+              <input class="form-control" type="text" value="Input variable name" id="var-name">
+            </div>
+            <label for="example-text-input" class="col-form-label">Variable value</label>
+            <div>
+              <input class="form-control" type="text" value="Input variable value" id="var-val">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button-close-model" id="button-close-model" class="btn btn-default" data-dismiss="modal">Save & Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="around">
+  <div  class="form-builder">
+    <ul class="variable-ul-style formula-drop formula-drop-items" id="shut"></ul>
+  </div>
+</div> -->
+
+</body>
+=======
 
 <head>
   <title>PIGNOSE Formula</title>
