@@ -7,9 +7,8 @@ $( document ).ready(function() {
     var sentence = $(this).val();
     var regex = /(?:@[a-zA-Z]+)/g;
     var sentence_with_input = sentence.replace(regex, '<input type="text" name="amount"/>')
+
     $('.text-input').html(sentence_with_input);
-
-
 
     // we check the string that start with @ and remove special characters after that string
     var variables = []
@@ -38,13 +37,15 @@ $( document ).ready(function() {
     // we append every of those value to our variables box
     $('#variables-box').html('');
     $('#shut').html('');
+
     syntax.forEach(function(s){
       $('#variables-box').append('<li class="variables-style">'  + s + '</li>');
-      $('#shut').append('<li class="variables-style formula-custom ui-draggable ui-draggable-handle">'  + s + '</li>');
-
+      //$('#shut').append('<li class="variables-style formula-custom ui-draggable ui-draggable-handle">'  + s + '</li>');
+      $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="' + s + '">' + s +'</a></li>');
+        //<a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
     });
 
-
+    document.loadDraggables();
   });
 
   // if we click on "Add variable", it adds an @ sign in our form field (better UX)
