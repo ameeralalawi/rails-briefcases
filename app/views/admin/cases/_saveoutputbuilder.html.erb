@@ -1,7 +1,7 @@
 
 <div class="around" id="first">
-  <%= simple_form_for @case, url: admin_case_path(@case), method: :get do |f| %>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
+  <%= simple_form_for @case, url: admin_save_input_path(@case), method: :post do |f|%>
+    <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
   <% end %>
   </div>
 
@@ -15,7 +15,16 @@
 
 </div> -->
 <div class="around" id="third">
-<div  class="form-builder">
-<ul class="variable-ul-style" id="variables-box"></ul>
+  <div  class="form-builder">
+    <ul class="variable-ul-style" id="variables-box"></ul>
+  </div>
 </div>
+
+<div class="around" id="fourth">
+  <div  class="output-setting">
+    <ul>
+      <li>1</li>
+      <li>1</li>
+    </ul>
+  </div>
 </div>
