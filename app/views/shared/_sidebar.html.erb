@@ -16,12 +16,13 @@
 
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#">My Cases</a>
+
+            <%= link_to "My cases", admin_cases_path %>
             </li>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="#">Input Form</a></li>
+                    <li><%= link_to "Input Form", admin_cases_path %></li>
                     <li><a href="#">Output Message</a></li>
                     <li><a href="#">Variables</a></li>
                     <li><a href="#">Test Data</a></li>
