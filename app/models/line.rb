@@ -25,7 +25,7 @@ class Line < ApplicationRecord
     arr = ["oneoff", "monthly", "quaterly", "yearly"]
     recurrence = [9999,1,4,12][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
     effectiveesc = ((1 + 0.02)**(1/recurrence))-1
-    variable_value = self.variable.eval_var
+    variable_value = self.variable.eval_var * category
 
     # Fill line
     idx = 0

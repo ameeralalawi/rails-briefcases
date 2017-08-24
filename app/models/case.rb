@@ -35,6 +35,16 @@ class Case < ApplicationRecord
         mycase[:B].merge!(line.build(extents))
       end
     end
+    totalarray = []
+    mycase[:A].each do |name,line|
+      totalarray << line
+    end
+    mycase[:Atotal] = totalarray.transpose.map {|i| i.reduce(:+)}
+    totalarray = []
+    mycase[:B].each do |name,line|
+      totalarray << line
+    end
+    mycase[:Btotal] = totalarray.transpose.map {|i| i.reduce(:+)}
     return mycase
   end
 
