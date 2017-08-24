@@ -37,10 +37,11 @@ $( document ).ready(function() {
 
     // we append every of those value to our variables box
     $('#variables-box').html('');
-
+    $('#shut').html('');
     syntax.forEach(function(s){
       $('#variables-box').append('<li class="variables-style">'  + s + '</li>');
-      // $(".text-input").append('<input type="text" name="amount"/>');
+      $('#shut').append('<li class="variables-style formula-custom ui-draggable ui-draggable-handle">'  + s + '</li>');
+
     });
 
 

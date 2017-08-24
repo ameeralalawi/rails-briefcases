@@ -67,7 +67,7 @@
 
 </head>
 <body>
-  <div class="container">
+  <!-- <div class="container">
     <div class="row Inputs">
         <div class="col-xs-12">
           <div class="text-center">
@@ -92,8 +92,38 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
+
+<div class="container">
+    <div class="row Inputs">
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1>Inputs</h1>
+            <br>
+          </div>
+        </div>
+    </div>
+    <div class="row inputs">
+        <div class="col-md-8 formula-box">
+          <div class="formula formula-advanced"></div>
+        </div>
+        <div class="col-md-4 variable-box">
+          <div class="formula-drop">
+            <div class="formula-drop-items">
+            <!-- <ul class="variable-ul-style" id="shut"></ul> -->
+              <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
+              <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="+">Custom operator (+)</a>
+              <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a>
+
+              <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3" id="shut">Variable (INT 3)</a>
+            </div>
+          </div>
+          <div class="add-var btn btn-primary btn-block" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+          </div>
+        </div>
+    </div>
+  </div>
 
 <div id="AddVarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
@@ -122,4 +152,11 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="around">
+  <div  class="form-builder">
+    <ul class="variable-ul-style formula-drop formula-drop-items" id="shut"></ul>
+  </div>
+</div> -->
+
 </body>
