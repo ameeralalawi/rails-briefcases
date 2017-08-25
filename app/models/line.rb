@@ -7,7 +7,7 @@ class Line < ApplicationRecord
   validates :case_id, presence: true
   validates :scenario, presence: true
   validates :category, presence: true, inclusion: { in: ["cost", "revenue"] }
-  validates :recurrence, presence: true, inclusion: { in: ["oneoff", "monthly", "quaterly", "yearly"] }
+  validates :recurrence, presence: true, inclusion: { in: ["oneoff", "monthly", "quarterly", "yearly"] }
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :escalator, presence: true
