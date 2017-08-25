@@ -13,7 +13,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'faker'
 gem 'fullpage-rails'
-
+gem 'lazy_high_charts', github: 'michelson/lazy_high_charts'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'turbolinks', '~> 5.0.0'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'

@@ -1,4 +1,3 @@
-
 <head>
   <title>PIGNOSE Formula</title>
   <% content_for(:after_js) do %>
@@ -117,15 +116,16 @@
         <div class="col-md-4 variable-box">
           <div class="formula-drop">
 
-            <ul class="variable-ul-style formula-drop-items" id="shut">
+            <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
               <li> <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="">TEXT AMEER</a></li>
               <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="+">Custom operator (+)</a></li>
-              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li><li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li><li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li><li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li><li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li><li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+              <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
             </ul>
 
 
           </div>
-          <div class="add-var btn btn-primary btn-block" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+          <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
           </div>
         </div>
     </div>
@@ -164,5 +164,3 @@
     <ul class="variable-ul-style formula-drop formula-drop-items" id="shut"></ul>
   </div>
 </div> -->
-
-</body>

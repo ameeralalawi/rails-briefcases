@@ -1,0 +1,14 @@
+
+console.log("1")
+<% if @line.errors.any? %>
+  $('#existing-lines').html("<%= j render 'admin/lines/existinglines', case: @case, line: @line %>");
+console.log("21")
+<% else %>
+console.log("22")
+  var new_line = $("<%= j render 'admin/cases/newjsline', case: @case, line: @line %>").hide();
+  $('#existing-lines').append(new_line);
+console.log("23")
+  new_line.slideDown();
+  $('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
+console.log("24")
+<% end %>

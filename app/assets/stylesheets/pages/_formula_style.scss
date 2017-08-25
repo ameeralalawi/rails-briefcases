@@ -186,10 +186,11 @@
     border-radius: 0;
     background-color: #f8f8f8;
     border: 1px solid #909090;
-    margin: 0 .4em;
-    color: #ff4842;
+    color: $heading-blue;
     text-decoration: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .125);
+    border-radius: 3px;
+    margin: 3px;
 }
 
 .formula .formula-item.formula-custom-operator {
@@ -242,4 +243,10 @@
     color: #505050;
     border-bottom: 1px solid #d8d8d8;
     border-left: 1px solid #d8d8d8;
+}
+
+#new-variable-btn{
+  margin-bottom: 20px;
+  margin-top: 20px;
+
 }

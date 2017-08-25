@@ -6,6 +6,13 @@ GIT
       cloudinary (~> 1.1.0)
       rails (>= 3.2)
 
+GIT
+  remote: git://github.com/michelson/lazy_high_charts.git
+  revision: a86783132a0baaa4a8cd2dda615bc5d67d62905c
+  specs:
+    lazy_high_charts (1.5.8)
+      hash-deep-merge
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,6 +108,7 @@ GEM
       jquery-rails (>= 1.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    hash-deep-merge (0.1.1)
     hashie (3.5.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -233,6 +241,9 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -272,6 +283,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
+  lazy_high_charts!
   listen (~> 3.0.5)
   omniauth-facebook
   pg
@@ -284,6 +296,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  turbolinks (~> 5.0.0)
   uglifier
   web-console (>= 3.3.0)
 

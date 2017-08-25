@@ -134,6 +134,13 @@
   margin: 10px;
   background-color: black;
 }
+.variable-box{
+  min-height: 100px;
+  height: 100%;
+  background-color: white;
+  border-radius: $border-radius-base;
+  box-shadow: 0px 0px 4px 0px $dark-filling;
+}
 
 
 
@@ -169,4 +176,19 @@
 
 .checkboxFour input[type=checkbox]:checked + label {
   background: #26ca28;
+}
+
+
+// ----------------Components - Line -----------
+
+.line-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+  }
+
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
+  color: $heading-blue;
 }
