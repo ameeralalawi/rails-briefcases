@@ -25,7 +25,7 @@ admin = User.last
 Case.create!({
   :status => "published",
   :user_input_text => "I have @TotalUserBulbs incandescent lightbulbs with a wattage of @UserBulbWattage Watts in my home. My electricity price in USD per Kwh is: @UserElecPrice. On average I keep my lights on @UserHoursOfUse hours per day (average in Europe is 5 hours per day).",
-  :user_output_text => "By investing a moderate amount as described above in Gen-X Hooli CFL 15 UltraMax type lightbulbs you can save @NPVY2 USD in two years. Further, your investment will payback in @BreakevenMonth months",
+  :user_output_text => "",
   :name => "Hooli CFL Lightbulb",
   :icon => "fa-lightbulb-o",
   :color => "darkblue",
