@@ -5,7 +5,8 @@ class Admin::CasesController < ApplicationController
 
   def create
     # @case = Case.new
-
+    @chart = prep_chart(@case)
+    @chart_globals = prep_chart_globals
   end
 
   def delete
@@ -46,11 +47,12 @@ class Admin::CasesController < ApplicationController
   private
 
   def prep_chart(mycase)
+    mydata = mycase.build
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(text: mycase.name)
-      f.xAxis(categories: ["JAN17", "FEB17", "MAR17", "APR17", "MAY17"])
-      f.series(name: "Scenario A", yAxis: 0, data: [14119, 5068, 4985, 3339, 2656])
-      f.series(name: "Scenario B", yAxis: 0, data: [310, 127, 1340, 81, 65])
+      f.xAxis(categories: mydata[:xaxis])
+      f.series(name: mycase.scenario_a, yAxis: 0, data: mydata[:Atotalc])
+      f.series(name: mycase.scenario_b, yAxis: 0, data: mydata[:Btotalc])
 
       f.yAxis [
         {title: {text: "EUR", margin: 0} }

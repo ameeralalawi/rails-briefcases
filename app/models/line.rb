@@ -22,7 +22,7 @@ class Line < ApplicationRecord
     myline = Array.new(lineext, 0)
     # Load line characteristics
     category = self.category == "cost" ? -1 : 1
-    arr = ["oneoff", "monthly", "quaterly", "yearly"]
+    arr = ["oneoff", "monthly", "quarterly", "yearly"]
     recurrence = [9999,1,4,12][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
     effectiveesc = ((1 + 0.02)**(1/recurrence))-1
     variable_value = self.variable.eval_var * category
@@ -34,6 +34,7 @@ class Line < ApplicationRecord
       variable_value *= (1 + effectiveesc)
       idx += recurrence
     end
+
     payload = Array.new(extents[:months], 0)
     offset = (self.start_date.year * 12 + self.start_date.month) - (extents[:absstart].year * 12 + extents[:absstart].month)
     payload[offset,lineext] = myline
