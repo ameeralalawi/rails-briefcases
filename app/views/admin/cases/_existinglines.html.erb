@@ -10,7 +10,7 @@
 <div><p></p></div>
 </div>
 <% @case.lines.each do |line| %>
-  <%= form_tag(admin_line_update_path, method: 'post', remote: true ) do %>
+  <%= form_for line, url: admin_case_line_path(@case, line), html: {id: "line-#{line.id}"}, method: 'patch', remote: true do %>
     <div class="line-form">
       <div class="line-name">
         <div class="form-group">
@@ -34,9 +34,9 @@
       <div class="line-variable">
         <div class="form-group">
           <label class="sr-only" for="guest">Variable</label>
-          <select id="guest" name="variable" class="form-control">
+          <select id="guest" name="variable_id" class="form-control">
               <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
-               <option <%= line.variable.name == variable.name ? "selected" : nil %> value=<%= variable.name %> ><%=variable.name%></option>
+               <option <%= line.variable.name == variable.name ? "selected" : nil %> value=<%= variable.id %> ><%=variable.name%></option>
               <%end%>
           </select>
         </div>
@@ -68,7 +68,7 @@
         <div class="form-group">
           <label class="sr-only" for="chkin">Start date</label>
           <div class="input-group">
-            <input type="text" class="form-control chkin" id="chkin<%=line.id%>" name="chkin" placeholder="Start date" value=<%= line.end_date.strftime("%d/%m/%Y") %>>
+            <input type="text" class="form-control chkin" id="chkin<%=line.id%>" name="start_date" placeholder="Start date" value=<%= line.start_date.strftime("%d/%m/%Y") %>>
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="glyph-chkin"></i></span>
           </div>
         </div>
@@ -78,7 +78,7 @@
         <div class="form-group">
           <label class="sr-only" for="chkout">End date</label>
           <div class="input-group">
-            <input type="text" class="form-control chkin" id="chkout<%=line.id%>"  name="chkout" placeholder="End Date" value=<%= line.end_date.strftime("%d/%m/%Y") %>>
+            <input type="text" class="form-control chkin" id="chkout<%=line.id%>"  name="end_date" placeholder="End Date" value=<%= line.end_date.strftime("%d/%m/%Y") %>>
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="glyph-chkout"></i></span>
           </div>
         </div>
@@ -94,8 +94,8 @@
         <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
           <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
         <%end%>
-        <%= link_to '<i class="fa fa-2x fa-trash-o"></i>'.html_safe, admin_line_delete_path(@case, line),
-            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        <%= link_to '<i class="fa fa-2x fa-trash-o"></i>'.html_safe, admin_case_line_path(@case, line),
+            data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %>
       </div>
     </div>
   <%end%>
