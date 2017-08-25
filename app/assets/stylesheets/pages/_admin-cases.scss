@@ -23,17 +23,17 @@
 //   height: calc(100vh - 70px);
 // }
 
-#input-page #first {
+#input_first {
   grid-row: 1 / span 1;
   grid-column: 1/ span 1;
 }
 
-#input-page #second {
+#input_second {
   grid-row: 2 / span 1;
   grid-column: 1/ span 1;
 }
 
-#input-page #third {
+#input_third {
   grid-row: 1 / span 2;
   grid-column: 2/ span 1;
 }
@@ -44,17 +44,17 @@
 //   height: calc(100vh - 180px);
 // }
 
-#output-page #first {
+#output_first {
   grid-row: 1 / span 1;
   grid-column: 1/ span 1;
 }
 
-#output-page #second {
+#output_second {
   grid-row: 2 / span 1;
   grid-column: 1/ span 1;
 }
 
-#output-page #third {
+#output_third {
   grid-row: 1 / span 2;
   grid-columns: 2/ span 1;
 }
