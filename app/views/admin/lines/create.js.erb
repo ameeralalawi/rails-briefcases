@@ -1,8 +1,5 @@
-<% if @line.errors.any? %>
-  $('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
-<% else %>
-  var new_line = $("<%= j render 'admin/cases/newjsline', case: @case, line: @line %>").hide();
-  $('#existing-lines').append(new_line);
-  new_line.slideDown();
-  $('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
-<% end %>
+var new_line = $("<%= j render 'admin/cases/newjsline', case: @case, line: @line %>")
+$('#existing-lines').append(new_line);
+$('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
+$('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', case: @case%>")
+
