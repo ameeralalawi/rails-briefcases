@@ -5,4 +5,8 @@
 //= require bootstrap-datepicker
 //= require fullpage
 //= require_tree .
+//= require turbolinks
 
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
