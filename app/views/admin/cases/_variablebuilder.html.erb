@@ -63,8 +63,15 @@
       });
     });
 
-    print_text($("#hello"))
+    $("#new-variable-btn").on('click', function(event) {
+      var variable_new_name = $("#variable_name").val();
+      var result = $formula.data('formula').getFormula();
 
+     $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="'+ result +'">'+ variable_new_name +'</a></li>');
+      document.loadDraggables();
+    });
+
+    print_text($("#hello"))
 
   });
   //]]>
@@ -85,14 +92,18 @@
       <h3>VARIABLE BUILDER</h3>
 
       <div class="formula-box">
-        <label>Variable Name:  <input type="text" name="field1" placeholder=" Annual Cost" /></label>
+        <label>Variable Name:  <input id="variable_name" type="text" name="field1" placeholder=" Annual Cost"/></label>
         <div class="formula formula-advanced"></div>
       </div>
     <!-- </div> -->
 
     <!-- <div class="around" id="second"> -->
-      <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+      <div class="add-var btn btn-primary btn-block" id ="new-variable-btn"> ADD VARIABLE
       </div>
+
+    <!-- With modal: -->
+      <!-- <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+      </div> -->
 
     </div>
     <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
@@ -115,18 +126,8 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-  <div id="AddVarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- This is the modal window -->
+  <!-- <div id="AddVarModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -152,6 +153,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
 
