@@ -66,7 +66,9 @@ $( document ).ready(function() {
        // alert('uncheckd ' + $(this).val());
      else if (ischecked){
       console.log('ouhouuu')
-        $('#output-text').append('@' + $(this).val() + '    ' );
+        //$('#output-text').text('@' + $(this).val() + '    ' );
+        $('#output-text').val( $('#output-text').val() + '@' + $(this).val() + '    ' );
+
      }
  });
 
