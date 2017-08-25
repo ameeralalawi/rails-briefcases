@@ -14,7 +14,7 @@ class Admin::CasesController < ApplicationController
   def show
      @case = Case.find(params[:id])
      @line = Line.new
-     @chart = prep_chart
+     @chart = prep_chart(@case)
      @chart_globals = prep_chart_globals
   end
 
@@ -45,20 +45,19 @@ class Admin::CasesController < ApplicationController
 
   private
 
-  def prep_chart
+  def prep_chart(mycase)
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: "Your Case")
-      f.xAxis(categories: ["United States", "Japan", "China", "Germany", "France"])
-      f.series(name: "GDP in Billions", yAxis: 0, data: [14119, 5068, 4985, 3339, 2656])
-      f.series(name: "Population in Millions", yAxis: 1, data: [310, 127, 1340, 81, 65])
+      f.title(text: mycase.name)
+      f.xAxis(categories: ["JAN17", "FEB17", "MAR17", "APR17", "MAY17"])
+      f.series(name: "Scenario A", yAxis: 0, data: [14119, 5068, 4985, 3339, 2656])
+      f.series(name: "Scenario B", yAxis: 0, data: [310, 127, 1340, 81, 65])
 
       f.yAxis [
-        {title: {text: "GDP in Billions", margin: 70} },
-        {title: {text: "Population in Millions"}, opposite: true},
+        {title: {text: "EUR", margin: 0} }
       ]
 
-      f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
-      f.chart({defaultSeriesType: "column"})
+      f.legend(align: 'center', verticalAlign: 'bottom', y: 0, x: 0, layout: 'horizontal')
+      f.chart({defaultSeriesType: "line"})
     end
   end
 
@@ -73,13 +72,13 @@ class Admin::CasesController < ApplicationController
             [1, "rgb(240, 240, 255)"]
           ]
         },
-        borderWidth: 2,
+        borderWidth: 3,
         plotBackgroundColor: "rgba(255, 255, 255, .9)",
         plotShadow: true,
         plotBorderWidth: 1
       )
       f.lang(thousandsSep: ",")
-      f.colors(["#90ed7d", "#f7a35c", "#8085e9", "#f15c80", "#e4d354"])
+      f.colors(["#0B132B", "#CCCCCC", "#8085e9", "#f15c80", "#e4d354"])
     end
   end
 
