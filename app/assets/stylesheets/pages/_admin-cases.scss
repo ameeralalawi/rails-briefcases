@@ -5,12 +5,12 @@
 }
 
 #input-page {
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 66.6% 33.3%;
   grid-template-rows: 50% 50%;
 }
 
 #output-page {
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 66.6% 33.3%;
   grid-template-rows: 50% 50%;
 }
 
@@ -22,34 +22,42 @@
 
 #input-page #first {
   grid-row: 1 / span 1;
-  grid-columns: 1/ span 1;
+  grid-column: 1/ span 1;
 }
 
 #input-page #second {
   grid-row: 2 / span 1;
-  grid-columns: 1/ span 1;
+  grid-column: 1/ span 1;
 }
 
 #input-page #third {
   grid-row: 1 / span 2;
-  grid-columns: 2/ span 1;
+  grid-column: 2/ span 1;
 }
 
-// ----------------Grind - Inputbuilder -----------
+// ----------------Grind - Ouputbuilder -----------
 
 #output-page #first {
   grid-row: 1 / span 1;
-  grid-columns: 1/ span 1;
+  grid-column: 1/ span 1;
 }
 
 #output-page #second {
   grid-row: 2 / span 1;
-  grid-columns: 1/ span 1;
+  grid-column: 1/ span 1;
 }
 
 #output-page #third {
   grid-row: 2 / span 2;
   grid-columns: 2/ span 2;
+}
+
+  grid-column: 2/ span 1;
+}
+
+#output-page #fourth {
+  grid-row: 1 / span 1;
+  grid-column: 2/ span 1;
 }
 
 
