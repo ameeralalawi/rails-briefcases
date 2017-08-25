@@ -19,9 +19,9 @@
 }
 
 // ----------------Grind - Inputbuilder -----------
-// #input-page {
-//   height: calc(100vh - 70px);
-// }
+#input-page {
+  height: calc(100vh - 70px);
+}
 
 #input_first {
   grid-row: 1 / span 1;
@@ -40,9 +40,9 @@
 
 // ----------------Grind - Ouputbuilder -----------
 
-// #output-page {
-//   height: calc(100vh - 180px);
-// }
+#output-page {
+  height: calc(100vh - 180px);
+}
 
 #output_first {
   grid-row: 1 / span 1;
