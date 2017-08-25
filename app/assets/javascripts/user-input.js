@@ -1,10 +1,8 @@
 // Javascript to the input form page
-
-$( document ).ready(function() {
-
-  $("#hello").keyup(function() {
+var print_text = function(div) {
+  console.log("print function")
     // on every key up, we get value in form and put it in preview and replace "@word" with an empty input field.
-    var sentence = $(this).val();
+    var sentence = div.val();
     var regex = /(?:@[a-zA-Z]+)/g;
     var sentence_with_input = sentence.replace(regex, '<input type="text" name="amount"/>')
 
@@ -46,7 +44,18 @@ $( document ).ready(function() {
     });
 
     document.loadDraggables();
-  });
+  };
+
+
+
+$( document ).ready(function() {
+
+  // function jq(){
+  var $this = $("#hello")
+  // print_text($this)
+
+  $this.keyup(function() {
+    print_text($this)});
 
   // if we click on "Add variable", it adds an @ sign in our form field (better UX)
   $("#add").click(function(){
@@ -55,6 +64,13 @@ $( document ).ready(function() {
       $("#hello").focus()
     });
 
+  // }
 
+
+
+  // $( window ).load(jq() {
+  // // Run code
+  // });
 });
+
 
