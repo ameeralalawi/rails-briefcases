@@ -5,7 +5,7 @@ $(document).ready(function(e) {
 
     $('.chkin').datepicker({
         format : 'dd/mm/yyyy',
-        orientation: "bottom",
+        orientation: "atuo",
         autoclose: true,
         todayHighlight: true,
         startDate: now

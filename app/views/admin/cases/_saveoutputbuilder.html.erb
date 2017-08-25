@@ -1,11 +1,9 @@
 
-
-
-  <div class="around" id="first">
-    <%= simple_form_for @case, url: admin_save_input_path(@case), method: :post do |f|%>
-      <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
-    <% end %>
-    </div>
+ <div class="around" id="first">
+  <%= simple_form_for @case, url: save_output_admin_case_path(@case), method: :post do |f|%>
+    <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"hello", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
+  <% end %>
+  </div>
 
   <div class="around" id="second">
     <div id="preview-output">

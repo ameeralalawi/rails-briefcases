@@ -62,7 +62,9 @@
         scroll: false
       });
     });
+
     print_text($("#hello"))
+
 
   });
   //]]>
@@ -77,36 +79,39 @@
 
 
 
-<div id="variable-builder">
-<div class="inputs">
-  <div class="col-xs-8 around">
-    <div class="formula-box">
-      <div class="formula formula-advanced"></div>
+<div id="variable-builder" class="container" style="height: 100%;">
+  <div class="inputs row" style="height: 100%;">
+    <div class="col-xs-8 around">
+      <h3>VARIABLE BUILDER</h3>
+
+      <div class="formula-box">
+        <label>Variable Name:  <input type="text" name="field1" placeholder=" Annual Cost" /></label>
+        <div class="formula formula-advanced"></div>
+      </div>
+    <!-- </div> -->
+
+    <!-- <div class="around" id="second"> -->
+      <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
+      </div>
+
     </div>
-  <!-- </div> -->
+    <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
-  <!-- <div class="around" id="second"> -->
-    <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
-    </div>
+    </div> -->
+    <div class="col-xs-4 around" style="height: 100%;">
+      <div class="variable-box">
+        <div class="formula-drop">
 
-  </div>
-  <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
-
-  </div> -->
-  <div class="col-xs-4 around">
-    <div class="variable-box">
-      <div class="formula-drop">
-
-        <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
-          <li> <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="">TEXT AMEER</a></li>
-          <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="+">Custom operator (+)</a></li>
-          <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
-          <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
-        </ul>
+          <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
+            <li> <a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="">TEXT AMEER</a></li>
+            <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="+">Custom operator (+)</a></li>
+            <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+            <li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="3">Variable (INT 3)</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
