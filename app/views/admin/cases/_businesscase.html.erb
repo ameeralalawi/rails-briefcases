@@ -18,7 +18,7 @@
 <div><p>Annual Escalator</p></div>
 <div><p></p></div>
 </div>
-<%= form_tag(admin_line_create_path, method: 'post', remote: true ) do %>
+<%= form_tag(admin_case_lines_path(@case), method: 'post', remote: true ) do %>
   <div class="line-form">
     <div class="line-name">
       <div class="form-group">
@@ -42,9 +42,9 @@
     <div class="line-variable">
       <div class="form-group">
         <label class="sr-only" for="guest">Variable</label>
-        <select id="guest" name="variable" class="form-control">
+        <select id="guest" name="variable_id" class="form-control">
             <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
-             <option value=<%= variable.name %> ><%=variable.name%></option>
+             <option value=<%= variable.id %> ><%=variable.name%></option>
             <%end%>
         </select>
       </div>
