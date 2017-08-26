@@ -12,12 +12,12 @@
 <%= form_tag(admin_case_lines_path(@case), method: 'post', remote: true ) do %>
   <div class="line-form">
     <div class="line-name">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <input type="text" class="form-control" id="line-name"  name="name" placeholder="Name this line">
       </div>
     </div>
 
-    <div class="line-scenario">
+    <div class="line-scenario line-item-centered">
       <div class="form-check">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="scenario" id="exampleRadios1" value="A" checked>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="line-variable">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <label class="sr-only" for="guest">Variable</label>
         <select id="guest" name="variable_id" class="form-control">
             <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="line-category">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <label class="sr-only" for="category">Category</label>
         <select id="category" name="category" class="form-control">
              <option value="cost">Cost</option>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="line-reccurence">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <label class="sr-only" for="recurrence">Reccurence</label>
         <select id="recurrence" name="recurrence" class="form-control">
              <option value="oneoff">One-off</option>
@@ -64,7 +64,7 @@
     </div>
 
     <div class="line-startdate">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <label class="sr-only" for="chkin">Start date</label>
         <div class="input-group">
           <input type="text" class="form-control chkin" id="newchkin" name="start_date" placeholder="Start date">
@@ -74,7 +74,7 @@
     </div>
 
     <div class="line-enddate">
-      <div class="form-group">
+      <div class="form-group-margin form-group">
         <label class="sr-only" for="chkout">End date</label>
         <div class="input-group">
           <input type="text" class="form-control chkin" id="newchkout"  name="end_date" placeholder="End Date">
@@ -84,12 +84,12 @@
     </div>
 
     <div class="line-escalator">
-      <div class="form-group">
-          <input class="form-control" type="number" id="example-number-input" placeholder="Annual escalator" name="escalator">
+      <div class="form-group-margin form-group">
+          <input class="form-control" type="number" step="0.001" id="example-number-input" placeholder="Annual escalator" name="escalator">
       </div>
     </div>
 
-    <div class="line-new">
+    <div class="line-new line-item-centered">
       <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
         <i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
         <% end %>

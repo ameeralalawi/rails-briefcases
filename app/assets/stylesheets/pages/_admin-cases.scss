@@ -19,6 +19,11 @@
   grid-template-rows: 50% 50%;
 }
 
+#publish-page {
+  grid-template-columns: 100%;
+  grid-template-rows: 80% 20%;
+}
+
 .around {
   padding: 20px;
 }
@@ -88,6 +93,22 @@
 #businesscase_thrid {
   grid-row: 2 / span 1;
   grid-column: 2/ span 1;
+}
+
+// ----------------Grind - Publish page -----------
+
+#publish-page {
+  height: calc(100vh - 180px);
+}
+
+#publish_first {
+  grid-row: 1 / span 1;
+  grid-column: 1/ span 1;
+}
+
+#publish_second {
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 1;
 }
 
 // ----------------Components - Inputbuilder -----------
@@ -211,9 +232,7 @@
   margin-right: 10px;
 }
 
-
-
-// ----------------Components - Line -----------
+// ----------------Components - Business case -----------
 
 .line-form {
     display: grid;
@@ -228,7 +247,62 @@
 }
 
 #lines-scroll {
-    overflow: scroll;
-    height:100%;
-    width:100%;
+  overflow: scroll;
+  height:100%;
+  width:100%;
+}
+
+.line-item-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group-margin{
+  margin-bottom: 5px !important;
+}
+
+.icon-pad{
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+// ----------------Components - Publish -----------
+
+#bc_input i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#link.active {
+    color: #3C6AB9;
+}
+
+#bc_input input {
+    border: none;
+    padding: 13px 60px;
+    display: block;
+    width: 100%;
+}
+#bc_input {
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 8px -2px #AAA;
+    position: relative;
+}
+
+.copy-btn {
+    padding: 6px!important;
+}
+
+#bc_input button#bc_copy {
+    display: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    border-radius: 4px;
+    font-size: 14px!important;
+    width:100px;
 }

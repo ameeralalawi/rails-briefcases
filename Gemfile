@@ -14,6 +14,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'faker'
 gem 'fullpage-rails'
 gem 'lazy_high_charts', github: 'michelson/lazy_high_charts'
+gem 'clipboard-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
