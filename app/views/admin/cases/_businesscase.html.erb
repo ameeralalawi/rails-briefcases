@@ -1,108 +1,21 @@
-<h3>BUSINESS CASE</h3>
-
-<div id="existing-lines">
-<h2>Existing lines</h2>
-  <%= render "existinglines" %>
-</div>
-
-<div>
-<h2>New line</h2>
-<div class="line-form">
-<div><p>Name</p></div>
-<div><p>Scenario</p></div>
-<div><p>Variable</p></div>
-<div><p>Category</p></div>
-<div><p>Recurrence</p></div>
-<div><p>Start Date</p></div>
-<div><p>End Date</p></div>
-<div><p>Annual Escalator</p></div>
-<div><p></p></div>
-</div>
-<%= form_tag(admin_case_lines_path(@case), method: 'post', remote: true ) do %>
-  <div class="line-form">
-    <div class="line-name">
-      <div class="form-group">
-        <input type="text" class="form-control" id="line-name"  name="name" placeholder="Name this line">
-      </div>
+<div class="around" id="businesscase_first">
+  <h3>SCENARIO BUILDER</h3>
+  <div id="lines-scroll">
+    <div id="new-line-s-form" class="new-line-form">
+      <%= render "newformline" %>
     </div>
-
-    <div class="line-scenario">
-      <div class="form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="scenario" id="exampleRadios1" value="A" checked>
-        A
-      </label>
-      <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="scenario" id="exampleRadios2" value="B">
-        B
-      </label>
-      </div>
-    </div>
-
-    <div class="line-variable">
-      <div class="form-group">
-        <label class="sr-only" for="guest">Variable</label>
-        <select id="guest" name="variable_id" class="form-control">
-            <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
-             <option value=<%= variable.id %> ><%=variable.name%></option>
-            <%end%>
-        </select>
-      </div>
-    </div>
-
-    <div class="line-category">
-      <div class="form-group">
-        <label class="sr-only" for="category">Category</label>
-        <select id="category" name="category" class="form-control">
-             <option value="cost">Cost</option>
-             <option value="revenue">Revenue</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="line-reccurence">
-      <div class="form-group">
-        <label class="sr-only" for="recurrence">Reccurence</label>
-        <select id="recurrence" name="recurrence" class="form-control">
-             <option value="oneoff">One-off</option>
-             <option value="monthly">Monthly</option>
-             <option value="quarterly">Quarterly</option>
-             <option value="yearly">Yearly</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="line-startdate">
-      <div class="form-group">
-        <label class="sr-only" for="chkin">Start date</label>
-        <div class="input-group">
-          <input type="text" class="form-control chkin" id="newchkin" name="start_date" placeholder="Start date">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="glyph-chkin"></i></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="line-enddate">
-      <div class="form-group">
-        <label class="sr-only" for="chkout">End date</label>
-        <div class="input-group">
-          <input type="text" class="form-control chkin" id="newchkout"  name="end_date" placeholder="End Date">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" id="glyph-chkout"></i></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="line-escalator">
-      <div class="form-group">
-          <input class="form-control" type="number" id="example-number-input" placeholder="Annual escalator" name="escalator">
-      </div>
-    </div>
-
-    <div class="line-new">
-      <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
-        <i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
-        <% end %>
+    <div id="existing-lines">
+      <%= render "existinglines" %>
     </div>
   </div>
-<%end%>
 </div>
+<div class="around" id="businesscase_second">
+  <h3>SCENARIO A PREVIEW</h3>
+    <%= render "SCNA_graph" %>
+</div>
+<div class="around" id="businesscase_third">
+  <h3>SCENARIO B PREVIEW</h3>
+    <%= render "SCNB_graph" %>
+</div>
+
+

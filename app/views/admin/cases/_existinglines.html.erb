@@ -1,15 +1,4 @@
-<div class="line-form">
-<div><p>Name</p></div>
-<div><p>Scenario</p></div>
-<div><p>Variable</p></div>
-<div><p>Category</p></div>
-<div><p>Recurrence</p></div>
-<div><p>Start Date</p></div>
-<div><p>End Date</p></div>
-<div><p>Annual Escalator</p></div>
-<div><p></p></div>
-</div>
-<% @case.lines.each do |line| %>
+<% @case.lines.order("id ASC").each do |line| %>
   <%= form_for line, url: admin_case_line_path(@case, line), html: {id: "line-#{line.id}"}, method: 'patch', remote: true do %>
     <div class="line-form">
       <div class="line-name">
