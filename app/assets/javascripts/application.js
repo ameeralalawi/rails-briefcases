@@ -4,6 +4,7 @@
 //= require jquery-ui
 //= require bootstrap-datepicker
 //= require fullpage
+//= require clipboard
 //= require_tree .
 //= require turbolinks
 
