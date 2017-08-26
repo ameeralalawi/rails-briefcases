@@ -1,24 +1,13 @@
-<div class="line-form">
-<div><p>Name</p></div>
-<div><p>Scenario</p></div>
-<div><p>Variable</p></div>
-<div><p>Category</p></div>
-<div><p>Recurrence</p></div>
-<div><p>Start Date</p></div>
-<div><p>End Date</p></div>
-<div><p>Annual Escalator</p></div>
-<div><p></p></div>
-</div>
-<% @case.lines.each do |line| %>
+<% @case.lines.order("id ASC").each do |line| %>
   <%= form_for line, url: admin_case_line_path(@case, line), html: {id: "line-#{line.id}"}, method: 'patch', remote: true do %>
     <div class="line-form">
       <div class="line-name">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <input type="text" class="form-control" id="line-name"  name="name" placeholder="Name this line" value=<%= line.name %>>
         </div>
       </div>
 
-      <div class="line-scenario">
+      <div class="line-scenario line-item-centered">
         <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" <%= line.scenario == "A" ? "checked" : nil %>>
@@ -32,7 +21,7 @@
       </div>
 
       <div class="line-variable">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <label class="sr-only" for="guest">Variable</label>
           <select id="guest" name="variable_id" class="form-control">
               <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
@@ -43,7 +32,7 @@
       </div>
 
       <div class="line-category">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <label class="sr-only" for="category">Category</label>
           <select id="category" name="category" class="form-control">
                <option <%= line.category == "cost" ? "selected" : nil %> value="cost">Cost</option>
@@ -53,7 +42,7 @@
       </div>
 
       <div class="line-reccurence">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <label class="sr-only" for="recurrence">Reccurence</label>
           <select id="recurrence" name="recurrence" class="form-control" selected=<%= line.recurrence %>>
                <option <%= line.recurrence == "oneoff" ? "selected" : nil %> value="oneoff">One-off</option>
@@ -65,7 +54,7 @@
       </div>
 
       <div class="line-startdate">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <label class="sr-only" for="chkin">Start date</label>
           <div class="input-group">
             <input type="text" class="form-control chkin" id="chkin<%=line.id%>" name="start_date" placeholder="Start date" value=<%= line.start_date.strftime("%d/%m/%Y") %>>
@@ -75,7 +64,7 @@
       </div>
 
       <div class="line-enddate">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
           <label class="sr-only" for="chkout">End date</label>
           <div class="input-group">
             <input type="text" class="form-control chkin" id="chkout<%=line.id%>"  name="end_date" placeholder="End Date" value=<%= line.end_date.strftime("%d/%m/%Y") %>>
@@ -85,16 +74,16 @@
       </div>
 
       <div class="line-escalator">
-        <div class="form-group">
+        <div class="form-group-margin form-group">
             <input class="form-control" type="number" value=<%= line.escalator%> id="example-number-input" placeholder="Annual escalator">
         </div>
       </div>
 
-      <div class="line-new">
+      <div class="line-new line-item-centered">
         <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
-          <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+          <i class="fa fa-2x fa-floppy-o icon-pad" aria-hidden="true"></i>
         <%end%>
-        <%= link_to '<i class="fa fa-2x fa-trash-o"></i>'.html_safe, admin_case_line_path(@case, line),
+        <%= link_to '<i class="fa fa-2x fa-trash-o icon-pad"></i>'.html_safe, admin_case_line_path(@case, line),
             data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %>
       </div>
     </div>

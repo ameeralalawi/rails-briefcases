@@ -1,5 +1,3 @@
-<% if @line.errors.any? %>
-
-<% else %>
-  // $('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', case: @case%>");
-<% end %>
+$('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', chartM: @chartM%>")
+$('#Agraph').html("<%= j render 'admin/cases/SCNA_graph', chartA: @chartA%>")
+$('#Bgraph').html("<%= j render 'admin/cases/SCNB_graph', chartB: @chartB%>")

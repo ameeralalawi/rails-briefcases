@@ -1,2 +1,15 @@
-<h3>PUBLISH</h3>
-<%= render "bcgraphs" %>
+<div class="around" id="publish_first">
+  <h3>VIEW CASE AND PUBLISH</h3>
+  <%= render "bcgraphs" %>
+</div>
+<div class="around" id="publish_second">
+<div class="btn btn-action btn-block"> PREVIEW </div>
+<div class="btn btn-CTA btn-block"> PUBLISH </div>
+
+<div id="bc_input">
+  <i class="fa fa-link fa-2x" aria-hidden="true"></i>
+  <input type="text" name="custom-link" value=<%= case_url(@case) %> id="link" class="active">
+  <button id="bc_copy" data-clipboard-action="copy" data-clipboard-target="#link" class="copy-btn btn-action" style="display: inline-block;">COPY</button>
+</div>
+
+</div>

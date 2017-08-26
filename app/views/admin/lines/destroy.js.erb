@@ -1,3 +1,5 @@
-  $("#line-<%=@line_id%>").hide()
-  $('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', case: @case%>")
+$("#line-<%=@line_id%>").hide()
+$('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', chartM: @chartM%>")
+$('#Agraph').html("<%= j render 'admin/cases/SCNA_graph', chartA: @chartA%>")
+$('#Bgraph').html("<%= j render 'admin/cases/SCNB_graph', chartB: @chartB%>")
 

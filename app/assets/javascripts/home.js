@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-
+    var clipboard = new Clipboard('.copy-btn');
     var nowTemp = new Date();
     var now = nowTemp.getDate()+'-'+ (nowTemp.getMonth()+1)+'-'+ nowTemp.getFullYear();
 

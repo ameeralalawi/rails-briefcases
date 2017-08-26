@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  get '/cases/:id', to: 'cases#show'
+  get '/cases/:id', to: 'cases#show', as: "case"
   get 'pages/components', to: 'pages#components'
   post 'cases/:id/leads', to: 'leads#create'
   patch 'leads/:id', to: 'leads#update'
