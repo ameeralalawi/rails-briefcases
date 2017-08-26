@@ -5,29 +5,30 @@ $(document).ready(function(e) {
 
     $('.chkin').datepicker({
         format : 'dd/mm/yyyy',
-        orientation: "atuo",
+        orientation: "auto",
         autoclose: true,
         todayHighlight: true,
         startDate: now
         }).on('changeDate', function(ev) {
-            $('.chkout').trigger('click');
-            checko.data('datepicker').setStartDate(ev.date);
+            $(this).parents(':eq(3)').find('.chkout').trigger('click');
+            $(this).parents(':eq(3)').find('.chkout').val("");
+            $(this).parents(':eq(3)').find('.chkout').data('datepicker').setStartDate(ev.date);
         });
 
-    checko = $('.chkout').datepicker({
+    $('.chkout').datepicker({
         format : 'dd/mm/yyyy',
         startDate:now,
-        orientation: "bottom",
+        orientation: "auto",
         autoclose: true,
     });
 
-    $('#glyph-chkin').click(function(event){
+    $('.glyph-chkin').click(function(event){
       event.preventDefault();
-      $('.chkin').data("datepicker").show();
+      $(this).parents(':eq(3)').find('.chkout').data("datepicker").show();
     });
 
-    $('#glyph-chkout').click(function(event){
+    $('.glyph-chkout').click(function(event){
       event.preventDefault();
-      $('.chkout').data("datepicker").show();
+      $(this).parents(':eq(3)').find('.chkout').data("datepicker").show();
     });
 });
