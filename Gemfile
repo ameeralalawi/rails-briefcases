@@ -15,6 +15,7 @@ gem 'faker'
 gem 'fullpage-rails'
 gem 'lazy_high_charts', github: 'michelson/lazy_high_charts'
 gem 'clipboard-rails'
+gem 'rails_12factor', group: :production
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
