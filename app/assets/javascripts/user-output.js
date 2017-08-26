@@ -67,10 +67,14 @@ $( document ).ready(function() {
      else if (ischecked){
       console.log('ouhouuu')
         //$('#output-text').text('@' + $(this).val() + '    ' );
-        $('#output-text').val( $('#output-text').val() + '@' + $(this).val() + '    ' );
-
+        $('#output-text').val( $('#output-text').val() + '@' + $(this).val() + ' ' );
+        $("#output-text").focus()
      }
  });
+   // $("#om").click(function(){
+   //  console.log('yeeeaaahh');
+   // $('#losc').popover('show');
+   // });
 
 });
 
