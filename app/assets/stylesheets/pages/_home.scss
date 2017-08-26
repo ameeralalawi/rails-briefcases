@@ -1,5 +1,5 @@
 #section-1 {
-  background: url("<%= asset_path 'road_vector.svg' %>");
+  background: image_url('road_vector.svg');
   width: 100vw;
   height: 90vh;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@ opacity: 0.7;
 
 
 #section-3 {
-  background: url("<%= asset_path 'blue_round_vector.svg' %>");
+  background: image_url('blue_round_vector.svg');
   background-repeat: no-repeat;
   background-size: contain;
   width: 100vw;
