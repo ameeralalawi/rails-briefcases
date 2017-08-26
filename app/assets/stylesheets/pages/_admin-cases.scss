@@ -14,6 +14,11 @@
   grid-template-rows: 50% 50%;
 }
 
+#businesscase-page {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
 .around {
   padding: 20px;
 }
@@ -64,6 +69,26 @@
 //   grid-column: 2/ span 1;
 // }
 
+// ----------------Grind - Businesscase -----------
+
+#businesscase-page {
+  height: calc(100vh - 180px);
+}
+
+#businesscase_first {
+  grid-row: 1 / span 1;
+  grid-column: 1/ span 2;
+}
+
+#businesscase_second {
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 1;
+}
+
+#businesscase_thrid {
+  grid-row: 2 / span 1;
+  grid-column: 2/ span 1;
+}
 
 // ----------------Components - Inputbuilder -----------
 
@@ -200,4 +225,10 @@
   padding: 0px;
   border: none;
   color: $heading-blue;
+}
+
+#lines-scroll {
+    overflow: scroll;
+    height:100%;
+    width:100%;
 }
