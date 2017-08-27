@@ -41,7 +41,6 @@ opacity: 0.7;
 }
 
 #learn-more {
-  color: rgba(160, 160, 160, 1);
   max-width: 160px;
   position: absolute;
   margin-left: auto;
@@ -49,8 +48,20 @@ opacity: 0.7;
   left: 0;
   right: 0;
   bottom: 20px;
-  h3 {
-    font-size: 20px;
+
+  a {
+    font-size: 22px;
+  }
+
+  .fa, a {
+    color: $text-black;
+    opacity: 0.7;
+  }
+
+
+  a:hover{
+    text-decoration: none;
+    opacity: 1;
   }
 }
 
@@ -58,7 +69,7 @@ opacity: 0.7;
   background-color: $light-filling;
   width: 100vw;
   height: auto;
-  min-height: 100vh;
+  min-height: 110vh;
   color: $example-gray;
 }
 
