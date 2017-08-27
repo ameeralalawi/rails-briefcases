@@ -1,10 +1,10 @@
 #section-1 {
   background: image_url('road_vector.svg');
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-position: 0px 95px
+  background-position: 0px 105px
 }
 
 #intro-paragraph {
@@ -58,6 +58,7 @@ opacity: 0.7;
   background-color: $light-filling;
   width: 100vw;
   height: auto;
+  min-height: 100vh;
   color: $example-gray;
 }
 
@@ -78,13 +79,14 @@ opacity: 0.7;
 }
 
 #section-4 {
+  min-height: calc(100vh - 200px);
   width: 100vw;
   height: auto;
 }
 
 #why-this-tool {
-  margin-top: 70px;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 .demo-illustration {
@@ -104,8 +106,6 @@ opacity: 0.7;
 }
 
 .feature-adjust{
-  display:flex;
-  align-items: center;
   margin-bottom: 50px;
 }
 
@@ -113,16 +113,16 @@ opacity: 0.7;
   display:flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
   text-align: center;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+  max-height: 127px
 }
 
 .big-icon img{
-  width: 200px;
+  max-height: 140px;
 }
 
 .demo-step {
@@ -148,7 +148,7 @@ opacity: 0.7;
 }
 
 .row-big {
-  min-height: 300px;
+  min-height: 170px;
   h3{
     color: $heading-blue;
   }
