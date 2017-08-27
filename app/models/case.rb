@@ -35,6 +35,8 @@ class Case < ApplicationRecord
         mycase[:B].merge!(line.build(extents))
       end
     end
+    mycase[:A].empty? ? mycase[:A].merge!({"NODATA".to_sym => Array.new([extents[:months],1].max, 0)}) : nil
+    mycase[:B].empty? ? mycase[:B].merge!({"NODATA".to_sym => Array.new([extents[:months],1].max, 0)}) : nil
     totalarray = []
     mycase[:A].each do |name,line|
       totalarray << line
@@ -52,11 +54,16 @@ class Case < ApplicationRecord
   end
 
   def determine_extents
-    m_start = self.lines.first.start_date
-    m_end = self.lines.first.end_date
-    self.lines.each do |line|
-      line.start_date < m_start ? m_start = line.start_date : nil
-      line.end_date > m_end ? m_end = line.end_date : nil
+    if self.lines.empty?
+      m_start = Date.today
+      m_end = Date.today.next_year
+    else
+      m_start = self.lines.first.start_date
+      m_end = self.lines.first.end_date
+      self.lines.each do |line|
+        line.start_date < m_start ? m_start = line.start_date : nil
+        line.end_date > m_end ? m_end = line.end_date : nil
+      end
     end
     return {absstart: m_start, absend: m_end, months:(m_end.year * 12 + m_end.month) - (m_start.year * 12 + m_start.month)}
   end
