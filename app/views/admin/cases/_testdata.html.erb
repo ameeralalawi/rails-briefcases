@@ -1,9 +1,15 @@
 <div class="around">
-  <h3 class= page-title>PREVIEW</h3>
+  <div class="Section-Header">
+    <h3 class= page-title> PREVIEW AND FILL TEST DATA</h3>
+    <div class="save-button">
+      <%= button_tag type: 'submit', form: "save-testdata-form", class: "fabutton save-btn-inner", id: "global-save" do %>
+      <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+      <h4> CASE</h4><% end %>
+    </div>
+  </div>
   <div id= "test_data">
     <div id="preview">
       <div id="input-form" class="text-input">
-
       </div>
     </div>
   </div>

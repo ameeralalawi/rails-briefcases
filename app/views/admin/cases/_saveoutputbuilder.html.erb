@@ -2,7 +2,7 @@
  <div class="around" id="output_first">
   <h3 class= page-title>MESSAGE BUILDER</h3>
   <div>
-    <%= simple_form_for @case, url: save_output_admin_case_path(@case), method: :post do |f|%>
+    <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
       <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text"} %>
     <% end %>
   </div>
@@ -20,15 +20,22 @@
   </div> -->
 
 <div id="output_third" class="around">
-  <h3 class= page-title>STATISTICS</h3>
-    <div class="around checkbox-box">
-         <input type="checkbox" name="vehicle" value="@NpvEndOfYearOne" class="output-check">NPV end of year 1<br>
-         <input type="checkbox" name="vehicle" value="@NpvEndOfYearTwo" class="output-check"> NPV end of year 2<br>
-         <input type="checkbox" name="vehicle" value="@NpvEndOfYearThree" class="output-check"> NPV end of year 3<br>
-         <input type="checkbox" name="vehicle" value="@BreakEvenPoint" class="output-check"> Break-even point<br>
-         <input type="checkbox" name="vehicle" value="@Earning" class="output-check"> Earning<br>
-         <input type="checkbox" name="vehicle" value="@Return" class="output-check"> Return<br>
+  <div class="Section-Header">
+    <h3 class= page-title> OUTPUT FIELDS</h3>
+    <div class="save-button">
+      <%= button_tag type: 'submit', form: "save-output-form", class: "fabutton save-btn-inner", id: "global-save" do %>
+      <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+      <h4> CASE</h4><% end %>
     </div>
+  </div>
+  <div class="around checkbox-box">
+   <input type="checkbox" name="vehicle" value="@NpvEndOfYearOne" class="output-check">NPV end of year 1<br>
+   <input type="checkbox" name="vehicle" value="@NpvEndOfYearTwo" class="output-check"> NPV end of year 2<br>
+   <input type="checkbox" name="vehicle" value="@NpvEndOfYearThree" class="output-check"> NPV end of year 3<br>
+   <input type="checkbox" name="vehicle" value="@BreakEvenPoint" class="output-check"> Break-even point<br>
+   <input type="checkbox" name="vehicle" value="@Earning" class="output-check"> Earning<br>
+   <input type="checkbox" name="vehicle" value="@Return" class="output-check"> Return<br>
+  </div>
 
 <!-- <button id="om"> click</button>
  <div id="losc" class="popover" popover-title="hello world" >
