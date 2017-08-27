@@ -2,7 +2,8 @@ class Line < ApplicationRecord
   belongs_to :variable
   belongs_to :case
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :case_id,
+    message: "Variable names should be unique within a single case" }
   validates :variable_id, presence: true
   validates :case_id, presence: true
   validates :scenario, presence: true

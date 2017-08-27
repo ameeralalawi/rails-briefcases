@@ -327,4 +327,64 @@
     width:100px;
 }
 
+a { color: $variable-blue; text-decoration: none; }
+
+.arrow-group{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arrow {
+  text-align: right;
+  margin: 5%;
+}
+
+
+.arrow-text {
+  text-align: right;
+  margin: 2%;
+}
+
+.b-arrow{
+  color: $heading-blue;
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.Section-Header{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.save-btn-inner{
+    display: flex;
+    align-items: baseline;
+}
+
+.save-button{
+  margin-right: 25px;
+}
+
+.save-button i{
+  color:$heading-blue;
+  padding-right:5px;
+}
+
 // ----------------Checkbox style -----------
