@@ -23,8 +23,9 @@ class Line < ApplicationRecord
     # Load line characteristics
     category = self.category == "cost" ? -1 : 1
     arr = ["oneoff", "monthly", "quarterly", "yearly"]
-    recurrence = [9999,1,4,12][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
-    effectiveesc = ((1 + 0.02)**(1/recurrence))-1
+    recurrence = [9999.0,1.0,3.0,12.0][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
+    reccadj = [9999.0,12.0,4.0,1.0][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
+    effectiveesc = ((1.0 + (self.escalator/100.0))**(1.0/reccadj))-1.0
     variable_value = self.variable.eval_var * category
 
     # Fill line
