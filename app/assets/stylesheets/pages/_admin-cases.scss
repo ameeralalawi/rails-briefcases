@@ -14,6 +14,11 @@
   grid-template-rows: 50% 50%;
 }
 
+#variable-page {
+  grid-template-columns: 66.6% 33.3%;
+  grid-template-rows: 100%;
+}
+
 #businesscase-page {
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
@@ -28,19 +33,23 @@
   padding: 20px;
 }
 
-// ----------------Grind - Inputbuilder -----------
-#input-page {
-  height: calc(100vh - 180px);
+.page-title {
+  margin-top: 0px;
+  margin-bottom: 14px;
 }
+
+// ----------------Grind - Inputbuilder -----------
 
 #input_first {
   grid-row: 1 / span 1;
   grid-column: 1/ span 1;
+  padding-bottom: 0;
 }
 
 #input_second {
   grid-row: 2 / span 1;
   grid-column: 1/ span 1;
+  padding-top: 0;
 }
 
 #input_third {
@@ -50,18 +59,16 @@
 
 // ----------------Grind - Ouputbuilder -----------
 
-#output-page {
-  height: calc(100vh - 180px);
-}
-
 #output_first {
   grid-row: 1 / span 1;
   grid-column: 1/ span 1;
+  padding-bottom: 0;
 }
 
 #output_second {
   grid-row: 2 / span 1;
   grid-column: 1/ span 1;
+  padding-top: 0;
 }
 
 #output_third {
@@ -73,6 +80,19 @@
 //   grid-row: 1 / span 1;
 //   grid-column: 2/ span 1;
 // }
+
+// ----------------Grid - Variablebuilder -----------
+
+#variable_first {
+  grid-row: 1 / span 1;
+  grid-column: 1/ span 1;
+}
+
+#variable_second {
+  grid-row: 1 / span 1;
+  grid-column: 2/ span 1;
+}
+
 
 // ----------------Grind - Businesscase -----------
 
@@ -228,7 +248,6 @@
   background-color: white;
   border-radius: 2px;
   box-shadow: 0px 0px 4px 0px #0b132b;
-  margin-top: 27px;
   margin-right: 10px;
 }
 
