@@ -49,6 +49,8 @@ class Admin::CasesController < ApplicationController
   end
 
   def updatestatus
+    @case = Case.find(params[:id])
+    @case.update(status: "published")
   end
 
   private
