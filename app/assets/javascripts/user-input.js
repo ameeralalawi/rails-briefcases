@@ -1,6 +1,7 @@
 // Javascript to the input form page
-var print_text = function(div) {
-  console.log("print function")
+
+  var print_text = function(div) {
+
     // on every key up, we get value in form and put it in preview and replace "@word" with an empty input field.
     var sentence = div.val();
     var regex = /(?:@[a-zA-Z]+)/g;
@@ -37,7 +38,7 @@ var print_text = function(div) {
     $('#shut').html('');
 
     syntax.forEach(function(s){
-      $('#variables-box').append('<li class="variables-style">'  + s + '</li>');
+      $('#variables-box').append('<div class="col-xs-12 col-md-6 variables-style">'  + s + '</div>');
       //$('#shut').append('<li class="variables-style formula-custom ui-draggable ui-draggable-handle">'  + s + '</li>');
       $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="' + s + '">' + s +'</a></li>');
         //<a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
@@ -48,29 +49,28 @@ var print_text = function(div) {
 
 
 
+
+
+
 $( document ).ready(function() {
 
-  // function jq(){
+ // On keyup, we call the print_text() function.
   var $this = $("#hello")
-  // print_text($this)
 
   $this.keyup(function() {
-    print_text($this)});
+    print_text($this)
+  });
+
 
   // if we click on "Add variable", it adds an @ sign in our form field (better UX)
   $("#add").click(function(){
-      var text = $("#hello")
-      text.val(text.val() + '@');
-      $("#hello").focus()
-    });
-
-  // }
+    var text = $("#hello")
+    text.val(text.val() + '@');
+    $("#hello").focus()
+  });
 
 
 
-  // $( window ).load(jq() {
-  // // Run code
-  // });
 });
 
 
