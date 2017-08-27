@@ -58,23 +58,63 @@ $( document ).ready(function() {
 
 
   //Make the value of the checkbox appear in the output text field when checked.
-   $(".output-check").change(function() {
-     var ischecked= $(this).is(':checked');
-     if(!ischecked)
-      console.log('unchecked')
-      // $('#top').remove($(this)).val();
-       // alert('uncheckd ' + $(this).val());
-     else if (ischecked){
-      console.log('ouhouuu')
-        //$('#output-text').text('@' + $(this).val() + '    ' );
-        $('#output-text').val( $('#output-text').val() + '@' + $(this).val() + ' ' );
-        $("#output-text").focus()
-     }
- });
-   // $("#om").click(function(){
-   //  console.log('yeeeaaahh');
-   // $('#losc').popover('show');
-   // });
+   // $(".output-check").change(function() {
+   //   var ischecked = $(this).is(':checked');
+   //   var unchecked = $(this).is(':checkbox:not(:checked)')
+   //   if (unchecked){
+   //    console.log('unchecked')
+    //$('#output-text').css('background-color', 'red')
+    //$("#output-text").find($(this).val()).remove();
+//     $('output-text').each(function(){
+//     $(this).html($(this).html().split("By:").join(""));
+// });
+//   }
+
+//      else if (ischecked){
+//         $('#output-text').val( $('#output-text').val() + $(this).val() + ' ' );
+//         $("#output-text").focus()
+//      }
+//  });
+
+
+
+   $(".output-check").change(function () {
+    setValue();
+});
+
+// function setValue() {
+//     var items = $(".output-text");
+//     var result = [];
+//     for (var i = 0; i < items.length; i++) {
+//         var item = $(items[i]);
+//         if (item.is(":checked")) {
+//             result.push(item.val());
+//         }
+//     }
+//     var text = result.join(",");
+//     $("#output-text").val(text);
+// }
+
+// $(".output-check").change(function () {
+//     setValue();
+// });
+
+function setValue() {
+    var items = $(".output-check");
+    var result = [];
+    for (var i = 0; i < items.length; i++) {
+        var item = $(items[i]);
+        if (item.is(":checked")) {
+            result.push(item.val());
+        }
+    }
+    var text = result.join();
+    $("#output-text").val(text);
+    //$('#output-text').val( $('#output-text').val() + text + ' ' );
+    $("#output-text").focus()
+}
+
+
 
 });
 
