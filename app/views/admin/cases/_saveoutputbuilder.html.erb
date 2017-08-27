@@ -3,7 +3,7 @@
   <h3 class= page-title>MESSAGE BUILDER</h3>
   <div>
     <%= simple_form_for @case, url: save_output_admin_case_path(@case), method: :post do |f|%>
-      <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text", style: "height: 236.27px; resize: none; text-align: center; padding-top: 30px; font-size: 20px; font-family: Rubik, Helvetica, sans-serif"} %>
+      <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text"} %>
     <% end %>
   </div>
 </div>
