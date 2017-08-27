@@ -151,7 +151,7 @@
   display: flex;
     min-height: 100px;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
   height: 100%;
   background-color: white;
   border-radius: $border-radius-base;
@@ -202,15 +202,15 @@
 }
 
 .variables-style {
-  width: 150px;
+  width: 138px;
   height: 100%;
-  background-color: $variable-blue;
+  background-color: $cta-green;
   border-radius: $border-radius-large;
   font-family: $variables-font;
   color: $white;
   text-align: center;
   padding: 9px;
-  margin: 20px;
+  margin: 9px;
   font-size: $font-size-base;
   list-style-type: none;
   @include shadow;
@@ -242,6 +242,10 @@
   height: 85%;
 }
 
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 // ----------------Components - Outputbuilder -----------
 
