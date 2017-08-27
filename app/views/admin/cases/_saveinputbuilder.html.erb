@@ -1,11 +1,10 @@
 
 <div class="around" id="input_first">
   <h3 class= page-title>FORM BUILDER</h3>
-  <%= simple_form_for @case, url: save_input_admin_case_path(@case), method: :post do |f|%>
+  <%= simple_form_for @case, url: save_input_admin_case_path(@case), :html => {:id => "save-input-form"} ,method: :patch do |f|%>
     <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello"} %>
   <% end %>
 </div>
-
 
 <div class="around" id="input_second">
   <h3 class= page-title>FORM PREVIEW</h3>
@@ -16,7 +15,14 @@
 </div>
 
 <div class="around" id="input_third">
-  <h3 class= page-title>VARIABLE</h3>
+  <div class="Section-Header">
+    <h3 class= page-title> USER INPUT FIELDS</h3>
+    <div class="save-button">
+      <%= button_tag type: 'submit', form: "save-input-form", class: "fabutton save-btn-inner", id: "global-save" do %>
+      <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+      <h4> CASE</h4><% end %>
+    </div>
+  </div>
   <div  class="form-builder">
    <div class="container">
      <div class="row" id="variables-box">

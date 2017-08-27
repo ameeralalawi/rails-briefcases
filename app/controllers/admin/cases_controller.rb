@@ -84,7 +84,7 @@ class Admin::CasesController < ApplicationController
       ]
       f.plotOptions(column: { stacking: 'normal'})
       f.legend(align: 'center', verticalAlign: 'bottom', y: 0, x: 0, layout: 'horizontal')
-      f.chart({defaultSeriesType: "column", height: "350"})
+      f.chart({defaultSeriesType: "column", height: '320'})
     end
     chartB = LazyHighCharts::HighChart.new('graph3') do |f|
       f.title(text: mycase.scenario_b)
@@ -102,7 +102,7 @@ class Admin::CasesController < ApplicationController
       ]
       f.plotOptions(column: { stacking: 'normal'})
       f.legend(align: 'center', verticalAlign: 'bottom', y: 0, x: 0, layout: 'horizontal')
-      f.chart({defaultSeriesType: "column", height: "350"})
+      f.chart({defaultSeriesType: "column", height: '320'})
     end
     return {chartM: chartM ,chartA: chartA ,chartB: chartB}
   end
