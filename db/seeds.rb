@@ -25,7 +25,7 @@ admin = User.last
 Case.create!({
   :status => "published",
   :user_input_text => "I have @TotalUserBulbs incandescent lightbulbs with a wattage of @UserBulbWattage Watts in my home. My electricity price in USD per Kwh is: @UserElecPrice. On average I keep my lights on @UserHoursOfUse hours per day (average in Europe is 5 hours per day).",
-  :user_output_text => "If you invest in our product, you will earn @return euros per year and recover the initial cost in @breakevenpoint. In more details, the value of your investment after year one will be of @NpvYearOne. ",
+  :user_output_text => "If you invest in our product, you will earn @Return euros per year and recover the initial cost in @BreakEvenPoint. In more details, the value of your investment after year one will be of @NpvEndOfYearOne. ",
   :name => "Hooli CFL Lightbulb",
   :icon => "fa-lightbulb-o",
   :color => "darkblue",
