@@ -57,40 +57,40 @@ $( document ).ready(function() {
   function shouldBeChecked(){
     var field = $('#output-text').val();
 
-    if (field.indexOf("Return") >= 0){
-      $("#Return").prop('checked', true)
+    if (field.indexOf("BAEndofPeriodVal") >= 0){
+      $("#BAEndofPeriodVal").prop('checked', true)
     } else {
-      $("#Return").prop('checked', false)
+      $("#BAEndofPeriodVal").prop('checked', false)
     };
 
-     if (field.indexOf("NpvEndOfYearOne") >= 0){
-      $("#NpvEndOfYearOne").prop('checked', true)
+     if (field.indexOf("ABEndofPeriodVal") >= 0){
+      $("#ABEndofPeriodVal").prop('checked', true)
     }else {
-      $("#NpvEndOfYearOne").prop('checked', false)
+      $("#ABEndofPeriodVal").prop('checked', false)
     };
 
-     if (field.indexOf("Earning") >= 0){
-      $("#Earning").prop('checked', true)
+     if (field.indexOf("ReturnOnInvestedCapital") >= 0){
+      $("#ReturnOnInvestedCapital").prop('checked', true)
     } else {
-      $("#Earning").prop('checked', false)
+      $("#ReturnOnInvestedCapital").prop('checked', false)
     };
 
-     if (field.indexOf("NpvEndOfYearTwo") >= 0){
-      $("#NpvEndOfYearTwo").prop('checked', true)
+     if (field.indexOf("InternalRateOfReturn") >= 0){
+      $("#InternalRateOfReturn").prop('checked', true)
     } else {
-      $("#NpvEndOfYearTwo").prop('checked', false)
+      $("#InternalRateOfReturn").prop('checked', false)
     };
 
-     if (field.indexOf("NpvEndOfYearThree") >= 0){
-      $("#NpvEndOfYearThree").prop('checked', true)
+     if (field.indexOf("FirstBreakeveInMonths") >= 0){
+      $("#FirstBreakeveInMonths").prop('checked', true)
     } else {
-      $("#NpvEndOfYearThree").prop('checked', false)
+      $("#FirstBreakeveInMonths").prop('checked', false)
     };
 
-     if (field.indexOf("BreakEvenPoint") >= 0){
-      $("#BreakEvenPoint").prop('checked', true)
+     if (field.indexOf("SecondBreakeveInMonths") >= 0){
+      $("#SecondBreakeveInMonths").prop('checked', true)
     }else {
-      $("#BreakEvenPoint").prop('checked', false)
+      $("#SecondBreakeveInMonths").prop('checked', false)
     };
   };
 
