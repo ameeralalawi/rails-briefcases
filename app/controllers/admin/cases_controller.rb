@@ -1,17 +1,31 @@
 class Admin::CasesController < ApplicationController
   def index
     @cases = Case.all
+    @case = Case.new
+    @light_sidebar  = true
+  end
+
+  def new
+    @case = Case.new
   end
 
   def create
+# raise
+    @case = Case.new(case_params)
+    @case.status = "unpublished"
+    @case.user = current_user
 
-    # @case = Case.new(case_params)
-    # @case.user = current_user
-    # if @case.save
-    #   redirect_to admin_case_path(@case)
-    # else
-    #   render :new
-    # end
+    if @case.save
+      respond_to do |format|
+        format.html { redirect_to admin_case_path(@case) }
+        #format.js  # <-- will render `/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        #format.html { redirect_to admin_case_path(@case) }
+        format.js  # <-- will render `/create.js.erb`
+      end
+    end
 
 
     # @case = Case.new
@@ -148,6 +162,10 @@ class Admin::CasesController < ApplicationController
       f.colors(["#0B132B", "#CCCCCC", "#8085e9", "#f15c80", "#e4d354"])
     end
   end
+
+
+  def case_params
+     params.require(:case).permit(:user_input_text, :name, :scenario_a, :scenario_b)
 
   def case_params_input
      params.require(:case).permit(:user_input_text)

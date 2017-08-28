@@ -2,7 +2,7 @@
 <div class="around" id="input_first">
   <h3 class= page-title>FORM BUILDER</h3>
   <%= simple_form_for @case, url: save_input_admin_case_path(@case), :html => {:id => "save-input-form"} ,method: :patch do |f|%>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, input_html: { id:"hello"} %>
+    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"hello"} %>
   <% end %>
 </div>
 

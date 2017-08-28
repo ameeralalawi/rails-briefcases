@@ -10,13 +10,24 @@
   padding-bottom: 5em;
 }
 
-.padded-all {
-  padding: 5em;
+.no-margin {
+  margin: 0px 0px;
+}
+
+
+
+.margin-light {
+  margin: 5px 0px;
 }
 
 .heading-blue {
   color: $heading-blue;
 }
+
+#last-element {
+  margin-bottom: 10px;
+}
+
 
 
 // Backgrounds
