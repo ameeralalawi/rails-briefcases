@@ -35,7 +35,7 @@ $( document ).ready(function() {
 
   // When I check/uncheck checkbox, it displays its value in the output box field editor.
   function setValue(input_id) {
-
+    var $that = $("#output-text")
     var text = $('#output-text').val();
     var item = $('#' + input_id);
 
@@ -49,7 +49,7 @@ $( document ).ready(function() {
         };
 
         $('#output-text').val(text)
-
+        print_output($that);
   };
 
 
