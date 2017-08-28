@@ -1,3 +1,8 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 .footer {
   background: #8190A0;
   display: flex;
@@ -6,6 +11,10 @@
   height: 70px;
   padding: 0px 50px;
   color: white;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .footer-links {
   display: flex;

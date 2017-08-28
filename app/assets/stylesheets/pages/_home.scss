@@ -4,7 +4,8 @@
   height: calc(100vh - 70px);
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-position: 0px 105px
+  background-position: 0px 105px;
+  position: relative;
 }
 
 #intro-paragraph {
@@ -68,6 +69,7 @@
   height: auto;
   min-height: 110vh;
   color: $example-gray;
+  position: relative;
 }
 
 #how-it-works {
@@ -84,6 +86,7 @@
   height: 200px;
   display: flex;
   align-items: flex-end;
+  position: relative;
 }
 
 #go-down {
