@@ -176,6 +176,8 @@ class Admin::CasesController < ApplicationController
   end
 
 
+
+
   def case_params_variables
      params.permit(:variablesjson)
   end
