@@ -1,0 +1,102 @@
+
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  text-decoration: none;
+}
+
+.card-case-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+.card-case:hover {
+  @include shadow;
+}
+.card-case {
+  position: relative;
+  display: inline-block;
+  max-width: 30%;
+
+  background-color: white;
+  min-height: 300px;
+  min-width: 300px;
+  margin: 0 20px;
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: 12px;
+  color: black;
+  @include border;
+
+h4 {
+    font-weight: 700;
+    padding-bottom: 12px;
+    margin-top: 20px
+}
+}
+
+
+.card-case-image {
+  height: 200px;
+  width: 100%;
+}
+
+.card-case-details {
+  width: 100%;
+  padding: 0px 6px;
+  padding-bottom: 15px;
+  color: rgba(1, 1, 1, 1);
+  line-height: 1.43;
+}
+
+
+.card-case-info-wrapper {
+  padding: 0 20px;
+}
+
+.card-case-info-wrapper {
+  text-align: center;
+  padding-left: 35px;
+  padding-right: 35px;
+  min-height: 152px;
+  display: flex;
+  justify-content: space-between;   //needs vertical alignement
+
+}
+
+.card-case-info-element {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  min-height: 66px;
+
+  h2, h5, h6, p {
+    margin: 0;
+  }
+}
+
+#first-scenario {
+    border-top: 1px solid #bbb;
+}
+
+
+#last-scenario {
+    border-bottom: 1px solid #bbb;
+}
+
+
+#plus-card {
+  text-align: center;
+  background-color: $cta-green;
+
+  h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin-top: 60px;
+  }
+  h1, p {
+      color: white;
+  }
+}
+
+
