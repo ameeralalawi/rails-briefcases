@@ -51,19 +51,13 @@ class Admin::CasesController < ApplicationController
   end
 
   def saveinputbuilder
-    # @case = Case.new
-    # @case.user = current_user
-    # @input = case_params["user_input_text"]
-    # @case.user_input_text = @input
-    # #raise
-    # if @case.save
-
-    #   redirect_to admin_case_path(@case)
-    # end
-
+    @case = Case.find(params[:id])
+    @case.update(case_params_input)
   end
 
   def saveoutputbuilder
+    @case = Case.find(params[:id])
+    @case.update(case_params_output)
   end
 
   def outputpreferences
@@ -75,6 +69,27 @@ class Admin::CasesController < ApplicationController
   def updatestatus
     @case = Case.find(params[:id])
     @case.update(status: "published")
+  end
+
+  def savevariables
+    @case = Case.find(params[:id])
+    vars = JSON.parse(case_params_variables[:variablesjson])
+    vars.each do |varname, varvalue|
+      if varvalue[0] == "@"
+        Variable.where(case_id: params[:id], name: varname).destroy_all
+        Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "input")
+      else
+        Variable.where(case_id: params[:id], name: varname).destroy_all
+        Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "expert")
+      end
+    end
+    Variable.where(case_id: params[:id], category: "output").destroy_all
+    @case.output_pref_1 ? Variable.create(name: "@B-A_EndofPeriod_Val", expression: "@B-A_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
+    @case.output_pref_2 ? Variable.create(name: "@A-B_EndofPeriod_Val", expression: "@A-B_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
+    @case.output_pref_3 ? Variable.create(name: "@Return_on_Invested_Capital", expression: "@Return_on_Invested_Capital", category: "output", case_id: @case.id) : nil
+    @case.output_pref_4 ? Variable.create(name: "@Internal_Rate_Return", expression: "@Internal_Rate_Return", category: "output", case_id: @case.id) : nil
+    @case.output_pref_5 ? Variable.create(name: "@First_Breakeven_in_months", expression: "@First_Breakeven_in_months", category: "output", case_id: @case.id) : nil
+    @case.output_pref_6 ? Variable.create(name: "@Second_Breakeven_in_months", expression: "@Second_Breakeven_in_months", category: "output", case_id: @case.id) : nil
   end
 
   private
@@ -148,9 +163,21 @@ class Admin::CasesController < ApplicationController
     end
   end
 
+
   def case_params
      params.require(:case).permit(:user_input_text, :name, :scenario_a, :scenario_b)
 
+  def case_params_input
+     params.require(:case).permit(:user_input_text)
+  end
+
+  def case_params_output
+     params.require(:case).permit(:user_output_text)
+  end
+
+
+  def case_params_variables
+     params.permit(:variablesjson)
   end
 
 end

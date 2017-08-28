@@ -16,10 +16,11 @@ Rails.application.routes.draw do
       resources :variables, only: [:create]
       resources :lines, only: [:create, :update, :destroy]
       member do
-        post 'saveinputbuilder', as: "save_input"
+        patch 'saveinputbuilder', as: "save_input"
         patch 'saveoutputbuilder', as: "save_output"
         patch 'outputpreferences', as: "save_outputpreferences"
-        post 'testdata', as: "save_testdata"
+        patch 'savevariables', as: "save_variables"
+        patch 'testdata', as: "save_testdata"
         patch 'updatestatus', as: "update_case_status"
       end
     end
