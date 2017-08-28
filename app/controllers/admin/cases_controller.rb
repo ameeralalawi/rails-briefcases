@@ -37,19 +37,13 @@ class Admin::CasesController < ApplicationController
   end
 
   def saveinputbuilder
-    # @case = Case.new
-    # @case.user = current_user
-    # @input = case_params["user_input_text"]
-    # @case.user_input_text = @input
-    # #raise
-    # if @case.save
-
-    #   redirect_to admin_case_path(@case)
-    # end
-
+    @case = Case.find(params[:id])
+    @case.update(case_params_input)
   end
 
   def saveoutputbuilder
+    @case = Case.find(params[:id])
+    @case.update(case_params_output)
   end
 
   def outputpreferences
@@ -134,9 +128,12 @@ class Admin::CasesController < ApplicationController
     end
   end
 
-  def case_params
+  def case_params_input
      params.require(:case).permit(:user_input_text)
+  end
 
+  def case_params_output
+     params.require(:case).permit(:user_output_text)
   end
 
 end
