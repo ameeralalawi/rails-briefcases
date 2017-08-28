@@ -8,82 +8,99 @@
     var sentence_with_input = sentence.replace(regex, '<input type="text" name="amount"/>')
 
     $('.text-output').html(sentence_with_input);
-
-      // we check the string that start with @ and remove special characters after that string
-      // var variables = []
-      // var moto;
-
-      // do {
-      //   moto = regex.exec(sentence);
-      //   if (moto) {
-      //     variables.push(moto[0]);
-      //   }
-      // } while (moto);
-
-      // we transform the array variables into an oject call obj
-      // function toObject(arr) {
-      //   var rv = {};
-      //   for (var i = 0; i < arr.length; ++i)
-      //     rv[arr[i]] = arr[i];
-      //   return rv;
-      // }
-      // obj = toObject(variables)
-
-      // we store all the values of the keys of that object into the array syntax
-     // var syntax = Object.values(obj)
-
-
   };
 
-  //Make the value of the checkbox appear in the output text field when checked.
-   // $(".output-check").change(function() {
-   //   var ischecked = $(this).is(':checked');
-   //   var unchecked = $(this).is(':checkbox:not(:checked)')
-   //   if (unchecked){
-   //    console.log('unchecked')
-    //$('#output-text').css('background-color', 'red')
-    //$("#output-text").find($(this).val()).remove();
-//     $('output-text').each(function(){
-//     $(this).html($(this).html().split("By:").join(""));
-// });
-//   }
 
-//      else if (ischecked){
-//         $('#output-text').val( $('#output-text').val() + $(this).val() + ' ' );
-//         $("#output-text").focus()
-//      }
-//  });
+
 
 $( document ).ready(function() {
 
   //The default output text is printed on the preview box.
   var $that = $("#output-text")
-  print_output($that)
+  print_output($that);
+  shouldBeChecked();
+
+
+
 
   // On keyup, we call the print_output() function
   $that.keyup(function() {
     print_output($that)
+    shouldBeChecked();
   });
+
+
+
+
 
   // When I check/uncheck checkbox, it displays its value in the output box field editor.
-  function setValue() {
-    var items = $(".output-check");
-    var result = [];
-    for (var i = 0; i < items.length; i++) {
-        var item = $(items[i]);
+  function setValue(input_id) {
+    var $that = $("#output-text")
+    var text = $('#output-text').val();
+    var item = $('#' + input_id);
+
         if (item.is(":checked")) {
-          result.push(item.val());
-        }
-    }
-    var text = result.join();
-    $("#output-text").val(text);
-    //$('#output-text').val( $('#output-text').val() + text + ' ' );
-    $("#output-text").focus()
+          text = text + item.val();
+          $("#output-text").focus()
+        } else if (item.is(':checkbox:not(:checked)')) {
+          text = text.replace(item.val(), "");
+          $("#output-text").focus()
+
+        };
+
+        $('#output-text').val(text)
+        print_output($that);
   };
 
+
+  // When a variable is in the text, the box should be checked.
+  function shouldBeChecked(){
+    var field = $('#output-text').val();
+
+    if (field.indexOf("Return") >= 0){
+      $("#Return").prop('checked', true)
+    } else {
+      $("#Return").prop('checked', false)
+    };
+
+     if (field.indexOf("NpvEndOfYearOne") >= 0){
+      $("#NpvEndOfYearOne").prop('checked', true)
+    }else {
+      $("#NpvEndOfYearOne").prop('checked', false)
+    };
+
+     if (field.indexOf("Earning") >= 0){
+      $("#Earning").prop('checked', true)
+    } else {
+      $("#Earning").prop('checked', false)
+    };
+
+     if (field.indexOf("NpvEndOfYearTwo") >= 0){
+      $("#NpvEndOfYearTwo").prop('checked', true)
+    } else {
+      $("#NpvEndOfYearTwo").prop('checked', false)
+    };
+
+     if (field.indexOf("NpvEndOfYearThree") >= 0){
+      $("#NpvEndOfYearThree").prop('checked', true)
+    } else {
+      $("#NpvEndOfYearThree").prop('checked', false)
+    };
+
+     if (field.indexOf("BreakEvenPoint") >= 0){
+      $("#BreakEvenPoint").prop('checked', true)
+    }else {
+      $("#BreakEvenPoint").prop('checked', false)
+    };
+  };
+
+
+
+
     $(".output-check").change(function () {
-    setValue();
-  });
+      setValue(this.id);
+    });
+
 
 
 });

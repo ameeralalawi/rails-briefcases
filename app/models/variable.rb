@@ -1,8 +1,8 @@
 class Variable < ApplicationRecord
   include VariableHelpers
   belongs_to :case
-  has_many :lines
-  has_many :variable_uses
+  has_many :lines, dependent: :destroy
+  has_many :variable_uses, dependent: :destroy
 
   validates :name, presence: true
   validates :expression, presence: true

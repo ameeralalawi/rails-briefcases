@@ -1,21 +1,22 @@
 
 $(document).ready(function() {
+
   $('#fullpage').fullpage({
 
     //Navigation
-    menu: '#menu',
+    menu: true,
     lockAnchors: false,
-    anchors:['firstPage', 'secondPage'],
+    anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage'],
     navigation: false,
     navigationPosition: 'right',
-    navigationTooltips: ['firstSlide', 'secondSlide'],
+    navigationTooltips: ['firstSlide', 'secondSlide','thirdSlide', 'fourthSlide', 'fifthSlide', 'sixthSlide'],
     showActiveTooltip: false,
     slidesNavigation: false,
     slidesNavPosition: 'bottom',
 
     //Scrolling
     css3: true,
-    scrollingSpeed: 700,
+    scrollingSpeed: 650,
     autoScrolling: true,
     fitToSection: true,
     fitToSectionDelay: 1000,
