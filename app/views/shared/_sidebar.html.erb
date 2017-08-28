@@ -6,7 +6,12 @@
   <!-- AVATAR -->
   <!-- PART DELETED HERE: Cloudinary photo -->
   <div class="persona" >
-        <%= image_tag 'https://kitt.lewagon.com/placeholder/users/ssaunier', class: "avatar" %>
+      <% if current_user.facebook_picture_url %>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+      <% else %>
+        <%= image_tag 'user_profile_picture.png', class: "avatar" %>
+      <% end %>
+
       <div class="user-name">
       <h4> <%= current_user.first_name %></h4>
       </div>
