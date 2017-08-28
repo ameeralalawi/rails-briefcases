@@ -63,22 +63,22 @@ Case.create!({
 # Case variables are seeded here
 Variable.create!([
  {:expression =>  '@TotalUserBulbs',
-  :name => 'TotalUserBulbs',
+  :name => '@TotalUserBulbs',
   :expert_value => 10,
   :category => "input",
   :case_id => seedcase.id},
  {:expression =>  '@UserBulbWattage',
-  :name => 'UserBulbWattage',
+  :name => '@UserBulbWattage',
   :expert_value => 60,
   :category => "input",
   :case_id => seedcase.id},
  {:expression =>  '@UserElecPrice',
-  :name => 'UserElecPrice',
+  :name => '@UserElecPrice',
   :expert_value => 0.10,
   :category => "input",
   :case_id => seedcase.id},
  {:expression =>  '@UserHoursOfUse',
-  :name => 'UserHoursOfUse',
+  :name => '@UserHoursOfUse',
   :expert_value => 5,
   :category => "input",
   :case_id => seedcase.id},
@@ -98,15 +98,15 @@ Variable.create!([
   :name => 'WattageHooliBulb',
   :category => "expert",
   :case_id => seedcase.id},
- {:expression => '{"data":["(","(",{"value":"TotalUserBulbs","type":"item"},"*",{"value":"UserHoursOfUse","type":"item"},"*",{"value":"WattageHooliBulb","type":"item"},")","/",{"value":"1,000","type":"unit"},")","*",{"value":"UserElecPrice","type":"item"},"*","(",{"value":"365","type":"unit"},"/",{"value":"12","type":"unit"},")"],"filterData":{"status":true,"data":{"operator":"*","operand1":{"operator":"*","operand1":{"operator":"/","operand1":{"operator":"*","operand1":{"operator":"*","operand1":{"value":"TotalUserBulbs","type":"item"},"operand2":{"value":"UserHoursOfUse","type":"item"},"length":5},"operand2":{"value":"WattageHooliBulb","type":"item"},"length":5},"operand2":{"value":"1,000","type":"unit"},"length":9},"operand2":{"value":"UserElecPrice","type":"item"},"length":19},"operand2":{"operator":"/","operand1":{"value":"365","type":"unit"},"operand2":{"value":"12","type":"unit"},"length":3},"length":19}}}',
+ {:expression => '{"data":["(","(",{"value":"@TotalUserBulbs","type":"item"},"*",{"value":"@UserHoursOfUse","type":"item"},"*",{"value":"WattageHooliBulb","type":"item"},")","/",{"value":"1,000","type":"unit"},")","*",{"value":"@UserElecPrice","type":"item"},"*","(",{"value":"365","type":"unit"},"/",{"value":"12","type":"unit"},")"],"filterData":{"status":true,"data":{"operator":"*","operand1":{"operator":"*","operand1":{"operator":"/","operand1":{"operator":"*","operand1":{"operator":"*","operand1":{"value":"@TotalUserBulbs","type":"item"},"operand2":{"value":"@UserHoursOfUse","type":"item"},"length":5},"operand2":{"value":"WattageHooliBulb","type":"item"},"length":5},"operand2":{"value":"1,000","type":"unit"},"length":9},"operand2":{"value":"@UserElecPrice","type":"item"},"length":19},"operand2":{"operator":"/","operand1":{"value":"365","type":"unit"},"operand2":{"value":"12","type":"unit"},"length":3},"length":19}}}',
   :name => 'ScenarioA_CostpMonth',
   :category => "expert",
   :case_id => seedcase.id},
- {:expression => '{"data":["(","(",{"value":"TotalUserBulbs","type":"item"},"*",{"value":"UserHoursOfUse","type":"item"},"*",{"value":"UserBulbWattage","type":"item"},")","/",{"value":"1,000","type":"unit"},")","*",{"value":"UserElecPrice","type":"item"},"*","(",{"value":"365","type":"unit"},"/",{"value":"12","type":"unit"},")"],"filterData":{"status":true,"data":{"operator":"*","operand1":{"operator":"*","operand1":{"operator":"/","operand1":{"operator":"*","operand1":{"operator":"*","operand1":{"value":"TotalUserBulbs","type":"item"},"operand2":{"value":"UserHoursOfUse","type":"item"},"length":5},"operand2":{"value":"UserBulbWattage","type":"item"},"length":5},"operand2":{"value":"1,000","type":"unit"},"length":9},"operand2":{"value":"UserElecPrice","type":"item"},"length":19},"operand2":{"operator":"/","operand1":{"value":"365","type":"unit"},"operand2":{"value":"12","type":"unit"},"length":3},"length":19}}}',
+ {:expression => '{"data":["(","(",{"value":"@TotalUserBulbs","type":"item"},"*",{"value":"@UserHoursOfUse","type":"item"},"*",{"value":"@UserBulbWattage","type":"item"},")","/",{"value":"1,000","type":"unit"},")","*",{"value":"@UserElecPrice","type":"item"},"*","(",{"value":"365","type":"unit"},"/",{"value":"12","type":"unit"},")"],"filterData":{"status":true,"data":{"operator":"*","operand1":{"operator":"*","operand1":{"operator":"/","operand1":{"operator":"*","operand1":{"operator":"*","operand1":{"value":"@TotalUserBulbs","type":"item"},"operand2":{"value":"@UserHoursOfUse","type":"item"},"length":5},"operand2":{"value":"@UserBulbWattage","type":"item"},"length":5},"operand2":{"value":"1,000","type":"unit"},"length":9},"operand2":{"value":"@UserElecPrice","type":"item"},"length":19},"operand2":{"operator":"/","operand1":{"value":"365","type":"unit"},"operand2":{"value":"12","type":"unit"},"length":3},"length":19}}}',
   :name => 'ScenarioB_CostpMonth',
   :category => "expert",
   :case_id => seedcase.id},
- {:expression => '{"data":[{"value":"TotalUserBulbs","type":"item"},"*",{"value":"CostPerHooliBulb","type":"item"}],"filterData":{"status":true,"data":{"operator":"*","operand1":{"value":"TotalUserBulbs","type":"item"},"operand2":{"value":"CostPerHooliBulb","type":"item"},"length":3}}}',
+ {:expression => '{"data":[{"value":"@TotalUserBulbs","type":"item"},"*",{"value":"CostPerHooliBulb","type":"item"}],"filterData":{"status":true,"data":{"operator":"*","operand1":{"value":"@TotalUserBulbs","type":"item"},"operand2":{"value":"CostPerHooliBulb","type":"item"},"length":3}}}',
   :name => 'InitialInvestment',
   :category => "expert",
   :case_id => seedcase.id}
@@ -165,16 +165,16 @@ Line.create!([
   })
   VariableUse.create!([
  {:value => rand(4.0...50.0),
-  :variable_id => Variable.where("name = 'TotalUserBulbs'").first.id,
+  :variable_id => Variable.where("name = '@TotalUserBulbs'").first.id,
   :lead_id => lead.id},
  {:value => [35.5, 40.0, 45.0, 50.0, 55.0, 60.0].sample,
-  :variable_id => Variable.where("name = 'UserBulbWattage'").first.id,
+  :variable_id => Variable.where("name = '@UserBulbWattage'").first.id,
   :lead_id => lead.id},
  {:value => rand(0.05...0.20),
-  :variable_id => Variable.where("name = 'UserElecPrice'").first.id,
+  :variable_id => Variable.where("name = '@UserElecPrice'").first.id,
   :lead_id => lead.id},
  {:value => [3.0, 4.0, 5.0, 6.0, 7.0].sample,
-  :variable_id => Variable.where("name = 'UserHoursOfUse'").first.id,
+  :variable_id => Variable.where("name = '@UserHoursOfUse'").first.id,
   :lead_id => lead.id}
   ])
 end
@@ -184,16 +184,16 @@ end
   })
   VariableUse.create!([
  {:value => rand(4.0...50.0),
-  :variable_id => Variable.where("name = 'TotalUserBulbs'").first.id,
+  :variable_id => Variable.where("name = '@TotalUserBulbs'").first.id,
   :lead_id => lead.id},
  {:value => [35.5, 40.0, 45.0, 50.0, 55.0, 60.0].sample,
-  :variable_id => Variable.where("name = 'UserBulbWattage'").first.id,
+  :variable_id => Variable.where("name = '@UserBulbWattage'").first.id,
   :lead_id => lead.id},
  {:value => rand(0.05...0.20),
-  :variable_id => Variable.where("name = 'UserElecPrice'").first.id,
+  :variable_id => Variable.where("name = '@UserElecPrice'").first.id,
   :lead_id => lead.id},
  {:value => [3.0, 4.0, 5.0, 6.0, 7.0].sample,
-  :variable_id => Variable.where("name = 'UserHoursOfUse'").first.id,
+  :variable_id => Variable.where("name = '@UserHoursOfUse'").first.id,
   :lead_id => lead.id}
   ])
 end
