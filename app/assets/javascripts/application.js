@@ -2,7 +2,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-ui
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require fullpage
 //= require clipboard
 //= require_tree .
