@@ -1,5 +1,4 @@
 $("#learn-more a").click(function(e) {
-
   e.preventDefault();
   var container = $('body');
   var scrollTo = $('#section-2');
