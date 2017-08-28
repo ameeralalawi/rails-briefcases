@@ -9,8 +9,10 @@
   </div>
   <div id= "test_data">
     <div id="preview">
-      <div id="input-form" class="text-input">
-      </div>
+      <%= simple_form_for @case, url: save_testdata_admin_case_path(@case), :html => {:id => "save-testdata-form"} ,method: :patch do |f|%>
+        <div id="input-form" class="text-input">
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

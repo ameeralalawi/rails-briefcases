@@ -64,6 +64,11 @@ class Admin::CasesController < ApplicationController
   end
 
   def testdata
+    @case = Case.find(params[:id])
+    case_params_testdata(@case).each do |varname,expertval|
+      changevar = Variable.where(case_id: params[:id], category: "input", name: varname)
+      changevar.update(expert_value: expertval.to_f)
+    end
   end
 
   def updatestatus
@@ -181,6 +186,11 @@ class Admin::CasesController < ApplicationController
 
   def case_params_variables
      params.permit(:variablesjson)
+  end
+
+  def case_params_testdata(mycase)
+     list_params_allowed = mycase.variables.where(case_id: params[:id], category: "input").map(&:expression)
+     params.permit(list_params_allowed)
   end
 
 end
