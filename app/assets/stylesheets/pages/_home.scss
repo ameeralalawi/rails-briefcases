@@ -29,7 +29,7 @@
   margin-left: 100px;
   font-size: 25px;
   color: white;
-  background-color: $light-filling;
+  background-color: $cta-green;
   border: none;
   border-radius: $border-radius-large;
   padding: 10px 24px;
@@ -37,25 +37,22 @@
 }
 
 #get-started:hover{
-opacity: 0.7;
+  opacity: 0.7;
 }
 
 #learn-more {
   max-width: 160px;
   position: absolute;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 90px;
   left: 0;
   right: 0;
-  bottom: 20px;
-
-  a {
-    font-size: 22px;
-  }
+  bottom: 50px;
 
   .fa, a {
-    color: $text-black;
-    opacity: 0.7;
+    color: $dark-filling;
+    opacity: 0.8;
+    font-size: 24px;
   }
 
 
@@ -87,6 +84,24 @@ opacity: 0.7;
   height: 200px;
   display: flex;
   align-items: flex-end;
+}
+
+#go-down {
+  max-width: 200px;
+  margin: 70px auto;
+
+
+  .fa, a {
+    color: $white;
+    opacity: 0.8;
+    font-size: 44px;
+  }
+
+
+  a:hover{
+    text-decoration: none;
+    opacity: 1;
+  }
 }
 
 #section-4 {
