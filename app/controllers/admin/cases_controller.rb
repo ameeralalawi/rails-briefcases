@@ -166,6 +166,7 @@ class Admin::CasesController < ApplicationController
 
   def case_params
      params.require(:case).permit(:user_input_text, :name, :scenario_a, :scenario_b)
+  end
 
   def case_params_input
      params.require(:case).permit(:user_input_text)
