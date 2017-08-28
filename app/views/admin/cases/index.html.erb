@@ -1,14 +1,64 @@
 <div id="app-screen-index">
-<div class="wrapper-admin-cases-index">
+  <div class="wrapper-admin-cases-index">
 
-<h1>User Case Portfolio Placeholder</h1>
+    <div class="col-xs-12 row">
 
-<ul>
-  <% @cases.each do |one_case| %>
-    <li><%= link_to one_case.name, admin_case_path(one_case) %></li>
-  <% end %>
-</ul>
 
+      <div class="col-xs-12 col-sm-6 col-md-4">
+  <!--  plus card !! TO-DO: CHANGE TO NEW CASE   -->
+          <%= link_to admin_cases_path do %>
+
+          <div class="card-case" id="plus-card">
+            <div class="card-case-details">
+              <h1>+</h1>
+              <p>Create new case</p>
+            </div>
+          </div>
+
+          <% end %>
+      </div>
+
+
+
+
+
+        <% @cases.each do |one_case| %>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= link_to admin_case_path(one_case) do %>
+
+          <!--  one card  -->
+          <div class="card-case">
+            <div class="card-case-details">
+              <h4><%= one_case.name %></h4>
+
+              <% if one_case.status == "published" %>
+              <p style="color: green;"> <%= one_case.status %> </p>
+              <% else %>
+              <p style="color: orange;"> <%= one_case.status %> </p>
+              <% end %>
+            </div>
+
+            <div class="card-case-info-wrapper">
+              <div class="card-case-info">
+                <div class="col-sm-12 card-case-info-element" id="first-scenario">
+                  <p><%= one_case.scenario_a %>  </p>
+                </div>
+                <i class="fa fa-sign-out"></i>
+                <div class="col-sm-12 card-case-info-element" id="last-scenario">
+                  <p> <%= one_case.scenario_b %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+
+
+  </div>
 </div>
-</div>
+
 

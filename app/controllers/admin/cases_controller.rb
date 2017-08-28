@@ -4,6 +4,16 @@ class Admin::CasesController < ApplicationController
   end
 
   def create
+
+    # @case = Case.new(case_params)
+    # @case.user = current_user
+    # if @case.save
+    #   redirect_to admin_case_path(@case)
+    # else
+    #   render :new
+    # end
+
+
     # @case = Case.new
     # @charts = prep_chart(@case)
     # charts = prep_chart(@case)

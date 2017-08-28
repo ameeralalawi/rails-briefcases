@@ -19,8 +19,14 @@
 
             <%= link_to "My cases", admin_cases_path %>
             </li>
+
             <li>
+                <div href="#pageSubmenu" data-toggle="collapse" ></div>
+
+ <% if admin_cases_path %>
+
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
+
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li><%= link_to "Input Form", admin_cases_path %></li>
                     <li><a href="#">Output Message</a></li>
@@ -42,6 +48,12 @@
             <li>
                 <a href="#">API</a>
             </li>
+
+<% else %>
+   </li>
+<% end %>
+
+
         </ul>
     </nav>
 
