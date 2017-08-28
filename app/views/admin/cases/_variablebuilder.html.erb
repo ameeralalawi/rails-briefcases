@@ -68,8 +68,22 @@
       var result = JSON.stringify($formula.data('formula').getFormula());
 
 
-     $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="'+ result +'">'+ variable_new_name +'</a></li>');
+     $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value='+ result +'>'+ variable_new_name +'</a></li>');
       document.loadDraggables();
+    });
+
+    $(".global-save").on('click', function(event) {
+      console.log("I RAN")
+      var myvars = {};
+      var ul = document.getElementById("shut");
+      var items = ul.getElementsByTagName("li");
+      for (var i = 0; i < items.length; ++i) {
+        var varkey = items[i].textContent
+        var varvalue = items[i].children[0].getAttribute("data-value")
+        myvars[varkey] = varvalue;
+      }
+      output = JSON.stringify(myvars);
+      $("#variablesjson").val(output);
     });
 
     print_text($("#hello"))
@@ -98,7 +112,11 @@
   <!-- With modal: -->
     <!-- <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
     </div> -->
-
+    <div>
+      <%= simple_form_for @case, url: save_variables_admin_case_path(@case), :html => {:id => "save-variables-form"}, method: :patch  do |f|%>
+         <input type="hidden" id="variablesjson"  name="variablesjson" placeholder="">
+      <% end %>
+    </div>
   </div>
   <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
@@ -107,7 +125,7 @@
     <div class="Section-Header">
       <h3 class= page-title> CASE VARIABLES</h3>
       <div class="save-button">
-        <%= button_tag type: 'submit', form: "save-variable-form", class: "fabutton save-btn-inner", id: "global-save" do %>
+        <%= button_tag type: 'submit', form: "save-variables-form", class: "fabutton save-btn-inner global-save", id: "global-save" do %>
         <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
         <h4> CASE</h4><% end %>
       </div>
@@ -123,6 +141,7 @@
         </ul>
       </div>
     </div>
+
   </div>
 
 <!-- This is the modal window -->
@@ -153,5 +172,8 @@
       </div>
     </div>
   </div> -->
-</body>
 
+</body>
+<script>
+
+</script>
