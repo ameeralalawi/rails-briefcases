@@ -97,6 +97,8 @@ $( document ).ready(function() {
 
 
 
+
+
     $(".output-check").change(function () {
       setValue(this.id);
     });
