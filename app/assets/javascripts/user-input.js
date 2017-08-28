@@ -5,7 +5,12 @@
     // on every key up, we get value in form and put it in preview and replace "@word" with an empty input field.
     var sentence = div.val();
     var regex = /(?:@[a-zA-Z]+)/g;
-    var sentence_with_input = sentence.replace(regex, '<input type="text" name="amount"/>')
+    var matches_array = sentence.match(regex);
+    var sentence_with_input = sentence
+    matches_array.forEach(function(match) {
+            sentence_with_input = sentence_with_input.replace(match, '<input type="text" type="number" name="'+match+'"/>')
+        });
+
 
     $('.text-input').html(sentence_with_input);
 
