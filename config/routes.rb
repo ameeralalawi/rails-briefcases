@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch 'leads/:id', to: 'leads#update'
 
   namespace :admin do
-    resources :cases, only: [:index, :create, :destroy, :show] do
+    resources :cases, only: [:index, :new, :create, :destroy, :show] do
       resources :leads, only: [:index]
       resources :variables, only: [:create]
       resources :lines, only: [:create, :update, :destroy]
