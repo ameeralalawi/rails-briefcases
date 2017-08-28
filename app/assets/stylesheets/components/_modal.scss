@@ -1,0 +1,103 @@
+.form-size {
+  width: 400px;
+  align-items: center;
+  margin: 0px;
+}
+
+
+.modal-content {
+ width: 480px;
+  margin-top: 100px;
+  @include border;
+  padding: 40px;
+}
+
+#div-create-msg {
+    @include border;
+    height: 30px;
+    line-height: 28px;
+    transition: all ease-in-out 500ms;
+    margin: 10px 0px;
+    background-color: $light-filling;
+    color: white;
+}
+
+#div-create-msg.success {
+    border: 1px solid #68c3a3;
+    background-color: #c8f7c5;
+}
+
+#div-create-msg.error {
+    border: 1px solid #eb575b;
+    background-color: #ffcad1;
+}
+
+#icon-create-msg {
+    width: 30px;
+    float: left;
+    line-height: 28px;
+    text-align: center;
+    background-color: $medium-filling;
+    margin-right: 5px;
+    transition: all ease-in-out 500ms;
+    color: white;
+}
+
+#icon-create-msg.success {
+    background-color: #68c3a3 !important;
+}
+
+#icon-create-msg.error {
+    background-color: #eb575b !important;
+}
+
+#img_logo {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+/* #########################################
+   #    override the bootstrap configs     #
+   ######################################### */
+
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .8;
+}
+
+.modal-content {
+    background-color: $white;
+    @include border;
+    outline: 0;
+}
+
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px 15px 25px 15px;
+    border-bottom: 0px;
+}
+
+.modal-body {
+    position: relative;
+    padding: 5px 15px 5px 15px;
+}
+
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+}
+
+
+.glyphicon {
+    top: 0px;
+}
+
+.form-control {
+  border-radius: $border-radius-base;
+  padding: 10px 0px;
+}

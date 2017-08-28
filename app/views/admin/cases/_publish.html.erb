@@ -3,23 +3,20 @@
   <%= render "bcgraphs" %>
 </div>
 <div class="around" id="publish_second">
-<%= link_to case_url(@case) do %>
-  <div class="btn btn-action btn-block preview-btn-margins"> PREVIEW </div>
-<% end %>
+  <%= link_to case_url(@case) do %>
+    <div class="btn btn-action btn-block preview-btn-margins"> PREVIEW </div>
+  <% end %>
 
-<%= link_to update_case_status_admin_case_path(@case), :method=> :patch do %>
-  <div class="btn btn-CTA btn-block preview-btn-margins"> PUBLISH </div>
-<% end %>
+  <%= link_to update_case_status_admin_case_path(@case), :method=> :patch do %>
+    <div class="btn btn-CTA btn-block preview-btn-margins"> PUBLISH </div>
+  <% end %>
 
-<div id="bc_input">
-  <i class="fa fa-link fa-2x" aria-hidden="true"></i>
-  <input type="text" name="custom-link" value=<%= case_url(@case) %> id="link" class="active">
-  <button id="bc_copy" data-clipboard-action="copy" data-clipboard-target="#link" class="copy-btn btn-action" style="display: inline-block;">COPY</button>
+  <div id="bc_input">
+    <i class="fa fa-link fa-2x" aria-hidden="true"></i>
+    <input type="text" name="custom-link" value=<%= case_url(@case) %> id="link" class="active">
+    <button id="bc_copy" data-clipboard-action="copy" data-clipboard-target="#link" class="copy-btn btn-action" style="display: inline-block;">COPY</button>
+  </div>
+
 </div>
-
-</div>
-
-
-
 
 

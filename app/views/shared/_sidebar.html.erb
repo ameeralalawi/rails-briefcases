@@ -23,7 +23,7 @@
             <li>
                 <div href="#pageSubmenu" data-toggle="collapse" ></div>
 
- <% if admin_cases_path %>
+<% unless @light_sidebar %>
 
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
 
@@ -53,10 +53,8 @@
    </li>
 <% end %>
 
-
         </ul>
     </nav>
-
 </div>
 
 

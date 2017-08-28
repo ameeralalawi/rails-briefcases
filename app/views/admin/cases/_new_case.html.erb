@@ -1,0 +1,69 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header" align="center">
+        <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <!-- Begin # DIV Form -->
+
+         <div class="form-size">
+
+          <%= simple_form_for @case, url: admin_cases_path, remote: true, html: { autocomplete: "off" } do |f| %> <!-- different path than default -->
+            <div id="div-create-msg">
+              <div id="icon-create-msg" class="glyphicon glyphicon-chevron-right"></div>
+              <span id="text-create-msg"> Type the name of your new case</span>
+            </div>
+            <%= f.input :name, placeholder: " e.g. Lighting Case", label: false, class: "form-control" %>
+            <div id="div-create-msg">
+              <div id="icon-create-msg" class="glyphicon glyphicon-chevron-right"></div>
+              <span id="text-create-msg"> Type the scenarios that you want to compare</span>
+            </div>
+            <%= f.input :scenario_a, placeholder: " Scenario A - e.g. Light bulb", label: false, class: "form-control no-margin"  %>
+            <p class="text-center margin-light strong">vs.</p>
+            <%= f.input :scenario_b, placeholder: " Scenario B - e.g. LED lights", label: false, class: "form-control" %>
+
+            <%= f.button :submit, class: "btn btn-CTA  btn-block" %>
+          <% end %>
+        </div>
+
+            <!-- End # DIV Form -->
+    </div>
+  </div>
+
+
+
+
+<!-- Begin # create Form -->
+      <!--   <form id="create-form">
+          <div class="modal-body margin-light">
+            <div id="div-create-msg">
+              <div id="icon-create-msg" class="glyphicon glyphicon-chevron-right"></div>
+              <span id="text-create-msg"> Type the name of your new case</span>
+            </div>
+            <input id="create_name last-element" class="form-control" type="text" placeholder=" e.g. compare lighting" required>
+          </div>
+          <div class="modal-body margin-light">
+
+
+            <div id="div-create-msg">
+              <div id="icon-create-msg" class="glyphicon glyphicon-chevron-right"></div>
+              <span id="text-create-msg"> Type the scenarios that you want to compare</span>
+            </div>
+            <input id="create_scenario_a" class="form-control" type="text" placeholder=" e.g. light bulbs" required>
+            <p class="text-center margin-light">vs.</p>
+            <input id="create_scenario_b last-element" class="form-control" type="text" placeholder=" e.g. LED lights" required>
+          </div>
+
+
+
+          <div class="modal-footer">
+            <div>
+              <button type="submit" class="btn btn-CTA  btn-block">Create Case</button>
+            </div>
+          </div>
+        </form>
+ -->

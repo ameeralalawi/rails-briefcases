@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch 'leads/:id', to: 'leads#update'
 
   namespace :admin do
-    resources :cases, only: [:index, :create, :destroy, :show] do
+    resources :cases, only: [:index, :new, :create, :destroy, :show] do
       resources :leads, only: [:index]
       resources :variables, only: [:create]
       resources :lines, only: [:create, :update, :destroy]
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
         patch 'saveinputbuilder', as: "save_input"
         patch 'saveoutputbuilder', as: "save_output"
         patch 'outputpreferences', as: "save_outputpreferences"
-        post 'testdata', as: "save_testdata"
+        patch 'savevariables', as: "save_variables"
+        patch 'testdata', as: "save_testdata"
         patch 'updatestatus', as: "update_case_status"
       end
     end
