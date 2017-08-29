@@ -1,35 +1,22 @@
-<div class="final-form">
+<div  class="final-form-head" id="card">
+  <div class="front final-form-head">
+
+  <h1>Welcome on Briefcase forms</h1>
+  <h3>Invest or not in a product ? We tell you if it worths it.</h3>
+
+   <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "user-fill"} ,method: :post do |f|%>
+      <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>
+    <% end %>
 
 
 
 
-
-
-<h1>Welcome on Briefcase forms</h1>
-<h3>Invest or not in a product ? We tell you if it worths it.</h3>
-
-
-
- <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "user-fill"} ,method: :post do |f|%>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>
-  <% end %>
-
-
-
-
-<div class="around" id="input_second">
-  <h3 class= page-title>Please fill in the form if you want to check our product value.</h3>
-  <div id="preview">
-    <div class="front">
-    <div class="input-field" id="input-form">
-    </div>
-    </div>
-    <div class="back">
-    <p>HELOOOOOOOOOOOO</p>
+  <div class="around" id="input_second">
+    <h3 class= page-title>Please fill in the form if you want to check our product value.</h3>
+    <div id="preview">
+      <div class="input-field" id="input-form"></div>
     </div>
   </div>
-</div>
-
 
 
 <button  class="copy-btn btn-action" id="turn-card" style="display: inline-block;">SUBMIT</button>
@@ -38,4 +25,75 @@
 </div>
 
 
+      <div class="back final-form-tow">
+       <h2>HELOOOOOOOOOOOO</h2>
+      </div>
 
+</div>
+
+
+<!-- <div id="card" style="width: 400px; height: 300px;">
+  <div class="front" style=" background-color: blue;">
+    Front content
+  </div>
+  <div class="back" style="background-color: green;">
+    Back content
+  </div>
+</div> -->
+
+
+
+
+<% content_for :after_js do %>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+<script>
+
+
+
+
+
+$( document ).ready(function(){
+
+  var emptyField = function() {
+
+  var input = $('#filling').val();
+  var regex = /(?:@[a-zA-Z]+)/g;
+  var input_empty_fields = input.replace(regex, '<input type="text" name="amount"/>');
+
+  $('.input-field').html(input_empty_fields);
+
+};
+
+
+$('#filling').hide()
+ emptyField()
+
+
+
+$("#card").flip({
+
+  trigger: 'manual',
+  reverse: true,
+  speed: 8000
+});
+
+
+ $('#turn-card').on("click", function(){
+  // $("#card").flip(true);
+
+$("#card").flip('toggle');
+
+});
+
+
+
+
+
+
+});
+
+</script>
+
+
+<% end %>
