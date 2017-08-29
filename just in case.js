@@ -104,10 +104,11 @@
 <body>
 
   <div class="around" id="variable_first">
-    <h3 class= page-title>VARIABLE BUILDER</h3>
+    <h3 class= page-title>NEW VARIABLE BUILDER</h3>
 
     <div class="formula-box">
-      <label>Variable Name:  <input id="variable_name" type="text" name="field1" placeholder=" Annual Cost"/></label>
+      <label><h4>Variable Name </h4><input id="variable_name" type="text" name="field1" placeholder=" Annual Cost"/></label>
+      <h4>Variable Expression (use numbers, operators and variables only)</h4>
       <div class="formula formula-advanced"></div>
     </div>
 
@@ -118,7 +119,7 @@
     <!-- <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
     </div> -->
     <div>
-      <%= simple_form_for @case, remote: true, url: save_variables_admin_case_path(@case), :html => {:id => "save-variables-form"}, method: :patch  do |f|%>
+      <%= simple_form_for @case, url: save_variables_admin_case_path(@case), :html => {:id => "save-variables-form"}, method: :patch  do |f|%>
          <input type="hidden" id="variablesjson"  name="variablesjson" placeholder="">
       <% end %>
     </div>
@@ -139,11 +140,9 @@
       <div class="formula-drop">
 
         <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
-
         </ul>
       </div>
     </div>
-
   </div>
 
 <!-- This is the modal window -->
