@@ -13,7 +13,7 @@ class Variable < ApplicationRecord
   def eval_var
     case self.category
       when "input"
-        # if user_signed_in?
+        # if user_sign
           return self.expert_value
         # else
         #   VariableUse.where(variable_id: self.id, lead_id: @lead.id)
