@@ -72,7 +72,7 @@
       document.loadDraggables();
     });
 
-    $(".global-save").on('click', function(event) {
+    $("#global-save-3").on('click', function(event) {
       console.log("I RAN")
       var myvars = {};
       var ul = document.getElementById("shut");
@@ -125,7 +125,7 @@
     <div class="Section-Header">
       <h3 class= page-title> CASE VARIABLES</h3>
       <div class="save-button">
-        <%= button_tag type: 'submit', form: "save-variables-form", class: "fabutton save-btn-inner global-save", id: "global-save" do %>
+        <%= button_tag type: 'submit', form: "save-variables-form", class: "fabutton save-btn-inner global-save", id: "global-save-3" do %>
         <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
         <h4> CASE</h4><% end %>
       </div>

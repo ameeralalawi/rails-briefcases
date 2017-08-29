@@ -10,36 +10,3 @@
 
 
 
-
-// $( document ).ready(function(){
-
-// $('#filling').hide()
-//  emptyField()
-
-
-
-// $("#card").flip({
-//   axis: 'y',
-//   trigger: 'manual',
-//   reverse: true,
-//   speed: 800
-// });
-
-
-//  $('#turn-card').on("click", function(){
-//  $("#card").flip(true);
-// });
-
-
-
-
-
-
-
-//});
-
-
-
-
-
-
