@@ -1,0 +1,50 @@
+#leads-index-container{
+  padding: 40px;
+}
+
+#back-to-cases {
+ font-size: 20px;
+}
+
+#leads-header {
+  margin: 20px 45px 20px 0px;
+  display: flex;
+  justify-content:space-between;
+}
+
+#less-margin {
+  margin-top: 0px;
+}
+
+.selected-ordering {
+  background-color: #f1f1f1;
+}
+
+#records {
+  color: $light-filling;
+}
+
+#ordering {
+  margin-top: 20px;
+}
+
+#leads-rows {
+  hr {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    color: $text-black;
+  }
+
+}
+
+.lead-button {
+  margin: 2px;
+  border-radius: 4px;
+  padding: 5px 14px;
+  i {
+    font-size: 20px;
+  }
+}
