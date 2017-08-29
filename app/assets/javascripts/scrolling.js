@@ -73,7 +73,7 @@ $(document).ready(function() {
       }
 
       else if(index == 2){
-        // $('#global-save-2').trigger('click');
+        $('#global-save-2').trigger('click');
       }
 
       else if(index == 3){

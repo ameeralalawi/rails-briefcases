@@ -12,22 +12,4 @@
 
 
 
-$( document ).ready(function(){
-//console.log('heyyy')
-$('#filling').hide()
- emptyField()
 
-
-$('#turn-card').on("click", function(){
-
-  $("#preview").flip();
-});
-
-
-
-
-
-
-
-
-});

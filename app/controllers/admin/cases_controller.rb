@@ -178,11 +178,17 @@ class Admin::CasesController < ApplicationController
   end
 
   def case_params_output
-     params.require(:case).permit(:user_output_text)
+     parameters = {}
+     parameters.merge!(params.require(:case).permit(:user_output_text))
+     parameters.merge!(params.permit(:output_pref_1, :output_pref_2, :output_pref_3, :output_pref_4, :output_pref_5, :output_pref_6))
+     parameters["output_pref_1"] ||= false
+     parameters["output_pref_2"] ||= false
+     parameters["output_pref_3"] ||= false
+     parameters["output_pref_4"] ||= false
+     parameters["output_pref_5"] ||= false
+     parameters["output_pref_6"] ||= false
+     return parameters
   end
-
-
-
 
   def case_params_variables
      params.permit(:variablesjson)
