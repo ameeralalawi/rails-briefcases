@@ -1,4 +1,41 @@
-<h1>Cases#show</h1>
-<p>Find me in app/views/cases/show.html.erb</p>
+<div class="final-form">
+
+
+
+
+
+
+<h1>Welcome on Briefcase forms</h1>
+<h3>Invest or not in a product ? We tell you if it worths it.</h3>
+
+
+
+ <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "user-fill"} ,method: :post do |f|%>
+    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>
+  <% end %>
+
+
+
+
+<div class="around" id="input_second">
+  <h3 class= page-title>Please fill in the form if you want to check our product value.</h3>
+  <div id="preview">
+    <div class="front">
+    <div class="input-field" id="input-form">
+    </div>
+    </div>
+    <div class="back">
+    <p>HELOOOOOOOOOOOO</p>
+    </div>
+  </div>
+</div>
+
+
+
+<button  class="copy-btn btn-action" id="turn-card" style="display: inline-block;">SUBMIT</button>
+
+
+</div>
+
 
 

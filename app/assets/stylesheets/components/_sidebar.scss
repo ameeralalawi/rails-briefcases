@@ -52,6 +52,10 @@
     background: $medium-filling;
 }
 
+#sidebar ul li.sub-active > a, a[aria-expanded="true"] {
+    color: $text-black;
+    background: $white;
+}
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -73,7 +77,7 @@ a[aria-expanded="true"]::before {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: lighten( $medium-filling, 0% );
+    background: lighten( $light-filling, 20% );
 }
 
 ul.CTAs {

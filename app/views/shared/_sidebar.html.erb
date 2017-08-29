@@ -2,22 +2,24 @@
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar">
+      <%= link_to('/admin/profile') do %>
         <div class="sidebar-header">
   <!-- AVATAR -->
   <!-- PART DELETED HERE: Cloudinary photo -->
-  <div class="persona" >
-      <% if current_user.facebook_picture_url %>
-        <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
-      <% else %>
-        <%= image_tag 'user_profile_picture.png', class: "avatar" %>
-      <% end %>
+          <div class="persona" >
+            <% if current_user.facebook_picture_url %>
+              <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
+            <% else %>
+              <%= image_tag 'user_profile_picture.png', class: "avatar" %>
+            <% end %>
 
-      <div class="user-name">
-      <h4> <%= current_user.first_name %></h4>
-      </div>
-  </div>
+            <div class="user-name">
+              <h4> <%= current_user.first_name %></h4>
+            </div>
+          </div>
   <!-- AVATAR END -->
         </div>
+      <% end %>
 
         <ul class="list-unstyled components">
             <li class="active">
@@ -33,12 +35,13 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
 
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><%= link_to "Input Form", admin_cases_path %></li>
-                    <li><a href="#">Output Message</a></li>
-                    <li><a href="#">Variables</a></li>
-                    <li><a href="#">Test Data</a></li>
-                    <li><a href="#">Business Case</a></li>
-                    <li><a href="#">Publish</a></li>
+
+                    <li class="sub-active"><a href="1">Input Message</a></li>
+                    <li><a href="2">Output Message</a></li>
+                    <li><a href="3">Variables</a></li>
+                    <li><a href="4">Test Data</a></li>
+                    <li><a href="5">Business Case</a></li>
+                    <li><a href="6">Publish</a></li>
                 </ul>
             </li>
             <li>
@@ -67,6 +70,29 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 
  <script type="text/javascript">
+
+  $(document).ready(function() {
+
+       //link to scroll section
+      $('li > ul > li > a').click(function(){
+        console.log("beatl");
+        $.fn.fullpage.moveTo( $(this).attr('href') );
+
+        //Toggle Class
+        $(".sub-active").removeClass("sub-active");
+        $(this).closest('li').addClass("sub-active");
+        var theClass = $(this).attr("sub-class");
+        $('.'+theClass).parent('li').addClass('active');
+      });
+
+       $('li').on('click', function () {
+            console.log("beatl");
+            $("li").removeClass("active")
+            $(this).toggleClass('active');
+        });
+
+  });
+
      $(document).ready(function () {
          $("#sidebar").niceScroll({
              cursorcolor: '#53619d',
