@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/cases/:id', to: 'cases#show', as: "case"
   get 'pages/components', to: 'pages#components'
-  post 'cases/:id/leads', to: 'leads#create'
+  post 'cases/:id/leads', to: 'leads#create', as: "compute_result"
   patch 'leads/:id', to: 'leads#update'
 
   namespace :admin do
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         patch 'savevariables', as: "save_variables"
         patch 'testdata', as: "save_testdata"
         patch 'updatestatus', as: "update_case_status"
+
       end
     end
     get 'profile', to: 'users#profile'

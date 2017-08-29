@@ -2,10 +2,12 @@
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar">
+      <%= link_to('/admin/profile') do %>
         <div class="sidebar-header">
-        <!-- AVATAR -->
-        <!-- PART DELETED HERE: Cloudinary photo -->
-        <div class="persona" >
+
+  <!-- AVATAR -->
+  <!-- PART DELETED HERE: Cloudinary photo -->
+          <div class="persona" >
             <% if current_user.facebook_picture_url %>
               <%= image_tag current_user.facebook_picture_url, class: "avatar" %>
             <% else %>
@@ -27,16 +29,15 @@
               </li>
           </ul>
         </div>
+      <% end %>
 
         <ul class="list-unstyled components">
-
-
             <li class="top-active">
                 <div href="#pageSubmenu" data-toggle="collapse" ></div>
 
 <% unless @light_sidebar %>
 
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
 
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 
@@ -57,9 +58,9 @@
             <li class="pointer">
                 <a href="#">Manage</a>
             </li>
-            <li class="pointer">
-                <a  href="#">Leads</a>
-            </li>
+              <li  class="pointer">
+                  <%= link_to "Leads", admin_case_leads_path(@case) %>
+              </li>
             <li class="pointer">
                 <a href="#">Analytics</a>
             </li>

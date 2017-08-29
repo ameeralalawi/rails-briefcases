@@ -1,9 +1,11 @@
 
 <div class="around" id="input_first">
   <h3 class= page-title>FORM BUILDER</h3>
-  <%= simple_form_for @case, url: save_input_admin_case_path(@case), :html => {:id => "save-input-form"} ,method: :patch do |f|%>
+  <div class="input-text-box">
+    <%= simple_form_for @case, remote: true, url: save_input_admin_case_path(@case), :html => {:id => "save-input-form"} ,method: :patch do |f|%>
     <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"hello"} %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="around" id="input_second">
@@ -18,7 +20,7 @@
   <div class="Section-Header">
     <h3 class= page-title> USER INPUT FIELDS</h3>
     <div class="save-button">
-      <%= button_tag type: 'submit', form: "save-input-form", class: "fabutton save-btn-inner", id: "global-save" do %>
+      <%= button_tag type: 'submit', form: "save-input-form", class: "fabutton save-btn-inner", id: "global-save-1" do %>
       <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
       <h4> CASE</h4><% end %>
     </div>
@@ -30,5 +32,100 @@
     </div>
   </div>
 </div>
+<div class="" id="input_fourth">
+  <div class="arrow-group">
+    <div class="arrow-text">
+      <h3>BUILD OUTPUT MESSAGE</h3>
+    </div>
+    <div class="arrow bounce" id="to-secondPage">
+      <a class="fa fa-arrow-down fa-2x b-arrow" href="#secondPage"></a>
+    </div>
+  </div>
+</div>
 
+
+<% content_for :after_js do %>
+  <script>
+
+
+    // Javascript to the input form page
+    var print_text = function(div) {
+
+      // on every key up, we get value in form and put it in preview and replace "@word" with an empty input field.
+      var sentence = div.val();
+      var regex = /(?:@[a-zA-Z]+)/g;
+      var matches_array = sentence.match(regex);
+      var sentence_with_input = sentence
+
+      if (sentence.match(regex) !== null) {
+        matches_array.forEach(function(match) {
+              sentence_with_input = sentence_with_input.replace(match, '<input type="text" type="number" name="'+match+'"/>')
+          });
+      }
+
+
+
+      $('.text-input').html(sentence_with_input);
+
+      // we check the string that start with @ and remove special characters after that string
+      var variables = []
+      // var regex = /(?:@[a-zA-Z]+)/g;
+      var moto;
+
+      do {
+        moto = regex.exec(sentence);
+        if (moto) {
+          variables.push(moto[0]);
+        }
+      } while (moto);
+
+      // we transform the array variables into an oject call obj
+      function toObject(arr) {
+        var rv = {};
+        for (var i = 0; i < arr.length; ++i)
+          rv[arr[i]] = arr[i];
+        return rv;
+      }
+      obj = toObject(variables)
+
+      // we store all the values of the keys of that object into the array syntax
+      var syntax = Object.values(obj)
+
+      // we append every of those value to our variables box
+      $('#variables-box').html('');
+      $('#shut').html('');
+
+      syntax.forEach(function(s){
+        $('#variables-box').append('<div class="col-xs-12 col-md-6 variables-style">'  + s + '</div>');
+        //$('#shut').append('<li class="variables-style formula-custom ui-draggable ui-draggable-handle">'  + s + '</li>');
+        $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="' + s + '">' + s +'</a></li>');
+          //<a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
+      });
+
+       document.loadDraggables();
+    };
+
+    $( document ).ready(function() {
+
+      // On keyup, we call the print_text() function.
+      var $this = $("#hello")
+
+      $this.keyup(function() {
+        print_text($this)
+      });
+
+
+      // if we click on "Add variable", it adds an @ sign in our form field (better UX)
+      $("#add").click(function(){
+        var text = $("#hello")
+        text.val(text.val() + '@');
+        $("#hello").focus()
+      });
+
+
+
+    });
+
+  </script>
+<% end %>
 

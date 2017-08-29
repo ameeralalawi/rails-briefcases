@@ -8,5 +8,7 @@ class CasesController < ApplicationController
       redirect_to root_path
       return
     end
+
+    @input = @case.user_input_text
   end
 end

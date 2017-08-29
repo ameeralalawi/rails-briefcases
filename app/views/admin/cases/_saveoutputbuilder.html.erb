@@ -1,135 +1,156 @@
 
+
  <div class="around" id="output_first">
-  <h3 class= page-title>MESSAGE BUILDER</h3>
-  <div>
-    <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
+   <div class="Section-Header">
+      <h3 class= page-title> Message Builder</h3>
+      <div class="save-button">
+        <%= button_tag type: 'submit', form: "save-output-form", class: "fabutton save-btn-inner", id: "global-save-2" do %>
+        <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+        <h4> CASE</h4><% end %>
+      </div>
+    </div>
+  <div class="checkboxes">
+  <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
+    <%= render "outputprefcheckboxes" %> <!--  Do not move this render outside the form -->
+  </div>
+  <div class="output-text-box">
       <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text"} %>
+
     <% end %>
   </div>
 </div>
 
 <div class="around" id="output_second">
-<h3 class= page-title>MESSAGE PREVIEW</h3>
+  <h3 class= page-title>MESSAGE PREVIEW</h3>
   <div id="preview-output">
     <div id="input-form" class="text-output">
     </div>
   </div>
 </div>
-  <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
-  </div> -->
-
-<div id="output_third" class="around">
-  <div class="Section-Header">
-    <h3 class= page-title> OUTPUT FIELDS</h3>
-    <div class="save-button">
-      <%= button_tag type: 'submit', form: "save-output-form", class: "fabutton save-btn-inner", id: "global-save" do %>
-      <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
-      <h4> CASE</h4><% end %>
+<div class="" id="output_third">
+  <div class="arrow-group">
+    <div class="arrow-text">
+      <h3>BUILD VARIABLES</h3>
+    </div>
+    <div class="arrow bounce" id="to-thirdPage">
+      <a class="fa fa-arrow-down fa-2x b-arrow" href="#thirdPage"></a>
     </div>
   </div>
-  <div class="around checkbox-box">
-
-   <!-- <input type="checkbox" name="vehicle" value="@NpvEndOfYearOne" class="output-check" id=" --><!-- NpvEndOfYearOne">NPV end of year 1<br> -->
-   <!-- <input type="checkbox" name="vehicle" value="@NpvEndOfYearTwo" class="output-check" id="NpvEndOfYearTwo"> NPV end of year 2<br>
-   <input type="checkbox" name="vehicle" value="@NpvEndOfYearThree" class="output-check" id="NpvEndOfYearThree"> NPV end of year 3<br> -->
-   <!-- <input type="checkbox" name="vehicle" value="@BreakEvenPoint" class="output-check" id="BreakEvenPoint"> Break-even point<br>
-   <input type="checkbox" name="vehicle" value="@Earning" class="output-check" id="Earning"> Earning<br>
-   <input type="checkbox" name="vehicle" value="@Return" class="output-check" id="Return"> Return<br>
- -->
-
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@BAEndofPeriodVal" class="output-check" id="BAEndofPeriodVal" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="BAEndofPeriodVal" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-            <label for="BAEndofPeriodVal" class="[ btn btn-default active ]">
-              Value at end of period B-A
-            </label>
-          </div>
-        </div>
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@ABEndofPeriodVal" class="output-check" id="ABEndofPeriodVal" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="ABEndofPeriodVal" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-            <label for="ABEndofPeriodVal" class="[ btn btn-default active ]">
-              Value at end of period A-B
-            </label>
-          </div>
-        </div>
-
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@ReturnOnInvestedCapital" class="output-check" id="ReturnOnInvestedCapital" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="ReturnOnInvestedCapital" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-              <label for="ReturnOnInvestedCapital" class="[ btn btn-default active ]">
-                Return on Invested Capital
-              </label>
-            </div>
-        </div>
-
-
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@InternalRateOfReturn" class="output-check" id="InternalRateOfReturn" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="InternalRateOfReturn" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="InternalRateOfReturn" class="[ btn btn-default active ]">
-                Internal Rate of Return
-              </label>
-            </div>
-          </div>
-
-
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@FirstBreakeveInMonths" class="output-check" id="FirstBreakeveInMonths" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="FirstBreakeveInMonths" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="FirstBreakeveInMonths" class="[ btn btn-default active ]">
-                Months before 1st break even point
-              </label>
-            </div>
-          </div>
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@SecondBreakeveInMonths" class="output-check" id="SecondBreakeveInMonths" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="SecondBreakeveInMonths" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="SecondBreakeveInMonths" class="[ btn btn-default active ]">
-               Months before 2nd break even point
-              </label>
-            </div>
-          </div>
 </div>
 
+<% content_for :after_js do %>
+
+  <script>
+    // Javascript for the output form page
+
+        var print_output = function(div){
+
+          // We get text printed in the #output-rext box, replace "@word" with an empty input field and make everythin appear appear in the preview box.
+          var sentence = div.val();
+          var regex = /(?:@[a-zA-Z]+)/g;
+          var sentence_with_input = sentence.replace(regex, '<input type="text" name="amount"/>')
+
+          $('.text-output').html(sentence_with_input);
+        };
 
 
-</div>
+
+
+      $( document ).ready(function() {
+
+        //The default output text is printed on the preview box.
+        var $that = $("#output-text")
+        print_output($that);
+        shouldBeChecked();
 
 
 
+
+        // On keyup, we call the print_output() function
+        $that.keyup(function() {
+          print_output($that)
+          shouldBeChecked();
+        });
+
+
+
+
+
+        // When I check/uncheck checkbox, it displays its value in the output box field editor.
+        function setValue(input_id) {
+          var $that = $("#output-text")
+          var text = $('#output-text').val();
+          var item = $('#' + input_id);
+
+              if (item.is(":checked")) {
+                text = text + item.val();
+                $("#output-text").focus()
+              } else if (item.is(':checkbox:not(:checked)')) {
+                text = text.replace(item.val(), "");
+                $("#output-text").focus()
+
+              };
+
+              $('#output-text').val(text)
+              print_output($that);
+        };
+
+
+        // When a variable is in the text, the box should be checked.
+        function shouldBeChecked(){
+          var field = $('#output-text').val();
+
+          if (field.indexOf("BAEndofPeriodVal") >= 0){
+            $("#BAEndofPeriodVal").prop('checked', true)
+          } else {
+            $("#BAEndofPeriodVal").prop('checked', false)
+          };
+
+           if (field.indexOf("ABEndofPeriodVal") >= 0){
+            $("#ABEndofPeriodVal").prop('checked', true)
+          }else {
+            $("#ABEndofPeriodVal").prop('checked', false)
+          };
+
+           if (field.indexOf("ReturnOnInvestedCapital") >= 0){
+            $("#ReturnOnInvestedCapital").prop('checked', true)
+          } else {
+            $("#ReturnOnInvestedCapital").prop('checked', false)
+          };
+
+           if (field.indexOf("InternalRateOfReturn") >= 0){
+            $("#InternalRateOfReturn").prop('checked', true)
+          } else {
+            $("#InternalRateOfReturn").prop('checked', false)
+          };
+
+           if (field.indexOf("FirstBreakeveInMonths") >= 0){
+            $("#FirstBreakeveInMonths").prop('checked', true)
+          } else {
+            $("#FirstBreakeveInMonths").prop('checked', false)
+          };
+
+           if (field.indexOf("SecondBreakeveInMonths") >= 0){
+            $("#SecondBreakeveInMonths").prop('checked', true)
+          }else {
+            $("#SecondBreakeveInMonths").prop('checked', false)
+          };
+        };
+
+
+
+
+
+
+          $(".output-check").change(function () {
+            setValue(this.id);
+          });
+
+
+
+      });
+  </script>
+
+<% end %>
 

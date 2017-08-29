@@ -50,7 +50,7 @@ $(document).ready(function() {
     //Design
     controlArrows: true,
     verticalCentered: true,
-    sectionsColor : ['#ccc', '#fff'],
+    sectionsColor : [],
     paddingTop: '0px',
     paddingBottom: '0px',
     fixedElements: '#header, .footer',
@@ -67,8 +67,27 @@ $(document).ready(function() {
     lazyLoading: true,
 
     //events
-    onLeave: function(index, nextIndex, direction){},
-    afterLoad: function(anchorLink, index){},
+    onLeave: function(index, nextIndex, direction){
+      if(index == 1){
+        $('#global-save-1').trigger('click');
+      }
+
+      else if(index == 2){
+        $('#global-save-2').trigger('click');
+      }
+
+      else if(index == 3){
+        $('#global-save-3').trigger('click');
+      }
+
+      else if(index == 4){
+        $('#global-save-4').trigger('click');
+      }
+    },
+    afterLoad: function(anchorLink, index){
+
+
+    },
     afterRender: function(){},
     afterResize: function(){},
     afterResponsive: function(isResponsive){},
