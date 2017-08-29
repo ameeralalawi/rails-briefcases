@@ -1,27 +1,32 @@
 // ----------------Section pages-----------
 .section-container {
-  height: calc(100vh - 110px);
+  height: calc(100vh - 70px);
   display: grid;
 }
 
 #input-page {
   grid-template-columns: 66.6% 33.3%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 45% 45% 10%;
 }
 
 #output-page {
   grid-template-columns: 100%;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 55% 35% 10%;
 }
 
 #variable-page {
   grid-template-columns: 66.6% 33.3%;
-  grid-template-rows: 100%;
+  grid-template-rows: 90% 10%;
+}
+
+#testdata-page {
+  grid-template-columns: 100%;
+  grid-template-rows: 90% 10%;
 }
 
 #businesscase-page {
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 40% 50% 10%;
 }
 
 #publish-page {
@@ -58,13 +63,27 @@
   grid-column: 2/ span 1;
 }
 
+#input_fourth {
+  grid-row: 3 / span 1;
+  grid-column: 1/ span 3;
+}
+
 #hello {
    resize: none;
    text-align: center;
    padding-top: 30px;
    font-size: 20px;
    font-family: Rubik, Helvetica, sans-serif;
-   height: 236.27px;
+   height: 100%;
+}
+
+#save-input-form{
+  height:100%;
+}
+
+.input-text-box{
+  height:80%;
+  min-height: 100px;
 }
 
 // ----------------Grind - Ouputbuilder -----------
@@ -81,6 +100,11 @@
   padding-top: 10px;
 }
 
+#output_third {
+  grid-row: 3 / span 1;
+  grid-column: 1/ span 1;
+}
+
 #output-text {
   resize: none;
   text-align: center;
@@ -91,7 +115,8 @@
 }
 
 .output-text-box{
-  height:70%;
+  height:65%;
+  min-height: 100px;
 }
 // #output-page #fourth {
 //   grid-row: 1 / span 1;
@@ -110,6 +135,23 @@
   grid-column: 2/ span 1;
 }
 
+#variable_third {
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 2;
+}
+
+// ----------------Grid - Variablebuilder -----------
+
+#testdata_first {
+  grid-row: 1 / span 1;
+  grid-column: 1/ span 1;
+  height: calc(100% - 47px);
+}
+
+#testdata_first {
+  grid-row: 2 / span 1;
+  grid-column: 1/ span 1;
+}
 
 // ----------------Grind - Businesscase -----------
 
@@ -126,6 +168,11 @@
 #businesscase_thrid {
   grid-row: 2 / span 1;
   grid-column: 2/ span 1;
+}
+
+#businesscase_fourth {
+  grid-row: 3 / span 1;
+  grid-column: 1/ span 2;
 }
 
 // ----------------Grind - Publish page -----------
@@ -148,10 +195,10 @@
 
 .form-builder {
   display: flex;
-    min-height: 100px;
+  min-height: 100px;
   justify-content: center;
   //align-items: center;
-  height: 100%;
+  height: calc(100% - 47px);
   background-color: white;
   border-radius: $border-radius-base;
   box-shadow: 0px 0px 4px 0px $dark-filling;
@@ -161,8 +208,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-    min-height: 100px;
+  height: calc(100% - 40px);
+  min-height: 100px;
   background-color: $dark-filling;
   border-radius: $border-radius-base;
   box-shadow: 0px 0px 4px 0px $dark-filling;
@@ -173,7 +220,7 @@
   color: white;
   font-size: $font-size-large;
    font-family: $body-font;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -181,7 +228,7 @@
   width: 100%;
   padding: 30px 20px;
   line-height: 26px;
-    min-height: 100px;
+  min-height: 100px;
   p{
     width: max-content;
   }
@@ -225,8 +272,8 @@
 .variable-box{
   padding-bottom: 30px;
   padding-top: 30px;
-  min-height: 100px;
-  height: 100%;
+  min-height: 300px;
+  height: calc(100% - 70px);
   background-color: white;
   border-radius: $border-radius-base;
   box-shadow: 0px 0px 4px 0px $dark-filling;
@@ -236,10 +283,10 @@
  margin-top: 20px;
 }
 
-#test_data {
-  margin-top: 35px;
-  height: 85%;
-}
+// #test_data {
+//   margin-top: 35px;
+//   height: 85%;
+// }
 
 .row {
   margin-top: 10px;
@@ -252,7 +299,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: calc(100% - 44px);
   min-height: 100px;
   background-color: $variable-blue;
   border-radius: $border-radius-base;
@@ -285,7 +332,8 @@
 
 #lines-scroll {
   overflow: scroll;
-  height:100%;
+  height: calc(100% - 47px);
+  min-height: 100px;
   width:100%;
 }
 
@@ -353,13 +401,13 @@ a { color: $variable-blue; text-decoration: none; }
 
 .arrow {
   text-align: right;
-  margin: 5%;
+  margin: 2%;
 }
 
 
 .arrow-text {
   text-align: right;
-  margin: 2%;
+  margin: 0%;
 }
 
 .b-arrow{
