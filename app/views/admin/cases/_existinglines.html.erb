@@ -81,7 +81,7 @@
 
       <div class="line-new line-item-centered">
         <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
-          <i class="fa fa-2x fa-floppy-o icon-pad" aria-hidden="true"></i>
+          <i class="fa fa-floppy-o icon-pad" aria-hidden="true"></i>
         <%end%>
         <%= link_to '<i class="fa fa-2x fa-trash-o icon-pad"></i>'.html_safe, admin_case_line_path(@case, line),
             data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %>
