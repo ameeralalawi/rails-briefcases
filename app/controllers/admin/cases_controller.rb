@@ -53,6 +53,9 @@ class Admin::CasesController < ApplicationController
   def saveinputbuilder
     @case = Case.find(params[:id])
     @case.update(case_params_input)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def saveoutputbuilder
@@ -70,6 +73,9 @@ class Admin::CasesController < ApplicationController
         changevar = Variable.where(case_id: params[:id], category: "input", name: varname)
         changevar.update(expert_value: expertval.to_f)
       end
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -97,7 +103,11 @@ class Admin::CasesController < ApplicationController
     @case.output_pref_4 ? Variable.create(name: "@Internal_Rate_Return", expression: "@Internal_Rate_Return", category: "output", case_id: @case.id) : nil
     @case.output_pref_5 ? Variable.create(name: "@First_Breakeven_in_months", expression: "@First_Breakeven_in_months", category: "output", case_id: @case.id) : nil
     @case.output_pref_6 ? Variable.create(name: "@Second_Breakeven_in_months", expression: "@Second_Breakeven_in_months", category: "output", case_id: @case.id) : nil
+    respond_to do |format|
+      format.js
+    end
   end
+
 
   private
 

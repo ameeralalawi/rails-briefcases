@@ -68,6 +68,13 @@ class Admin::LinesController < ApplicationController
     end
   end
 
+  def reloadnewform
+    @case = Case.find(params[:case_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def prep_chart(mycase)
