@@ -23,7 +23,6 @@
 
         <ul class="list-unstyled components">
             <li class="active">
-
             <%= link_to "My cases", admin_cases_path %>
             </li>
 
@@ -32,7 +31,7 @@
 
 <% unless @light_sidebar %>
 
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
 
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 
@@ -47,9 +46,11 @@
             <li>
                 <a href="#">Manage</a>
             </li>
-            <li>
-                <a href="#">Leads</a>
-            </li>
+              <li>
+                  <%= link_to "Leads", admin_case_leads_path(@case) %>
+              </li>
+
+
             <li>
                 <a href="#">Analytics</a>
             </li>

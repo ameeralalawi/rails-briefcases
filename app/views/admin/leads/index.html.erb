@@ -1,2 +1,63 @@
-<h1>Admin::Leads#index</h1>
-<p>Find me in app/views/admin/leads/index.html.erb</p>
+
+<div class="app-screen-index" id="leads-index">
+
+  <div class="container" id="leads-index-container">
+
+    <div id="leads-header">
+
+      <h3 id="records">RECORDS (<%= @case.leads.length %>)</h3>
+
+      <div class="dropdown" id="ordering">
+        <div class="btn btn-action dropdown-toggle" id="navbar-wagon-menu" style="padding: 5px 12px; border-radius: 4px;" data-toggle="dropdown">Most Recent <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu" id="less-margin">
+          <li><a class = "selected-ordering" href="">Most Recent</a></li>
+          <li><a href="">By name</a></li>
+          <li><a href="">By email</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="leads-rows">
+
+      <div class= "row header-row">
+        <div class="col-xs-3">
+          <h4><strong>Name</strong></h4>
+        </div>
+        <div class="col-xs-4">
+          <h4><strong>Email</strong></h4>
+        </div>
+        <div class="col-xs-3">
+          <h4><strong>Filled</strong></h4>
+        </div>
+        <div class="col-xs-2">
+          <h4><strong>Action</strong></h4>
+        </div>
+      </div>
+      <hr/>
+
+      <% @case.leads.each do |lead| %>
+        <div class= "row lead-row">
+          <div class="col-xs-3">
+            <h5><strong><%= lead.first_name %> <%= lead.last_name %></strong></h5>
+          </div>
+          <div class="col-xs-4">
+            <h5><%= lead.email %></h5>
+          </div>
+          <div class="col-xs-3">
+            <h5><%= lead.created_at.strftime("%B %-d, %Y at %H:%M") %></h5>
+          </div>
+          <div class="col-xs-2">
+            <a class="btn btn-action lead-button" href=""><i class="fa fa-comments" aria-hidden="true"></i></a>
+            <a class="btn btn-CTA lead-button" href="">View</a>
+          </div>
+        </div>
+        <hr/>
+      <% end %>
+
+    </div>
+
+
+
+  </div>
+</div>

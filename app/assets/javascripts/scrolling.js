@@ -50,7 +50,7 @@ $(document).ready(function() {
     //Design
     controlArrows: true,
     verticalCentered: true,
-    sectionsColor : ['#ccc', '#fff'],
+    sectionsColor : [],
     paddingTop: '0px',
     paddingBottom: '0px',
     fixedElements: '#header, .footer',
@@ -77,45 +77,16 @@ $(document).ready(function() {
       }
 
       else if(index == 3){
-        // $('#global-save-3').trigger('click');
+        $('#global-save-3').trigger('click');
       }
 
       else if(index == 4){
-        // $('#global-save-4').trigger('click');
-      }
-
-      else if(index == 5){
-        // $('#global-save-5').trigger('click');
-      }
-
-      else if(index == 6){
-        // $('#global-save-5').trigger('click');
+        $('#global-save-4').trigger('click');
       }
     },
     afterLoad: function(anchorLink, index){
-      if(index == 1){
-        console.log("Arriving input page!");
-      }
 
-      else if(index == 2){
-        console.log("Arriving output page!");
-      }
 
-      else if(index == 3){
-        console.log("Arriving variable page!");
-      }
-
-      else if(index == 4){
-        console.log("Arriving testdata page!");
-      }
-
-      else if(index == 5){
-        console.log("Arriving lines page!");
-      }
-
-      else if(index == 6){
-        console.log("Arriving publish/preview page!");
-      }
     },
     afterRender: function(){},
     afterResize: function(){},

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         patch 'savevariables', as: "save_variables"
         patch 'testdata', as: "save_testdata"
         patch 'updatestatus', as: "update_case_status"
+
       end
     end
     get 'profile', to: 'users#profile'

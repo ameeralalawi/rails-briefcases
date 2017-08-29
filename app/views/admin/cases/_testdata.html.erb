@@ -7,12 +7,22 @@
       <h4> CASE</h4><% end %>
     </div>
   </div>
-  <div id= "test_data">
+  <div id= "testdata_first">
     <div id="preview">
-      <%= simple_form_for @case, url: save_testdata_admin_case_path(@case), :html => {:id => "save-testdata-form"} ,method: :patch do |f|%>
+      <%= simple_form_for @case, remote: true, url: save_testdata_admin_case_path(@case), :html => {:id => "save-testdata-form"} ,method: :patch do |f|%>
         <div id="input-form" class="text-input">
         </div>
       <% end %>
+    </div>
+  </div>
+  <div class="" id="testdata_second">
+    <div class="arrow-group">
+      <div class="arrow-text">
+        <h3>SCENARIO BUILDER</h3>
+      </div>
+      <div class="arrow bounce" id="to-fifthPage">
+        <a class="fa fa-arrow-down fa-2x b-arrow" href="#fifthPage"></a>
+      </div>
     </div>
   </div>
 </div>
