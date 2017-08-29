@@ -1,8 +1,18 @@
 
  <div class="around" id="output_first">
-  <h3 class= page-title>MESSAGE BUILDER</h3>
-  <div>
-    <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
+   <div class="Section-Header">
+      <h3 class= page-title> Message Builder</h3>
+      <div class="save-button">
+        <%= button_tag type: 'submit', form: "save-output-form", class: "fabutton save-btn-inner", id: "global-save-2" do %>
+        <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
+        <h4> CASE</h4><% end %>
+      </div>
+    </div>
+  <div class="checkboxes">
+  <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
+    <%= render "outputprefcheckboxes" %>
+  </div>
+  <div class="output-text-box">
       <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text"} %>
     <% end %>
   </div>
@@ -18,118 +28,6 @@
   <!--   <div class="text-input" style="width: 400px; height: 200px; background-color: yellow; margin: 20px 0px 0px 0px;">
 
   </div> -->
-
-<div id="output_third" class="around">
-  <div class="Section-Header">
-    <h3 class= page-title> OUTPUT FIELDS</h3>
-    <div class="save-button">
-      <%= button_tag type: 'submit', form: "save-output-form", class: "fabutton save-btn-inner", id: "global-save" do %>
-      <i class="fa fa-2x fa-floppy-o" aria-hidden="true"></i>
-      <h4> CASE</h4><% end %>
-    </div>
-  </div>
-  <div class="around checkbox-box">
-
-   <!-- <input type="checkbox" name="vehicle" value="@NpvEndOfYearOne" class="output-check" id=" --><!-- NpvEndOfYearOne">NPV end of year 1<br> -->
-   <!-- <input type="checkbox" name="vehicle" value="@NpvEndOfYearTwo" class="output-check" id="NpvEndOfYearTwo"> NPV end of year 2<br>
-   <input type="checkbox" name="vehicle" value="@NpvEndOfYearThree" class="output-check" id="NpvEndOfYearThree"> NPV end of year 3<br> -->
-   <!-- <input type="checkbox" name="vehicle" value="@BreakEvenPoint" class="output-check" id="BreakEvenPoint"> Break-even point<br>
-   <input type="checkbox" name="vehicle" value="@Earning" class="output-check" id="Earning"> Earning<br>
-   <input type="checkbox" name="vehicle" value="@Return" class="output-check" id="Return"> Return<br>
- -->
-
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@BAEndofPeriodVal" class="output-check" id="BAEndofPeriodVal" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="BAEndofPeriodVal" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-            <label for="BAEndofPeriodVal" class="[ btn btn-default active ]">
-              Value at end of period B-A
-            </label>
-          </div>
-        </div>
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@ABEndofPeriodVal" class="output-check" id="ABEndofPeriodVal" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="ABEndofPeriodVal" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-            <label for="ABEndofPeriodVal" class="[ btn btn-default active ]">
-              Value at end of period A-B
-            </label>
-          </div>
-        </div>
-
-
-        <div class="[ form-group ]">
-          <input type="checkbox" name="vehicle" value="@ReturnOnInvestedCapital" class="output-check" id="ReturnOnInvestedCapital" autocomplete="off" />
-          <div class="[ btn-group ]">
-            <label for="ReturnOnInvestedCapital" class="[ btn btn-info ]">
-              <span class="[ glyphicon glyphicon-minus ]"></span>
-              <span class="[ glyphicon glyphicon-plus ]"></span>
-            </label>
-              <label for="ReturnOnInvestedCapital" class="[ btn btn-default active ]">
-                Return on Invested Capital
-              </label>
-            </div>
-        </div>
-
-
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@InternalRateOfReturn" class="output-check" id="InternalRateOfReturn" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="InternalRateOfReturn" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="InternalRateOfReturn" class="[ btn btn-default active ]">
-                Internal Rate of Return
-              </label>
-            </div>
-          </div>
-
-
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@FirstBreakeveInMonths" class="output-check" id="FirstBreakeveInMonths" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="FirstBreakeveInMonths" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="FirstBreakeveInMonths" class="[ btn btn-default active ]">
-                Months before 1st break even point
-              </label>
-            </div>
-          </div>
-
-
-          <div class="[ form-group ]">
-            <input type="checkbox" name="vehicle" value="@SecondBreakeveInMonths" class="output-check" id="SecondBreakeveInMonths" autocomplete="off" />
-            <div class="[ btn-group ]">
-              <label for="SecondBreakeveInMonths" class="[ btn btn-info ]">
-                <span class="[ glyphicon glyphicon-minus ]"></span>
-                <span class="[ glyphicon glyphicon-plus ]"></span>
-              </label>
-              <label for="SecondBreakeveInMonths" class="[ btn btn-default active ]">
-               Months before 2nd break even point
-              </label>
-            </div>
-          </div>
-</div>
-
-
-
-</div>
-
 
 
 

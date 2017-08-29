@@ -67,8 +67,56 @@ $(document).ready(function() {
     lazyLoading: true,
 
     //events
-    onLeave: function(index, nextIndex, direction){},
-    afterLoad: function(anchorLink, index){},
+    onLeave: function(index, nextIndex, direction){
+      if(index == 1){
+        $('#global-save-1').trigger('click');
+      }
+
+      else if(index == 2){
+        // $('#global-save-2').trigger('click');
+      }
+
+      else if(index == 3){
+        // $('#global-save-3').trigger('click');
+      }
+
+      else if(index == 4){
+        // $('#global-save-4').trigger('click');
+      }
+
+      else if(index == 5){
+        // $('#global-save-5').trigger('click');
+      }
+
+      else if(index == 6){
+        // $('#global-save-5').trigger('click');
+      }
+    },
+    afterLoad: function(anchorLink, index){
+      if(index == 1){
+        console.log("Arriving input page!");
+      }
+
+      else if(index == 2){
+        console.log("Arriving output page!");
+      }
+
+      else if(index == 3){
+        console.log("Arriving variable page!");
+      }
+
+      else if(index == 4){
+        console.log("Arriving testdata page!");
+      }
+
+      else if(index == 5){
+        console.log("Arriving lines page!");
+      }
+
+      else if(index == 6){
+        console.log("Arriving publish/preview page!");
+      }
+    },
     afterRender: function(){},
     afterResize: function(){},
     afterResponsive: function(isResponsive){},
