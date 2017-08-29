@@ -17,7 +17,7 @@ class Line < ApplicationRecord
     self.escalator ||= 0 # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
   end
 
-  def build(extents)
+  def build(extents, lead = nil)
     # Initialize this line to its own extents
     lineext = self.recurrence == "oneoff" ? 1 : (self.end_date.year * 12 + self.end_date.month) - (self.start_date.year * 12 + self.start_date.month)
     myline = Array.new(lineext, 0)
@@ -27,7 +27,7 @@ class Line < ApplicationRecord
     recurrence = [9999.0,1.0,3.0,12.0][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
     reccadj = [9999.0,12.0,4.0,1.0][arr.size.times.select {|i| arr[i] == self.recurrence}.first]
     effectiveesc = ((1.0 + (self.escalator/100.0))**(1.0/reccadj))-1.0
-    variable_value = self.variable.eval_var * category
+    variable_value = self.variable.eval_var(lead) * category
 
     # Fill line
     idx = 0
