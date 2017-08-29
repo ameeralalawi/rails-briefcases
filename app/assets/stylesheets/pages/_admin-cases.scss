@@ -41,7 +41,7 @@
 .page-title {
   margin-top: 0;
   margin-bottom: 14px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 // ----------------Grind - Inputbuilder -----------
@@ -75,15 +75,21 @@
    font-size: 20px;
    font-family: Rubik, Helvetica, sans-serif;
    height: 100%;
+   border: none;
+
 }
 
 #save-input-form{
   height:100%;
+  border-radius: $border-radius-base;
 }
 
 .input-text-box{
   height:80%;
   min-height: 100px;
+  // margin-top: 26px;
+  @include shadow;
+  border-radius: $border-radius-base;
 }
 
 // ----------------Grind - Ouputbuilder -----------
@@ -397,17 +403,22 @@ a { color: $variable-blue; text-decoration: none; }
 .arrow-group{
   display: flex;
   justify-content: flex-end;
+  padding-bottom: 5px;
 }
 
 .arrow {
   text-align: right;
-  margin: 2%;
+  margin: 1%;
 }
 
 
 .arrow-text {
   text-align: right;
   margin: 0%;
+  h3 {
+    font-size: 12px !important;
+    margin-bottom: 0px;
+  }
 }
 
 .b-arrow{
@@ -415,9 +426,9 @@ a { color: $variable-blue; text-decoration: none; }
 }
 
 .bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
+  -moz-animation: bounce 8s infinite;
+  -webkit-animation: bounce 8s infinite;
+  animation: bounce 3s infinite;
 }
 
 @keyframes bounce {
@@ -425,32 +436,36 @@ a { color: $variable-blue; text-decoration: none; }
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-30px);
+    transform: translateY(-px);
   }
   60% {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
   }
 }
 
 .Section-Header{
   display:flex;
   justify-content: space-between;
-  align-items: baseline;
+  // align-items: baseline;
 }
 
 .save-btn-inner{
     display: flex;
-    align-items: baseline;
+    flex-direction: row-reverse;
 }
 
 .save-button{
-  margin-right: 25px;
+  // margin-right: 25px;
 }
 
 .save-button i{
   color:$heading-blue;
   padding-right:5px;
 }
+.save-button h4 {
+    visibility: hidden;
+    margin: 0px;
+  }
 
 .preview-btn-margins{
   margin-top: 10px;
