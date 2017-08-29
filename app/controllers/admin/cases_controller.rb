@@ -40,7 +40,9 @@ class Admin::CasesController < ApplicationController
   def saveinputbuilder
     @case = Case.find(params[:id])
     @case.update(case_params_input)
+    @variables = @case.variables.where(:category == "expert")
     # update_input_variables(@case)
+
     respond_to do |format|
       format.js
     end

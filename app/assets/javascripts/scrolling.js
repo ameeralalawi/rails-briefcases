@@ -70,6 +70,7 @@ $(document).ready(function() {
     onLeave: function(index, nextIndex, direction){
       if(index == 1){
         $('#global-save-1').trigger('click');
+
       }
 
       else if(index == 2){
