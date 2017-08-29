@@ -106,13 +106,14 @@ class Admin::LinesController < ApplicationController
       ]
       f.plotOptions(column: { stacking: 'normal'})
       f.legend(align: 'center', verticalAlign: 'bottom', y: 0, x: 0, layout: 'horizontal')
-      f.chart({defaultSeriesType: "column", height: "350"})
+      f.chart({defaultSeriesType: "column", height: '250'})
     end
     chartB = LazyHighCharts::HighChart.new('graph3') do |f|
       f.title(text: mycase.scenario_b)
       f.xAxis(categories: mydata[:xaxis])
       mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min.round - 10
       mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max.round + 10
+
 
       mydata[:B].each do |graphlabel, graphdata|
         f.series(name: graphlabel, yAxis: 0, data: graphdata)
@@ -123,7 +124,7 @@ class Admin::LinesController < ApplicationController
       ]
       f.plotOptions(column: { stacking: 'normal'})
       f.legend(align: 'center', verticalAlign: 'bottom', y: 0, x: 0, layout: 'horizontal')
-      f.chart({defaultSeriesType: "column", height: "350"})
+      f.chart({defaultSeriesType: "column", height: '250'})
     end
     return {chartM: chartM ,chartA: chartA ,chartB: chartB}
   end
