@@ -4,6 +4,7 @@
     <nav id="sidebar">
       <%= link_to('/admin/profile') do %>
         <div class="sidebar-header">
+    <% end %>
   <!-- AVATAR -->
   <!-- PART DELETED HERE: Cloudinary photo -->
           <div class="persona" >
@@ -14,19 +15,23 @@
             <% end %>
 
             <div class="user-name">
-              <h4> <%= current_user.first_name %></h4>
+            <h4> <%= current_user.first_name %></h4>
             </div>
-          </div>
-  <!-- AVATAR END -->
         </div>
-      <% end %>
+        <!-- AVATAR END -->
+        </div>
+
+        <div class="button-container">
+          <ul class="list-unstyled">
+             <li>
+                <%= link_to "<  All Cases", admin_cases_path, class: "reverse-CTA" %>
+              </li>
+          </ul>
+        </div>
+
 
         <ul class="list-unstyled components">
-            <li class="active">
-            <%= link_to "My cases", admin_cases_path %>
-            </li>
-
-            <li>
+            <li class="top-active">
                 <div href="#pageSubmenu" data-toggle="collapse" ></div>
 
 <% unless @light_sidebar %>
@@ -35,26 +40,30 @@
 
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 
-                    <li class="sub-active"><a href="1">Input Message</a></li>
-                    <li><a href="2">Output Message</a></li>
-                    <li><a href="3">Variables</a></li>
-                    <li><a href="4">Test Data</a></li>
-                    <li><a href="5">Business Case</a></li>
-                    <li><a href="6">Publish</a></li>
+                    <li data-menuanchor="firstPage" class="active">
+                      <a href="1">
+                        <span>
+                          <i data-menuanchor="firstPage" class="hidden-awsome active fa fa-dot-circle-o">&nbsp&nbsp</i>
+                        </span>Input Message
+                      </a>
+                    </li>
+                    <li data-menuanchor="secondPage"><a href="2"><span><i data-menuanchor="secondPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Output Message</a></li>
+                    <li data-menuanchor="thirdPage"><a href="3"><span><i data-menuanchor="thirdPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Variables</a></li>
+                    <li data-menuanchor="fourthPage"><a href="4"><span><i data-menuanchor="fourthPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Test Data</a></li>
+                    <li data-menuanchor="fifthPage"><a href="5"><span><i data-menuanchor="fifthPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Business Case</a></li>
+                    <li data-menuanchor="sixthPage"><a href="6"><span><i data-menuanchor="sixthPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Publish</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="pointer">
                 <a href="#">Manage</a>
             </li>
-              <li>
+              <li  class="pointer">
                   <%= link_to "Leads", admin_case_leads_path(@case) %>
               </li>
-
-
-            <li>
+            <li class="pointer">
                 <a href="#">Analytics</a>
             </li>
-            <li>
+            <li class="pointer">
                 <a href="#">API</a>
             </li>
 
@@ -67,51 +76,6 @@
 </div>
 
 
-<% content_for :after_js do %>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 
- <script type="text/javascript">
 
-  $(document).ready(function() {
 
-       //link to scroll section
-      $('li > ul > li > a').click(function(){
-        console.log("beatl");
-        $.fn.fullpage.moveTo( $(this).attr('href') );
-
-        //Toggle Class
-        $(".sub-active").removeClass("sub-active");
-        $(this).closest('li').addClass("sub-active");
-        var theClass = $(this).attr("sub-class");
-        $('.'+theClass).parent('li').addClass('active');
-      });
-
-       $('li').on('click', function () {
-            console.log("beatl");
-            $("li").removeClass("active")
-            $(this).toggleClass('active');
-        });
-
-  });
-
-     $(document).ready(function () {
-         $("#sidebar").niceScroll({
-             cursorcolor: '#53619d',
-             cursorwidth: 4,
-             cursorborder: 'none'
-         });
-
-         // $(".sidebar ul li").on("click", function(e){
-         //        $(".sidebar ul li").removeClass("active");
-         //        $(this).addClass("active");
-         //  };
-
-         $('#sidebarCollapse').on('click', function () {
-             // $('#sidebar, #content').toggleClass('active');
-             $('#sidebar').toggleClass('active');
-             $('.collapse.in').toggleClass('in');
-             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-         });
-     });
- </script>
- <% end %>

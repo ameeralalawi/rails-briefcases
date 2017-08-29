@@ -10,31 +10,18 @@ class Admin::CasesController < ApplicationController
   end
 
   def create
-# raise
     @case = Case.new(case_params)
     @case.status = "unpublished"
     @case.user = current_user
-
     if @case.save
       respond_to do |format|
         format.html { redirect_to admin_case_path(@case) }
-        #format.js  # <-- will render `/create.js.erb`
       end
     else
       respond_to do |format|
-        #format.html { redirect_to admin_case_path(@case) }
-        format.js  # <-- will render `/create.js.erb`
+        format.js
       end
     end
-
-
-    # @case = Case.new
-    # @charts = prep_chart(@case)
-    # charts = prep_chart(@case)
-    # @chartM = charts[:chartM]
-    # @chartA = charts[:chartA]
-    # @chartB = charts[:chartB]
-    # @chart_globals = prep_chart_globals
   end
 
   def delete
@@ -54,6 +41,8 @@ class Admin::CasesController < ApplicationController
     @case = Case.find(params[:id])
     @case.update(case_params_input)
     @variables = @case.variables.where(:category == "expert")
+    # update_input_variables(@case)
+
     respond_to do |format|
       format.js
     end
@@ -88,15 +77,15 @@ class Admin::CasesController < ApplicationController
   def savevariables
     @case = Case.find(params[:id])
     vars = JSON.parse(case_params_variables[:variablesjson])
-    vars.each do |varname, varvalue|
-      if varvalue[0] == "@"
-        Variable.where(case_id: params[:id], name: varname).destroy_all
-        Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "input")
-      else
-        Variable.where(case_id: params[:id], name: varname).destroy_all
-        Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "expert")
-      end
-    end
+    # vars.each do |varname, varvalue|
+    #   if varvalue[0] == "@"
+    #     Variable.where(case_id: params[:id], name: varname).destroy_all
+    #     Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "input")
+    #   else
+    #     Variable.where(case_id: params[:id], name: varname).destroy_all
+    #     Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "expert")
+    #   end
+    # end
     Variable.where(case_id: params[:id], category: "output").destroy_all
     @case.output_pref_1 ? Variable.create(name: "@B-A_EndofPeriod_Val", expression: "@B-A_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
     @case.output_pref_2 ? Variable.create(name: "@A-B_EndofPeriod_Val", expression: "@A-B_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
@@ -210,6 +199,30 @@ class Admin::CasesController < ApplicationController
   def case_params_testdata(mycase)
      list_params_allowed = mycase.variables.where(case_id: params[:id], category: "input").map(&:expression)
      params.permit(list_params_allowed)
+  end
+
+  def update_input_variables(mycase)
+    raise
+    regex = /(?:@[a-zA-Z]+)/
+    newvars = mycase.user_input_text.scan(regex)
+    oldvars = mycase.variables.where(category: "input").map(&:expression)
+    add = newvars - oldvars
+    delete = oldvars - newvars
+    add.length > 0 ? addvariables(add, mycase) : nil
+    delete.length > 0 ? deletevariables(delete, mycase) : nil
+  end
+
+  def addvariables(addarr, mycase)
+    addarr.each do |add|
+      Variable.create(name: add, expression: add, category: "input", case_id: mycase.id)
+    end
+  end
+
+  def deletevariables(delarr, mycase)
+    raise
+    delarr.each do |del|
+      mycase.variables.where(category: "input", expression: del).destroy_all
+    end
   end
 
 end

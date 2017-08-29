@@ -23,7 +23,7 @@ class Case < ApplicationRecord
 
 
 
-  def build
+  def build(lead = nil)
     extents = determine_extents
     mycase = {}
     mycase[:A] = {}
@@ -32,9 +32,9 @@ class Case < ApplicationRecord
 
     self.lines.each do |line|
       if line.scenario == "A"
-        mycase[:A].merge!(line.build(extents))
+        mycase[:A].merge!(line.build(extents,lead))
       elsif line.scenario == "B"
-        mycase[:B].merge!(line.build(extents))
+        mycase[:B].merge!(line.build(extents,lead))
       end
     end
     mycase[:A].empty? ? mycase[:A].merge!({"NODATA".to_sym => Array.new([extents[:months],1].max, 0)}) : nil
@@ -70,9 +70,9 @@ class Case < ApplicationRecord
     return {absstart: m_start, absend: m_end, months:(m_end.year * 12 + m_end.month) - (m_start.year * 12 + m_start.month)}
   end
 
-  def output
+  def output(lead = nil)
     out = {}
-    build = self.build
+    build = self.build(lead)
     self.output_pref_1 ? out[:output_pref_1] = b_over_a_value_at_eop(build) : nil
     self.output_pref_2 ? out[:output_pref_2] = a_over_b_value_at_eop(build) : nil
     self.output_pref_3 ? out[:output_pref_3] = 0 : nil

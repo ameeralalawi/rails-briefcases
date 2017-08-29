@@ -10,17 +10,17 @@ class Variable < ApplicationRecord
 
 
 
-  def eval_var
+  def eval_var(lead = nil)
     case self.category
       when "input"
-        # if user_signed_in?
+        if lead == nil
           return self.expert_value
-        # else
-        #   VariableUse.where(variable_id: self.id, lead_id: @lead.id)
-        # end
+        else
+          VariableUse.where(variable_id: self.id, lead_id: lead.id).take.value
+        end
       when "expert"
         value = JSON.parse(self.expression)["data"]
-        return eval_complex(self, value)
+        return eval_complex(self, value, lead)
       when "output"
         puts 'unimplemented'
       else
@@ -28,7 +28,7 @@ class Variable < ApplicationRecord
     end
   end
 
-  def eval_complex(var_inst, value)
+  def eval_complex(var_inst, value, lead = nil)
     prepared_expr = []
     value.each do |op|
       if op.is_a? String
@@ -38,7 +38,7 @@ class Variable < ApplicationRecord
           prepared_expr << op["value"].to_s.gsub(',', '')
         else
           vari = Variable.where(name: op["value"], case_id: var_inst.case_id).first
-          prepared_expr << vari.eval_var.to_s.gsub(',', '')
+          prepared_expr << vari.eval_var(lead).to_s.gsub(',', '')
         end
       else
         prepared_expr << ".Err."
