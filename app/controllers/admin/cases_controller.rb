@@ -66,8 +66,10 @@ class Admin::CasesController < ApplicationController
   def testdata
     @case = Case.find(params[:id])
     case_params_testdata(@case).each do |varname,expertval|
-      changevar = Variable.where(case_id: params[:id], category: "input", name: varname)
-      changevar.update(expert_value: expertval.to_f)
+      unless expertval.blank?
+        changevar = Variable.where(case_id: params[:id], category: "input", name: varname)
+        changevar.update(expert_value: expertval.to_f)
+      end
     end
   end
 
