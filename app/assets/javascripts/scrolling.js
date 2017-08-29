@@ -4,12 +4,12 @@ $(document).ready(function() {
   $('#fullpage').fullpage({
 
     //Navigation
-    menu: true,
+    menu: '#pageSubmenu',
     lockAnchors: false,
     anchors:['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage'],
     navigation: false,
     navigationPosition: 'right',
-    navigationTooltips: ['firstSlide', 'secondSlide','thirdSlide', 'fourthSlide', 'fifthSlide', 'sixthSlide'],
+    navigationTooltips: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage'],
     showActiveTooltip: false,
     slidesNavigation: false,
     slidesNavPosition: 'bottom',
@@ -38,7 +38,7 @@ $(document).ready(function() {
     scrollOverflow: false,
     scrollOverflowReset: false,
     scrollOverflowOptions: null,
-    touchSensitivity: 15,
+    touchSensitivity: 5,
     normalScrollElementTouchThreshold: 5,
     bigSectionsDestination: null,
 

@@ -12,6 +12,7 @@
     color: $white;
     transition: all 0.3s;
     text-decoration: none;
+    overflow-y: hidden;
 }
 
 #sidebar.active {
@@ -27,7 +28,7 @@
 }
 
 #sidebar ul.components {
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 #sidebar ul p {
@@ -36,26 +37,51 @@
 }
 
 #sidebar ul li a {
-    padding: 15px;
+    padding: 10px;
     font-size: 1.1em;
     display: block;
     color: $white;
 }
+
 #sidebar ul li a:hover {
     text-decoration: none;
-    color: $light-filling;
+    color: lighten( $light-filling, 20% );
     background: $white;
 }
+
+
+#sidebar ul li.top-active > a, a[aria-expanded="true"] {
+    color: $white;
+    background: $cta-green;
+}
+
+#sidebar ul li, a[aria-expanded="true"] {
+    background: none;
+}
+
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: $white;
-    background: $medium-filling;
+    // color: $text-black;
+    // background: $white;
 }
 
-#sidebar ul li.sub-active > a, a[aria-expanded="true"] {
-    color: $text-black;
-    background: $white;
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: lighten( $light-filling, 20% );
 }
+
+
+
+
+.hidden-awsome {
+  color: lighten( $light-filling, 20% ) !important;
+}
+
+.hidden-awsome.active {
+  color: $cta-green !important;
+}
+
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -74,23 +100,17 @@ a[aria-expanded="true"]::before {
 }
 
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: lighten( $light-filling, 20% );
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  height: 120px;
+  // border-bottom: 2px solid $medium-filling;
 }
 
-ul.CTAs {
-    padding: 20px;
-}
 
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
 
 /* User Avatar */
 .avatar {

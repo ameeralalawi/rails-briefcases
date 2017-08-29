@@ -20,6 +20,46 @@
   }
 }
 
+
+.reverse-CTA {
+  min-width: 140px;
+  text-align: center;
+  color: $cta-green !important;
+  padding: 14px;
+  border: 1px solid $cta-green;
+  border-color: $cta-green;
+  border-radius: $border-radius-large;
+  font-size: 1.1em !important;
+  font-weight: bold;
+  background: $white;
+  transition: background 0.3s ease;
+  &:hover {
+    opacity: 1;
+    background: $cta-green !important;
+    text-decoration: none;
+    color: white !important;
+  }
+}
+
+
+
+
+// ul.CTAs a {
+//     text-align: center;
+//     font-size: 1.1em !important;
+//     display: block;
+//     border: 1px solid;
+//     border-color: $cta-green;
+//     border-radius: $border-radius-large;;
+//     margin-bottom: 5px;
+// }
+
+
+// a.article, a.article:hover {
+//     background: $white !important;
+//     color: $cta-green !important;
+// }
+
 .btn-action {
   color: white;
   padding: 10px 15px;
