@@ -10,7 +10,7 @@
     </div>
   <div class="checkboxes">
   <%= simple_form_for @case, url: save_output_admin_case_path(@case), :html => {:id => "save-output-form"}, method: :patch do |f|%>
-    <%= render "outputprefcheckboxes" %>
+    <%= render "outputprefcheckboxes" %> <!--  Do not move this render outside the form -->
   </div>
   <div class="output-text-box">
       <%= f.input :user_output_text, as: :text, label: false, wrapper: false, input_html: { id:"output-text"} %>
@@ -22,6 +22,16 @@
 <h3 class= page-title>MESSAGE PREVIEW</h3>
   <div id="preview-output">
     <div id="input-form" class="text-output">
+    </div>
+  </div>
+</div>
+<div class="" id="output_third">
+  <div class="arrow-group">
+    <div class="arrow-text">
+      <h3>BUILD VARIABLES</h3>
+    </div>
+    <div class="arrow bounce" id="to-thirdPage">
+      <a class="fa fa-arrow-down fa-2x b-arrow" href="#thirdPage"></a>
     </div>
   </div>
 </div>
