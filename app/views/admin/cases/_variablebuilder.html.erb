@@ -113,7 +113,7 @@
     <!-- <div class="add-var btn btn-primary btn-block" id ="new-variable-btn" data-toggle="modal" data-target="#AddVarModal"> ADD VARIABLE
     </div> -->
     <div>
-      <%= simple_form_for @case, url: save_variables_admin_case_path(@case), :html => {:id => "save-variables-form"}, method: :patch  do |f|%>
+      <%= simple_form_for @case, remote: true, url: save_variables_admin_case_path(@case), :html => {:id => "save-variables-form"}, method: :patch  do |f|%>
          <input type="hidden" id="variablesjson"  name="variablesjson" placeholder="">
       <% end %>
     </div>

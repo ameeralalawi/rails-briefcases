@@ -82,18 +82,12 @@ $(document).ready(function() {
 
       else if(index == 4){
         $('#global-save-4').trigger('click');
-
-      }
-
-      else if(index == 5){
-        // $('#global-save-5').trigger('click');
-      }
-
-      else if(index == 6){
-        // $('#global-save-5').trigger('click');
       }
     },
-    afterLoad: function(anchorLink, index){},
+    afterLoad: function(anchorLink, index){
+
+
+    },
     afterRender: function(){},
     afterResize: function(){},
     afterResponsive: function(isResponsive){},

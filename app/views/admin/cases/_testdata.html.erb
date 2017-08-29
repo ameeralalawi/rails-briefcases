@@ -9,7 +9,7 @@
   </div>
   <div id= "testdata_first">
     <div id="preview">
-      <%= simple_form_for @case, url: save_testdata_admin_case_path(@case), :html => {:id => "save-testdata-form"} ,method: :patch do |f|%>
+      <%= simple_form_for @case, remote: true, url: save_testdata_admin_case_path(@case), :html => {:id => "save-testdata-form"} ,method: :patch do |f|%>
         <div id="input-form" class="text-input">
         </div>
       <% end %>
