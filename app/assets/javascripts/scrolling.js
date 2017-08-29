@@ -77,11 +77,12 @@ $(document).ready(function() {
       }
 
       else if(index == 3){
-        // $('#global-save-3').trigger('click');
+        $('#global-save-3').trigger('click');
       }
 
       else if(index == 4){
-        // $('#global-save-4').trigger('click');
+        $('#global-save-4').trigger('click');
+
       }
 
       else if(index == 5){
