@@ -10,31 +10,18 @@ class Admin::CasesController < ApplicationController
   end
 
   def create
-# raise
     @case = Case.new(case_params)
     @case.status = "unpublished"
     @case.user = current_user
-
     if @case.save
       respond_to do |format|
         format.html { redirect_to admin_case_path(@case) }
-        #format.js  # <-- will render `/create.js.erb`
       end
     else
       respond_to do |format|
-        #format.html { redirect_to admin_case_path(@case) }
-        format.js  # <-- will render `/create.js.erb`
+        format.js
       end
     end
-
-
-    # @case = Case.new
-    # @charts = prep_chart(@case)
-    # charts = prep_chart(@case)
-    # @chartM = charts[:chartM]
-    # @chartA = charts[:chartA]
-    # @chartB = charts[:chartB]
-    # @chart_globals = prep_chart_globals
   end
 
   def delete
