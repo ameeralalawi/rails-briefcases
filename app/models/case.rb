@@ -1,4 +1,4 @@
-class Case < ApplicationRecord
+  class Case < ApplicationRecord
   belongs_to :user
   has_many :leads
   has_many :lines
