@@ -25,18 +25,8 @@
     <% end %>
 
 
-  <div class="back final-form-tow">
-    <h2>HELOOOOOOOOOOOO</h2>
-
-    <div style="background-color: blue;">
-      <%= @case.user_output_text %>
-    </div>
-
-    <div>
-      <%= high_chart_globals(@chart_globals) %>
-      <%= high_chart("CaseChart", @chartM) %>
-    </div>
-
+  <div class="back final-form-tow" id='results'>
+    <%= render 'user-results' %>
   </div>
 </div>
 
