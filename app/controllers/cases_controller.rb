@@ -1,6 +1,10 @@
 class CasesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
+  layout "user_case", only: [:show] #render user_case layout instead of application
+
+
+
   def show
     @case = Case.find(params[:id])
     unless @case.status == "Published"

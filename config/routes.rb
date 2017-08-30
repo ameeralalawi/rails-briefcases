@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/cases/:id', to: 'cases#show', as: "case"
   get 'pages/components', to: 'pages#components'
   post 'cases/:id/leads', to: 'leads#create', as: "compute_result"
-  patch 'leads/:id', to: 'leads#update'
+  patch 'leads/:id', to: 'leads#update', as: "lead"
 
   namespace :admin do
     resources :cases, only: [:index, :new, :create, :destroy, :show] do

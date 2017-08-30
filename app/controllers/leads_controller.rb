@@ -1,6 +1,7 @@
 class LeadsController < ApplicationController
   skip_before_action :authenticate_user!
 
+
   def create
     @case = Case.find(params[:id])
     @lead = Lead.create(case: @case)
@@ -30,11 +31,25 @@ class LeadsController < ApplicationController
   end
 
 
-
   def update
+    @lead = Lead.find(params[:id])
+    @case = Case.find(@lead.case_id)
+    if @lead.update(update_params)
+     respond_to do |format|
+      format.html { redirect_to case_path(@case) }
+      format.js  # <-- idem
+      end
+    end
   end
 
-  private
+
+
+
+private
+
+  def update_params
+    params.require(:lead).permit( :first_name, :last_name, :email )
+  end
 
   def prep_chart(mycase, lead = nil)
     mydata = mycase.build(lead)
@@ -72,6 +87,7 @@ class LeadsController < ApplicationController
       f.lang(thousandsSep: ",")
       f.colors(["#0B132B", "#CCCCCC", "#8085e9", "#f15c80", "#e4d354"])
     end
+
   end
 
 end

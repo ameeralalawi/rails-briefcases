@@ -1,3 +1,18 @@
+#user-case-wrapper {
+background-color: $light-filling;
+// height: 100vh;
+// width: 100vw;
+padding: 20px;
+}
+
+#user-case-form-container {
+  width: 900px;
+  height: 75px;
+  // display: inline-block;
+  margin: 10px;
+  background-color: white;
+}
+
 .final-form-head {
   background-color: red;
   height: 500px;
