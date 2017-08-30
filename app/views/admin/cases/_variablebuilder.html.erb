@@ -70,8 +70,12 @@
         var result = JSON.stringify($formula.data('formula').getFormula());
 
 
-       $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value='+ result +'>'+ variable_new_name +'</a></li>');
+        $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value='+ result +'>'+ variable_new_name +'</a></li>');
         document.loadDraggables();
+
+        $('#variable_name').val("");
+        $('.formula-container').empty()
+
       } else {
         alert("INVALID VARIABLE \n \n Please ensure your variable has a name and a valid expression.")
       }
