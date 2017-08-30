@@ -24,7 +24,7 @@
         <div class="form-group-margin form-group">
           <label class="sr-only" for="guest">Variable</label>
           <select id="guest" name="variable_id" class="form-control">
-              <% @case.variables.where("category = ? OR category = ?", "input","expert").each do |variable| %>
+              <% @case.variables.where("category = ? OR category = ?", "input","expert").where("state = ?", true).each do |variable| %>
                <option <%= line.variable.name == variable.name ? "selected" : nil %> value='<%= variable.id %>' ><%=variable.name%></option>
               <%end%>
           </select>
