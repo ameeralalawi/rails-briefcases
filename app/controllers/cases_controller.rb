@@ -12,14 +12,16 @@ class CasesController < ApplicationController
       redirect_to root_path
       return
     end
+
       @lead = Lead.create(case: @case)
 
+      @out = {output_pref_1: 999, output_pref_2: 999, output_pref_3: 999, output_pref_4: 999, output_pref_5: 999, output_pref_6: 999 }
       charts = prep_chart(@case)
       @chartM = charts[:chartM]
       @chart_globals = prep_chart_globals
 
 
-    @input = @case.user_input_text
+      @input = @case.user_input_text
   end
 
 

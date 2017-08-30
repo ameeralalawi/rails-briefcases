@@ -1,4 +1,4 @@
-class Case < ApplicationRecord
+  class Case < ApplicationRecord
   belongs_to :user
   has_many :leads
   has_many :lines
@@ -20,8 +20,6 @@ class Case < ApplicationRecord
   def default_values
     self.status ||= 'Unpublished' # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
   end
-
-
 
   def build(lead = nil)
     extents = determine_extents

@@ -20,6 +20,7 @@ class Variable < ApplicationRecord
         end
       when "expert"
         value = JSON.parse(self.expression)["data"]
+
         return eval_complex(self, value, lead)
       when "output"
         puts 'unimplemented'
@@ -34,11 +35,16 @@ class Variable < ApplicationRecord
       if op.is_a? String
         prepared_expr << op.to_s.gsub(',', '')
       elsif op.is_a? Hash
-        if is_number? op["value"]
+        if op["type"] == "unit"
           prepared_expr << op["value"].to_s.gsub(',', '')
-        else
-          vari = Variable.where(name: op["value"], case_id: var_inst.case_id).first
-          prepared_expr << vari.eval_var(lead).to_s.gsub(',', '')
+        elsif op["type"] == "item"
+
+          if op["value"].is_a? String
+            vari = Variable.where(name: op["value"], case_id: var_inst.case_id).first
+            prepared_expr << vari.eval_var(lead).to_s.gsub(',', '')
+          elsif op["value"].is_a? Hash
+            prepared_expr << eval_complex(var_inst, op["value"]["data"],lead)
+          end
         end
       else
         prepared_expr << ".Err."
@@ -47,3 +53,6 @@ class Variable < ApplicationRecord
     return eval(prepared_expr.join)
   end
 end
+
+
+
