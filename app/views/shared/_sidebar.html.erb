@@ -4,7 +4,7 @@
     <nav id="sidebar">
       <%= link_to('/admin/profile') do %>
         <div class="sidebar-header">
-    <% end %>
+
   <!-- AVATAR -->
   <!-- PART DELETED HERE: Cloudinary photo -->
           <div class="persona" >
@@ -15,11 +15,12 @@
             <% end %>
 
             <div class="user-name">
-            <h4> <%= current_user.first_name %></h4>
+              <h4> <%= current_user.first_name %></h4>
             </div>
-        </div>
+          </div>
         <!-- AVATAR END -->
         </div>
+      <% end %>
 
         <div class="button-container">
           <ul class="list-unstyled">
