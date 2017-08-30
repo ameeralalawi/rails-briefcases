@@ -26,9 +26,10 @@
     </div>
   </div>
   <div class="form-builder">
-    <div id="input_var_container" class="container">
-      <div class="row" id="variables-box">
-      </div>
+    <div id="input_var_container" class="container text-center">
+      <ul id="variables-box">
+
+      </ul>
     </div>
   </div>
 </div>
@@ -96,7 +97,7 @@
       $('#shut').html('');
 
       syntax.forEach(function(s){
-        $('#variables-box').append('<div class="col-xs-12 col-md-6 variables-style">'  + s + '</div>');
+        $('#variables-box').append('<li class="variables-style">'  + s + '</li>');
         $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="' + s + '">' + s +'</a></li>');
           //<a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
       });
