@@ -87,7 +87,6 @@ $(document).ready(function() {
     },
     afterLoad: function(anchorLink, index){
 
-
     },
     afterRender: function(){},
     afterResize: function(){},

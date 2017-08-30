@@ -3,7 +3,7 @@ class CasesController < ApplicationController
 
   def show
     @case = Case.find(params[:id])
-    unless @case.status == "published"
+    unless @case.status == "Published"
       flash[:notice] = "This case has not been published"
       redirect_to root_path
       return

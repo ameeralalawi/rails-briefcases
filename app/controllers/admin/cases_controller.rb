@@ -11,7 +11,7 @@ class Admin::CasesController < ApplicationController
 
   def create
     @case = Case.new(case_params)
-    @case.status = "unpublished"
+    @case.status = "Unpublished"
     @case.user = current_user
     if @case.save
       respond_to do |format|
@@ -32,7 +32,7 @@ class Admin::CasesController < ApplicationController
      @line = Line.new
      @chart_globals = prep_chart_globals
      charts = prep_chart(@case)
-     @expvariables = @case.variables.where(category: "expert")
+     @expvariables = @case.variables.where(category: "expert", state: true)
      @chartM = charts[:chartM]
      @chartA = charts[:chartA]
      @chartB = charts[:chartB]
@@ -42,6 +42,7 @@ class Admin::CasesController < ApplicationController
     @case = Case.find(params[:id])
     @case.update(case_params_input)
     update_input_variables(@case)
+    @expvariables = @case.variables.where(category: "expert", state: true)
     respond_to do |format|
       format.js
     end
@@ -82,10 +83,10 @@ class Admin::CasesController < ApplicationController
     add.each do |a|
       Variable.create(name: a, expression: vars[a], category: "expert", case_id: @case.id, state: true)
     end
-    delete = oldexpertvars - newexpertvars
-    delete.each do |disvar|
-      Variable.where(case_id: @case.id, category: "expert", name: disvar).update_all(state: false)
-    end
+    disablevars = oldexpertvars - newexpertvars
+    # disablevars.each do |disvar|
+    #   Variable.where(case_id: @case.id, category: "expert", name: disvar).update_all(state: false)
+    # end
     respond_to do |format|
       format.js
     end
@@ -111,8 +112,8 @@ class Admin::CasesController < ApplicationController
     chartA = LazyHighCharts::HighChart.new('graph2') do |f|
       f.title(text: mycase.scenario_a)
       f.xAxis(categories: mydata[:xaxis])
-      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min - 10
-      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max + 10
+      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min - 5
+      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max + 5
 
       mydata[:A].each do |graphlabel, graphdata|
         f.series(name: graphlabel, yAxis: 0, data: graphdata)
@@ -128,8 +129,8 @@ class Admin::CasesController < ApplicationController
     chartB = LazyHighCharts::HighChart.new('graph3') do |f|
       f.title(text: mycase.scenario_b)
       f.xAxis(categories: mydata[:xaxis])
-      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min.round - 10
-      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max.round + 10
+      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min.round - 5
+      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max.round + 5
 
 
       mydata[:B].each do |graphlabel, graphdata|
@@ -199,9 +200,9 @@ class Admin::CasesController < ApplicationController
     newvars = mycase.user_input_text.scan(regex)
     oldvars = mycase.variables.where(category: "input").map(&:expression)
     add = newvars - oldvars
-    delete = oldvars - newvars
+    disab = oldvars - newvars
     add.length > 0 ? addvariables(add, mycase) : nil
-    delete.length > 0 ? disablevariables(delete, mycase) : nil
+    disab.length > 0 ? disablevariables(delete, mycase) : nil
   end
 
   def addvariables(addarr, mycase)
