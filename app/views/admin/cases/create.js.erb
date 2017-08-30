@@ -1,5 +1,6 @@
 <% if @case.errors.any? %>
   // Render new_case form with errors
   $('#create-modal').html("<%= j render 'new_case' %>");
-
+<% else %>
+    window.location.href = "<%= admin_case_path(@case) %>";
 <% end %>

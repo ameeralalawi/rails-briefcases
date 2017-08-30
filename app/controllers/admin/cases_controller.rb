@@ -15,7 +15,7 @@ class Admin::CasesController < ApplicationController
     @case.user = current_user
     if @case.save
       respond_to do |format|
-        format.html { redirect_to admin_case_path(@case) }
+        format.js
       end
     else
       respond_to do |format|
