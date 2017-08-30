@@ -47,10 +47,10 @@
 <% content_for :after_js do %>
   <script>
 
-
+    window.expertVariables = <%= raw @expvariables.to_json %>;
     // Javascript to the input form page
     var print_text = function(div) {
-
+      window.expertVariables = <%= raw @expvariables.to_json %>;
       // on every key up, we get value in form and put it in preview and replace "@word" with an empty input field.
       var sentence = div.val();
       var regex = /(?:@[a-zA-Z]+)/g;
@@ -98,10 +98,9 @@
       syntax.forEach(function(s){
         $('#variables-box').append('<div class="col-xs-12 col-md-6 variables-style">'  + s + '</div>');
         $('#shut').append('<li><a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="' + s + '">' + s +'</a></li>');
-        variables_refresh();
           //<a href="javascript:void(0);" class="formula-custom ui-draggable ui-draggable-handle" data-value="AMEER IS">TEXT AMEER</a>
       });
-
+      variables_refresh()
        document.loadDraggables();
     };
 
