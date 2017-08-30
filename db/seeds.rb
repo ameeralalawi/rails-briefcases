@@ -23,7 +23,7 @@ admin = User.last
 
 # Two cases are added to the app. One which will be populated the other which will be just for show.
 Case.create!({
-  :status => "published",
+  :status => "Published",
   :user_input_text => "I have @TotalUserBulbs incandescent lightbulbs with a wattage of @UserBulbWattage Watts in my home. My electricity price in USD per Kwh is: @UserElecPrice. On average I keep my lights on @UserHoursOfUse hours per day (average in Europe is 5 hours per day).",
   :user_output_text => "If you invest in our product, you will earn @ReturnOnInvestedCapital euros per year and recover the initial cost in @FirstBreakeveInMonths. In more details, the value of your investment after year one will be of @ABEndofPeriodVal. ",
   :name => "Hooli CFL Lightbulb",
@@ -43,7 +43,7 @@ Case.create!({
 seedcase = Case.last
 
 Case.create!({
-  :status => "unpublished",
+  :status => "Unpublished",
   :user_input_text => "",
   :user_output_text => "",
   :name => "Hooli eBike Campaign",

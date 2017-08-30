@@ -1,6 +1,6 @@
 class Admin::CasesController < ApplicationController
   def index
-    @cases = Case.all
+    @cases = current_user.cases
     @case = Case.new
     @light_sidebar  = true
   end
@@ -70,7 +70,7 @@ class Admin::CasesController < ApplicationController
 
   def updatestatus
     @case = Case.find(params[:id])
-    @case.update(status: "published")
+    @case.update(status: "Published")
   end
 
   def savevariables
