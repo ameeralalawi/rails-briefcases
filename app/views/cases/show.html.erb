@@ -1,96 +1,108 @@
-<div  class="final-form-head" id="card">
-  <div class="front final-form-head">
+<div id="user-case-wrapper">
 
-    <h1>Welcome on Briefcase forms</h1>
-    <h3>Invest or not in a product ? We tell you if it worths it.</h3>
+ <div id="user-case-form-container">
+    <%= render 'user-case-form' %>
+  </div>
 
-    <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "save-user-fill"} ,method: :post, remote: true do |f|%>
-    <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>
-    <input type="hidden" name="lead_id" value="<%= @lead.id %>">
+    <div  class="final-form-head" id="card">
+      <div class="front final-form-head">
+
+        <h1>Welcome on Briefcase forms</h1>
+        <h3>Invest or not in a product ? We tell you if it worths it.</h3>
+
+        <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "save-user-fill"} ,method: :post, remote: true do |f|%>
+        <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>
+        <input type="hidden" name="lead_id" value="<%= @lead.id %>">
 
 
 
-    <div class="around" id="input_second">
-      <h3 class= page-title>Please fill in the form if you want to check our product value.</h3>
-      <div id="preview">
-        <div class="input-field" id="input-form"></div>
+        <div class="around" id="input_second">
+          <h3 class= page-title>Please fill in the form if you want to check our product value.</h3>
+          <div id="preview">
+            <div class="input-field" id="input-form"></div>
+          </div>
+        </div>
+
+        <div class="save-button">
+        <%= button_tag type:'submit', form:"save-user-fill", id: "turn-card" %>
+        </div>
+
+      </div>
+        <% end %>
+
+
+      <div class="back final-form-tow">
+        <h2>HELOOOOOOOOOOOO</h2>
+
+        <div style="background-color: blue;">
+          <%= @case.user_output_text %>
+        </div>
+
+        <div>
+          <%= high_chart_globals(@chart_globals) %>
+          <%= high_chart("CaseChart", @chartM) %>
+        </div>
+
       </div>
     </div>
 
-    <div class="save-button">
-    <%= button_tag type:'submit', form:"save-user-fill", id: "turn-card" %>
-    </div>
+    <% content_for :after_js do %>
+      <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
-  </div>
+    <script>
+
+    $( document ).ready(function(){
+
+      var emptyField = function() {
+
+      var input = $('#filling').val();
+      var regex = /(?:@[a-zA-Z]+)/g;
+      var matches_array = input.match(regex);
+      var input_empty_fields = input
+      //var input_empty_fields = input.replace(regex, '<input type="text" name="amount"/>');
+
+      matches_array.forEach(function(match) {
+        input_empty_fields = input_empty_fields.replace(match, '<input type="text" type="number" name="vars['+match+']"/>')
+      });
+
+      $('.input-field').html(input_empty_fields);
+
+    };
+
+
+      $('#filling').hide()
+          emptyField()
+
+
+
+      $("#card").flip({
+        trigger: 'manual',
+        reverse: true,
+        speed: 3000
+      });
+
+
+     $('#turn-card').on("click", function(){
+      // $("#card").flip(true);
+
+    $("#card").flip('toggle');
+
+    });
+
+
+
+
+
+
+    });
+
+    </script>
+
+
     <% end %>
 
 
-  <div class="back final-form-tow">
-    <h2>HELOOOOOOOOOOOO</h2>
 
-    <div style="background-color: blue;">
-      <%= @case.user_output_text %>
-    </div>
-
-    <div>
-      <%= high_chart_globals(@chart_globals) %>
-      <%= high_chart("CaseChart", @chartM) %>
-    </div>
-
-  </div>
 </div>
 
-<% content_for :after_js do %>
-  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
-<script>
-
-$( document ).ready(function(){
-
-  var emptyField = function() {
-
-  var input = $('#filling').val();
-  var regex = /(?:@[a-zA-Z]+)/g;
-  var matches_array = input.match(regex);
-  var input_empty_fields = input
-  //var input_empty_fields = input.replace(regex, '<input type="text" name="amount"/>');
-
-  matches_array.forEach(function(match) {
-    input_empty_fields = input_empty_fields.replace(match, '<input type="text" type="number" name="vars['+match+']"/>')
-  });
-
-  $('.input-field').html(input_empty_fields);
-
-};
-
-
-  $('#filling').hide()
-      emptyField()
-
-
-
-  $("#card").flip({
-    trigger: 'manual',
-    reverse: true,
-    speed: 3000
-  });
-
-
- $('#turn-card').on("click", function(){
-  // $("#card").flip(true);
-
-$("#card").flip('toggle');
-
-});
-
-
-
-
-
-
-});
-
-</script>
-
-
-<% end %>
