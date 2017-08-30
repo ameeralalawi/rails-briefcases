@@ -1,3 +1,4 @@
+<% content_for :after_js do %>
 
 <div class="app-screen-index" id="leads-index">
 
@@ -61,3 +62,13 @@
 
   </div>
 </div>
+
+
+<script>
+  //sets the top-active class on page load
+  $(window).bind("load", function () {
+    $("#start-point-3").addClass("top-active")
+  });
+</script>
+
+<%end%>

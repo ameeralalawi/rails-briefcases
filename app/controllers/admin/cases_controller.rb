@@ -1,6 +1,6 @@
 class Admin::CasesController < ApplicationController
   def index
-    @cases = Case.all
+    @cases = current_user.cases
     @case = Case.new
     @light_sidebar  = true
   end
@@ -11,7 +11,7 @@ class Admin::CasesController < ApplicationController
 
   def create
     @case = Case.new(case_params)
-    @case.status = "unpublished"
+    @case.status = "Unpublished"
     @case.user = current_user
     if @case.save
       respond_to do |format|
@@ -32,6 +32,7 @@ class Admin::CasesController < ApplicationController
      @line = Line.new
      @chart_globals = prep_chart_globals
      charts = prep_chart(@case)
+     @expvariables = @case.variables.where(category: "expert", state: true)
      @chartM = charts[:chartM]
      @chartA = charts[:chartA]
      @chartB = charts[:chartB]
@@ -40,9 +41,8 @@ class Admin::CasesController < ApplicationController
   def saveinputbuilder
     @case = Case.find(params[:id])
     @case.update(case_params_input)
-    @variables = @case.variables.where(:category == "expert")
-    # update_input_variables(@case)
-
+    update_input_variables(@case)
+    @expvariables = @case.variables.where(category: "expert", state: true)
     respond_to do |format|
       format.js
     end
@@ -71,28 +71,22 @@ class Admin::CasesController < ApplicationController
 
   def updatestatus
     @case = Case.find(params[:id])
-    @case.update(status: "published")
+    @case.update(status: "Published")
   end
 
   def savevariables
     @case = Case.find(params[:id])
     vars = JSON.parse(case_params_variables[:variablesjson])
-    # vars.each do |varname, varvalue|
-    #   if varvalue[0] == "@"
-    #     Variable.where(case_id: params[:id], name: varname).destroy_all
-    #     Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "input")
-    #   else
-    #     Variable.where(case_id: params[:id], name: varname).destroy_all
-    #     Variable.create(name: varname, expression: varvalue, case_id: @case.id, category: "expert")
-    #   end
+    newexpertvars = vars.select { |num,val|  val[0] != "@" }.keys
+    oldexpertvars = Variable.where(case_id: params[:id], category: "expert").map(&:name)
+    add = newexpertvars - oldexpertvars
+    add.each do |a|
+      Variable.create(name: a, expression: vars[a], category: "expert", case_id: @case.id, state: true)
+    end
+    disablevars = oldexpertvars - newexpertvars
+    # disablevars.each do |disvar|
+    #   Variable.where(case_id: @case.id, category: "expert", name: disvar).update_all(state: false)
     # end
-    Variable.where(case_id: params[:id], category: "output").destroy_all
-    @case.output_pref_1 ? Variable.create(name: "@B-A_EndofPeriod_Val", expression: "@B-A_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
-    @case.output_pref_2 ? Variable.create(name: "@A-B_EndofPeriod_Val", expression: "@A-B_EndofPeriod_Val", category: "output", case_id: @case.id) : nil
-    @case.output_pref_3 ? Variable.create(name: "@Return_on_Invested_Capital", expression: "@Return_on_Invested_Capital", category: "output", case_id: @case.id) : nil
-    @case.output_pref_4 ? Variable.create(name: "@Internal_Rate_Return", expression: "@Internal_Rate_Return", category: "output", case_id: @case.id) : nil
-    @case.output_pref_5 ? Variable.create(name: "@First_Breakeven_in_months", expression: "@First_Breakeven_in_months", category: "output", case_id: @case.id) : nil
-    @case.output_pref_6 ? Variable.create(name: "@Second_Breakeven_in_months", expression: "@Second_Breakeven_in_months", category: "output", case_id: @case.id) : nil
     respond_to do |format|
       format.js
     end
@@ -118,8 +112,8 @@ class Admin::CasesController < ApplicationController
     chartA = LazyHighCharts::HighChart.new('graph2') do |f|
       f.title(text: mycase.scenario_a)
       f.xAxis(categories: mydata[:xaxis])
-      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min - 10
-      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max + 10
+      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min - 5
+      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max + 5
 
       mydata[:A].each do |graphlabel, graphdata|
         f.series(name: graphlabel, yAxis: 0, data: graphdata)
@@ -135,8 +129,8 @@ class Admin::CasesController < ApplicationController
     chartB = LazyHighCharts::HighChart.new('graph3') do |f|
       f.title(text: mycase.scenario_b)
       f.xAxis(categories: mydata[:xaxis])
-      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min.round - 10
-      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max.round + 10
+      mmin = [mydata[:Atotal].min, mydata[:Btotal].min].min.round - 5
+      mmax = [mydata[:Atotal].max, mydata[:Btotal].max].max.round + 5
 
 
       mydata[:B].each do |graphlabel, graphdata|
@@ -202,26 +196,24 @@ class Admin::CasesController < ApplicationController
   end
 
   def update_input_variables(mycase)
-    raise
     regex = /(?:@[a-zA-Z]+)/
     newvars = mycase.user_input_text.scan(regex)
     oldvars = mycase.variables.where(category: "input").map(&:expression)
     add = newvars - oldvars
-    delete = oldvars - newvars
+    disab = oldvars - newvars
     add.length > 0 ? addvariables(add, mycase) : nil
-    delete.length > 0 ? deletevariables(delete, mycase) : nil
+    disab.length > 0 ? disablevariables(delete, mycase) : nil
   end
 
   def addvariables(addarr, mycase)
     addarr.each do |add|
-      Variable.create(name: add, expression: add, category: "input", case_id: mycase.id)
+      Variable.create(name: add, expression: add, category: "input", case_id: mycase.id, state: true)
     end
   end
 
-  def deletevariables(delarr, mycase)
-    raise
+  def disablevariables(delarr, mycase)
     delarr.each do |del|
-      mycase.variables.where(category: "input", expression: del).destroy_all
+      mycase.variables.where(category: "input", expression: del).update(state: false)
     end
   end
 

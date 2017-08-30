@@ -34,7 +34,7 @@ $(document).ready(function() {
     offsetSections: false,
     resetSliders: false,
     fadingEffect: false,
-    normalScrollElements: '#lines-scroll',
+    normalScrollElements: '#lines-scroll, #input_var_container, #variable-builder-container',
     scrollOverflow: false,
     scrollOverflowReset: false,
     scrollOverflowOptions: null,
@@ -86,7 +86,6 @@ $(document).ready(function() {
       }
     },
     afterLoad: function(anchorLink, index){
-
 
     },
     afterRender: function(){},

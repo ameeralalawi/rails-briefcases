@@ -31,12 +31,14 @@
 
 
         <ul class="list-unstyled components">
-            <li class="top-active">
-                <div href="#pageSubmenu" data-toggle="collapse" ></div>
+          <li id="start-point-1">
+ <!--  -->
+         <!--  <div href="#pageSubmenu" data-toggle="collapse" ></div> -->
 
 <% unless @light_sidebar %>
 
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Build</a>
+              <%= link_to "Build Case", admin_case_path(@case), :id => "pageSubmenu-target" %>
+
 
                 <ul class="collapse list-unstyled" id="pageSubmenu">
 
@@ -54,16 +56,16 @@
                     <li data-menuanchor="sixthPage"><a href="6"><span><i data-menuanchor="sixthPage" class="hidden-awsome fa fa-dot-circle-o">&nbsp&nbsp</i></span>  Publish</a></li>
                 </ul>
             </li>
-            <li class="pointer">
+            <li class="pointer" id="start-point-2">
                 <a href="#">Manage</a>
             </li>
-              <li  class="pointer">
-                  <%= link_to "Leads", admin_case_leads_path(@case) %>
-              </li>
-            <li class="pointer">
+            <li class="pointer" id="start-point-3">
+                <%= link_to "Leads", admin_case_leads_path(@case) %>
+            </li>
+            <li class="pointer" id="start-point-4">
                 <a href="#">Analytics</a>
             </li>
-            <li class="pointer">
+            <li class="pointer" id="start-point-5">
                 <a href="#">API</a>
             </li>
 

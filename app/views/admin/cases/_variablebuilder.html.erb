@@ -43,13 +43,13 @@
     });
 
         $('.formula-advanced').bind('formula.input', function(event, data) {
-            console.log('input', data);
+
         });
 
     $('.formula-get .compact .item').bind('click', function(event) {
       event.preventDefault();
       $('.formula-advanced').formula('getFormula', function(data) {
-                console.log('Formula result:', data);
+
                 $('.formula-get .formula-get-json .formula-get-json-data').text(JSON.stringify(data));
             });
     });
@@ -78,7 +78,7 @@
     });
 
     $("#global-save-3").on('click', function(event) {
-      console.log("I RAN")
+
       var myvars = {};
       var ul = document.getElementById("shut");
       var items = ul.getElementsByTagName("li");
@@ -89,6 +89,7 @@
       }
       output = JSON.stringify(myvars);
       $("#variablesjson").val(output);
+
     });
 
     print_text($("#hello"))
@@ -135,11 +136,10 @@
         <h4> CASE</h4><% end %>
       </div>
     </div>
-    <div class="variable-box">
+    <div class="variable-box" id="variable-builder-container">
       <div class="formula-drop">
 
         <ul class="variable-ul-style formula-drop-items" style="list-style: none;" id="shut">
-
         </ul>
       </div>
     </div>

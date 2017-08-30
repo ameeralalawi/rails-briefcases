@@ -1,9 +1,6 @@
 
 $(document).ready(function() {
 
-        //opens the submenu on page load
-        $('#pageSubmenu').collapse('show');
-        $('[href="#pageSubmenu"]').attr('data-toggle', 'collapse')
 
       $('li > ul > li > a').click(function(){
         console.log("test");
@@ -18,18 +15,20 @@ $(document).ready(function() {
       });
 
       //collapse submenu if click to other main-menu tab
-      $('ul li').filter(".pointer").on('click', function () {
+      $('ul li').filter(".pointer").on('click', function (event) {
         console.log("beatl");
+        // event.preventDefault();
         if ($('[aria-expanded=true]').length > 0) {
           $('#pageSubmenu').collapse('hide');
-          $('[href="#pageSubmenu"]').attr('data-toggle', 'collapse')
+          $('#pageSubmenu-target').attr('data-toggle', 'collapse')
         }
       });
-      //Toggle class "active" of main-bmenu
-      $('li').on('click', function () {
-        console.log("yey");
+
+      //Toggle class "active" of main-menu
+      $('li').on('click', function (event) {
+        console.log("yey-");
         $("li").removeClass("top-active")
-        $("li").parent('li').eq(2).removeClass("top-active")
+        // $("li").parent('li').eq(2).removeClass("top-active")
         $(this).toggleClass('top-active');
       });
 });

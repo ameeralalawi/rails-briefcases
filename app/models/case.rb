@@ -18,10 +18,8 @@
 
 
   def default_values
-    self.status ||= 'unpublished' # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
+    self.status ||= 'Unpublished' # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
   end
-
-
 
   def build(lead = nil)
     extents = determine_extents
