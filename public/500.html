@@ -15,7 +15,7 @@
   .rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
-    margin: 12em auto 0;
+    margin: 10em auto 0;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -35,6 +35,7 @@
     font-size: 31px;
     color: #3A506B;
     line-height: 1.5em;
+    margin: 0;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -62,6 +63,10 @@
     box-shadow: 0px 0px 5px 0px rgba(158,158,158,1);
   }
 
+  #image500 {
+    width: 300px;
+  }
+
   </style>
 </head>
 
@@ -70,11 +75,14 @@
   <div class="dialog">
     <div>
       <h1>Well this is embarassing...</h1>
+      <img id ="image500" src="images/500.png">
     </div>
-    <p>Mind coming back in a minute?</p>
+    <p style="margin-top: 0; margin-bottom: 30px; color: #3A506B;">Mind coming back in a minute?</p>
   </div>
 
   <a class="go-home" href="/">Go Back Home</a>
+
+
 
 </body>
 </html>
