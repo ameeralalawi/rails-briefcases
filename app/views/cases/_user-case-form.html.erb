@@ -1,6 +1,6 @@
 
 <div id="user-case-form-hidder">
-  <%= simple_form_for @lead, url: lead_path(@lead), method: :patch, :remote => true, html: {class: 'form-inline', autocomplete: 'off' } do |f| %>
+  <%= simple_form_for lead, url: lead_path(lead), method: :patch, :remote => true, html: {class: 'form-inline', autocomplete: 'off' } do |f| %>
     <%= f.input :first_name, label: false, placeholder: ' First name', required: false %>
     <%= f.input :last_name, label: false, placeholder: ' Family name', required: false  %>
     <%= f.input :email, label: false, placeholder: ' Email' %>
