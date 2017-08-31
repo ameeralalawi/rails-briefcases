@@ -1,7 +1,7 @@
 #user-case-wrapper {
   background-color: $light-filling;
   margin: 0 auto;
-  width: 750px;
+  width: 800px;
   height: 100vh;
 }
 
@@ -12,11 +12,13 @@
 
 
 #user-case-form-container {
-  width: 750px;
-  height: 75px;
-  // display: inline-block;
-  background-color: white;
+  width: 800px;
+  height: 120px;
+  margin: 0 auto;
+  text-align:center;
+  // background-color: white;
   padding: 20px;
+
 }
 
 
@@ -28,6 +30,7 @@
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+  padding-top: 40px;
 }
 
 

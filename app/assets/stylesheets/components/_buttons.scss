@@ -8,7 +8,7 @@
 .btn-CTA {
   color: white;
   padding: 10px 15px;
-  border-radius: 2px;
+  border-radius: $border-radius-large;
   font-weight: bold;
   background: $cta-green;
   transition: background 0.3s ease;
@@ -42,24 +42,6 @@
 }
 
 
-
-
-// ul.CTAs a {
-//     text-align: center;
-//     font-size: 1.1em !important;
-//     display: block;
-//     border: 1px solid;
-//     border-color: $cta-green;
-//     border-radius: $border-radius-large;;
-//     margin-bottom: 5px;
-// }
-
-
-// a.article, a.article:hover {
-//     background: $white !important;
-//     color: $cta-green !important;
-// }
-
 .btn-action {
   color: white;
   padding: 10px 15px;
@@ -73,3 +55,21 @@
     color: white;
   }
 }
+
+
+.lead-button {
+  margin: 2px;
+  border-radius: 4px;
+  padding: 5px 14px;
+  i {
+    font-size: 20px;
+  }
+}
+
+
+.user-button {
+  margin: 2px;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
