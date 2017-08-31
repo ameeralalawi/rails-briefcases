@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>briefcases.io</title>
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Briefcases.io - help your customers make better decisions" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="www.briefcases.io" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="Briefcases.io is a website designed to help your customers make better decisions. Demonstrate the value of your product or service and generate more leads by building interactive business case forms today!" />
+    <meta property="og:site_name" content="Briefcases.io" />
+
+    <%= favicon_link_tag(source='favicon.png') %>
+    <title>briefcases.io - Help your customers make decisions</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
