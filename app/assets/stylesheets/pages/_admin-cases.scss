@@ -71,6 +71,8 @@
 #hello {
    resize: none;
    text-align: center;
+   vertical-align: middle;
+
    padding-top: 30px;
    font-size: 20px;
    font-family: Rubik, Helvetica, sans-serif;
@@ -88,6 +90,8 @@
 #save-input-form{
   height:100%;
   border-radius: $border-radius-base;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .input-text-box{
