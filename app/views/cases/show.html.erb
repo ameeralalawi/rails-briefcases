@@ -6,7 +6,7 @@
     <div class="front">
 
      <!--  <h1>Welcome on Briefcase forms</h1> -->
-      <h3>Invest or not in a product ? We tell you if it worths it.</h3>
+      <h3>Invest or not in a product ? We tell you if its worth it.</h3>
 
       <%= simple_form_for @case, url: compute_result_path(@case), :html => {:id => "save-user-fill", autocomplete: 'off' } ,method: :post, remote: true do |f|%>
       <%= f.input :user_input_text, as: :text, label: false, wrapper: false, placeholder: "Example: I have @TotalUserBulbs incandencent lightbulbs with a wattage of UserBulbWattage ... ", input_html: { id:"filling"} %>

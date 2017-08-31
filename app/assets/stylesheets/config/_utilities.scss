@@ -22,16 +22,25 @@
   min-height: 220px !important;
 }
 
+.margin-top {
+  margin-top: 2em;
+}
+
+
 .margin-left {
   margin-left: 2em;
 }
 
 .no-margin {
-  margin: 0px 0px;
+  margin: 0px 0px !important;
 }
 
 .border-gray {
   color: green;
+}
+
+.icon-plus-circle {
+  color: $cta-green ;
 }
 
 .margin-light {
