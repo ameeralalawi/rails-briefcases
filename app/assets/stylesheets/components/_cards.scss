@@ -27,6 +27,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   color: black;
   @include border;
 
+
 h4 {
     font-weight: 700;
     padding-bottom: 12px;
@@ -89,6 +90,14 @@ h4 {
 #plus-card {
   text-align: center;
   background-color: $cta-green;
+  border-color: white;
+  &:hover {
+    opacity: 1;
+    background: lighten( $cta-green, 10% );
+    text-decoration: none;
+    color: white;
+    border-color: $cta-green;
+  }
 
   h1 {
     font-size: 100px;

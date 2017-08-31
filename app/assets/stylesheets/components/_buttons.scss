@@ -9,6 +9,7 @@
   color: white;
   padding: 10px 15px;
   border-radius: $border-radius-large;
+  border-color: $cta-green;
   font-weight: bold;
   background: $cta-green;
   transition: background 0.3s ease;
@@ -68,8 +69,8 @@
 
 
 .user-button {
-  margin: 2px;
-  border-radius: 4px;
-  padding: 10px 14px;
+  // margin: 2px;
+  border-radius: $border-radius-large;
+  padding: 6px 14px;
 }
 

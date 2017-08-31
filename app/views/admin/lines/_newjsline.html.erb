@@ -82,7 +82,7 @@
       <%= button_tag type: 'submit', class: "fabutton", id: "register-button" do %>
         <i class="fa fa-floppy-o" aria-hidden="true"></i>
       <%end%>
-      <%= link_to '<i class="fa fa-2x fa-trash-o"></i>'.html_safe, admin_line_delete_path(@case, @line),
+      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_line_delete_path(@case, @line),
           data: {:confirm => 'Are you sure?'}, :method => :delete %>
     </div>
   </div>

@@ -1,15 +1,15 @@
 .form-size {
   width: 400px;
   align-items: center;
-  margin: 0px;
+  margin: 30px 70px 70px 70px;
 }
 
 
 .modal-content {
- width: 480px;
+ width: 550px;
   margin-top: 100px;
   @include border;
-  padding: 40px;
+  // padding: 40px 70px 70px 70px;
 }
 
 #div-create-msg {
@@ -17,9 +17,10 @@
     height: 30px;
     line-height: 28px;
     transition: all ease-in-out 500ms;
-    margin: 10px 0px;
+    margin: 30px 0px 10px 0px;
     background-color: $light-filling;
     color: white;
+    border: none;
 }
 
 #div-create-msg.success {
@@ -72,9 +73,10 @@
 }
 
 .modal-header {
-    min-height: 16.43px;
-    padding: 15px 15px 25px 15px;
+    min-height: 20px;
+    padding: 20px 20px 0px 0px;
     border-bottom: 0px;
+    width: 100%;
 }
 
 .modal-body {
