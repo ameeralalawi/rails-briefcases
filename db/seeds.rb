@@ -189,24 +189,5 @@ Line.create!([
   :lead_id => lead.id}
   ])
 end
-8.times do |x|
-  lead = Lead.create!({
-  :case_id => seedcase.id
-  })
-  VariableUse.create!([
- {:value => rand(4.0...50.0),
-  :variable_id => Variable.where("name = '@TotalUserBulbs'").first.id,
-  :lead_id => lead.id},
- {:value => [35.5, 40.0, 45.0, 50.0, 55.0, 60.0].sample,
-  :variable_id => Variable.where("name = '@UserBulbWattage'").first.id,
-  :lead_id => lead.id},
- {:value => rand(0.05...0.20),
-  :variable_id => Variable.where("name = '@UserElecPrice'").first.id,
-  :lead_id => lead.id},
- {:value => [3.0, 4.0, 5.0, 6.0, 7.0].sample,
-  :variable_id => Variable.where("name = '@UserHoursOfUse'").first.id,
-  :lead_id => lead.id}
-  ])
-end
 
 puts 'Finished!'
