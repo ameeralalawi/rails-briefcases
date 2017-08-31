@@ -22,7 +22,7 @@
       </div>
 
       <div class="save-button">
-        <%= button_tag type:'submit', form:"save-user-fill", id: "turn-card" %>
+      <%= f.submit "SUBMIT", :id => "turn-card", :class => "btn-CTA" %>
       </div>
 
     </div>
@@ -61,7 +61,7 @@
       $("#card").flip({
         trigger: 'manual',
         reverse: true,
-        speed: 3000
+        speed: 1000
       });
 
      $('#turn-card').on("click", function(){

@@ -14,7 +14,8 @@ padding: 20px;
 }
 
 .final-form-head {
-  background-color: red;
+  //background-color: $cta-green;
+  color: white;
   height: 500px;
   width: 700px;
   text-align: center;
@@ -24,10 +25,19 @@ padding: 20px;
 
 
 .final-form-tow {
-  background-color: green;
+  background-color: $cta-green;
   height: 500px;
   width: 700px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+}
+
+
+.output-sentence {
+
+}
+
+.output-graph{
+
 }
