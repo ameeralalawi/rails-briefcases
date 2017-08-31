@@ -10,6 +10,7 @@ $(document).ready(function() {
         //Toggle class "active" of submenu
         $(".active").removeClass("active");
         $(this).closest('li').addClass("active");
+        $(this).find('i').addClass("active");
         var theClass = $(this).attr("class");
         $('.'+theClass).parent('li').addClass('top-active');
       });
