@@ -63,6 +63,14 @@ class Admin::CasesController < ApplicationController
         changevar = Variable.where(case_id: params[:id], category: "input", name: varname)
         changevar.update(expert_value: expertval.to_f)
       end
+
+    @line = Line.new
+    @chart_globals = prep_chart_globals
+    charts = prep_chart(@case)
+    @expvariables = @case.variables.where(category: "expert", state: true)
+    @chartM = charts[:chartM]
+    @chartA = charts[:chartA]
+    @chartB = charts[:chartB]
     end
     respond_to do |format|
       format.js

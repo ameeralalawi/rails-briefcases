@@ -1,2 +1,4 @@
 $('#new-line-s-form').html("<%= j render 'admin/cases/newformline', case: @case%>");
+$('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
 window.expertVariables = <%= raw @expvariables.to_json %>;
+reset_datepickers()

@@ -1,1 +1,6 @@
+$('#existing-lines').html("<%= j render 'admin/cases/existinglines', case: @case, line: @line %>");
 $('#new-line-s-form').html("<%= j render 'admin/cases/newformline', case: @case%>");
+$('#bcgraphs').html("<%= j render 'admin/cases/bcgraphs', chartM: @chartM%>")
+$('#Agraph').html("<%= j render 'admin/cases/SCNA_graph', chartA: @chartA%>")
+$('#Bgraph').html("<%= j render 'admin/cases/SCNB_graph', chartB: @chartB%>")
+reset_datepickers()
