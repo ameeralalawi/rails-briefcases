@@ -15,7 +15,7 @@
   .rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
-    margin: 12em auto 0;
+    margin: 10em auto 0;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -35,6 +35,7 @@
     font-size: 40px;
     color: #3A506B;
     line-height: 1.5em;
+    margin: 0;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -62,6 +63,10 @@
     box-shadow: 0px 0px 5px 0px rgba(158,158,158,1);
   }
 
+  #image404 {
+    width: 300px;
+  }
+
   </style>
 </head>
 
@@ -70,10 +75,12 @@
   <div class="dialog">
     <div>
       <h1>Ooops!</h1>
-      <p>Not sure we know what you're looking for...</p>
+      <img id ="image404" src="images/404.png">
+      <p style="margin-top: 0; margin-bottom: 30px; color: #3A506B;">Not sure we know what you're looking for...</p>
     </div>
     <p>Mick Jagger: 'You can't always get what you want, but if you try sometimes, you might find, you get what you need.'</p>
   </div>
   <a href="/" class="go-home">Go Back Home</a>
+
 </body>
 </html>
