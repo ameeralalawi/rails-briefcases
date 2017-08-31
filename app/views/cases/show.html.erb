@@ -1,11 +1,7 @@
 <div id="user-case-wrapper">
 
-   <div id="user-case-form-container">
-    <%= render 'user-case-form' %>
-  </div>
-
   <div  class="final-form-head" id="card">
-    <div class="front final-form-head">
+    <div class="front">
 
       <h1>Welcome on Briefcase forms</h1>
       <h3>Invest or not in a product ? We tell you if it worths it.</h3>
@@ -24,12 +20,11 @@
       <div class="save-button">
       <%= f.submit "SUBMIT", :id => "turn-card", :class => "btn-CTA" %>
       </div>
-
+      <% end %>
     </div>
-    <% end %>
 
     <div class="back final-form-tow" id='results'>
-      <%= render 'user-results' %>
+
     </div>
   </div>
 </div>
