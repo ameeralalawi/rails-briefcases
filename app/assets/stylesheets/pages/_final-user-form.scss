@@ -33,16 +33,24 @@
 
 
 .final-form-tow {
-  background-color: $cta-green;
+
   height: 500px;
   width: 700px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 
 .output-sentence {
+  font-size: 19px;
+  background-color: #5bc0be;
+  margin: 70px 0px 33px 0px;
+  border-radius: 4px;
+  padding: 13px;
 
 }
 
