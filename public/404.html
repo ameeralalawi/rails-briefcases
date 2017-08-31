@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Oops!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -15,7 +15,7 @@
   .rails-default-error-page div.dialog {
     width: 95%;
     max-width: 33em;
-    margin: 4em auto 0;
+    margin: 12em auto 0;
   }
 
   .rails-default-error-page div.dialog > div {
@@ -23,7 +23,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #3A506B solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -32,8 +32,8 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 40px;
+    color: #3A506B;
     line-height: 1.5em;
   }
 
@@ -51,6 +51,17 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .go-home {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 2px;
+    background: #3A506B;
+    transition: background 0.3s ease;
+    box-shadow: 0px 0px 5px 0px rgba(158,158,158,1);
+  }
+
   </style>
 </head>
 
@@ -58,10 +69,11 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1>Ooops!</h1>
+      <p>Not sure we know what you're looking for...</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>Mick Jagger: 'You can't always get what you want, but if you try sometimes, you might find, you get what you need.'</p>
   </div>
+  <a href="/" class="go-home">Go Back Home</a>
 </body>
 </html>
