@@ -18,6 +18,12 @@
   color: white;
 }
 
+.border {
+  border: 1px solid;
+  border-color: $border-gray;
+  border-radius: $border-radius-base;
+}
+
 .set-height {
   min-height: 220px !important;
 }
