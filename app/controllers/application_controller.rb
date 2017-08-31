@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     admin_cases_path
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 
 private
 def layout_by_resource
