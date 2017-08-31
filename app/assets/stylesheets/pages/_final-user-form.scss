@@ -1,16 +1,21 @@
 #user-case-wrapper {
-background-color: $light-filling;
-height: 100vh;
-// width: 100vw;
-padding: 20px;
+  background-color: $light-filling;
+  margin: 0 auto;
+  width: 750px;
+  height: 100vh;
+
+}
+
+#lead-reply {
+  text-align: center;
 }
 
 #user-case-form-container {
-  width: 900px;
+  width: 750px;
   height: 75px;
   // display: inline-block;
-  margin: 10px;
   background-color: white;
+  padding: 20px;
 }
 
 .final-form-head {
