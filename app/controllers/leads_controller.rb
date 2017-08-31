@@ -10,7 +10,7 @@ class LeadsController < ApplicationController
 
     @variables_names.each do |name|
       @variable_use = VariableUse.new(lead: @lead)
-      @variable_use.variable = Variable.find_by(category: "input", name: name)
+      @variable_use.variable = Variable.find_by(case_id: @case, category: "input", name: name)
       @variable_use.value = params[:vars][name]
       @variable_use.save!
     end
@@ -24,7 +24,7 @@ class LeadsController < ApplicationController
 
       @output_sentence = @case.user_output_text
       @out.each do |_k, value|
-      @output_sentence = @output_sentence.sub(/(@\w+\b)/, value.to_s)
+        @output_sentence = @output_sentence.sub(/(@\w+\b)/, value.round(1).to_s)
       end
       format.js  # <-- idem
     end
