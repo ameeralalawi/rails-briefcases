@@ -1,19 +1,46 @@
 
+<!--   <style>
+      * {
+        border: 1px solid black;
+      }
+    </style> -->
+
+
 <div id="section-1">
   <div class="container">
-    <div id="intro-paragraph">
 
-      <h1>Help your customers make decisions</h1>
-      <h3>Demonstrate the value of your product or service and generate more leads by building interactive business case forms</h3>
-    </div>
+    <div id="landing-inline">
+  <div class="row text-center">
 
-    <a class="btn btn-primary" id="get-started" href="/users/sign_up">GET STARTED</a>
+      <div class="col-sm-12 col-md-5">
+          <div id="intro-paragraph">
+            <h1>Help your customers make decisions</h1>
+            <h3>Demonstrate the value of your product or service and generate more leads by building interactive business case forms</h3>
+          </div>
+      </div>
 
-    <div id="learn-more" class="text-center">
-      <a href="#">Learn More<br />  <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+      <div class="col-sm-12 col-md-7">
+          <div id="video-container">
+            <video id="landing-video" width="99.9%" height="100%" poster="https://res.cloudinary.com/djpl2ed91/image/upload/v1504284104/Untitled2_sjmt1u.png"  ">
+              <source src="https://res.cloudinary.com/djpl2ed91/video/upload/v1504282057/Demo_djrqyk.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+          </div>
+
+      </div>
     </div>
   </div>
+<div class="row">
+      <div class="col-sm-12 col-md-12">
+        <a class="btn btn-primary" id="get-started" href="/users/sign_up">GET STARTED</a>
 
+        </div>
+
+        </div>
+               <div id="learn-more" class="text-center">
+          <a href="#">Learn More<br />  <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+        </div>
+  </div>
 </div>
 
 <div id="section-2">
@@ -25,7 +52,7 @@
     </div>
 
     <div class="row text-center">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-6">
         <div class="row demo-step">
           <h1><strong>1.</strong></h1>
           <h4>Build a form</h4>
@@ -38,7 +65,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-6">
         <div class="row demo-step">
           <h1><strong>2.</strong></h1>
           <h4>Define a business case</h4>
@@ -146,4 +173,34 @@
     </div>
   </div>
 </div>
+
+
+<% content_for :after_js do %>
+
+  <script type="text/javascript">
+
+    $( document ).ready(function() {
+      $('#landing-video').hover(function toggleControls() {
+          console.log("hover");
+
+          if (this.hasAttribute("controls")) {
+              this.removeAttribute("controls")
+          } else {
+              this.setAttribute("controls", "controls")
+          }
+      });
+
+
+      $('#landing-video').click(function () {
+         if ($("#landing-video").get(0).paused) {
+             $("#landing-video").get(0).play();
+         } else {
+             $("#landing-video").get(0).pause();
+        }
+      });
+
+    });
+
+  </script>
+<% end %>
 

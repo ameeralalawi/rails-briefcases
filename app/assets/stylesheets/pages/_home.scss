@@ -6,20 +6,39 @@
   background-size: 100% auto;
   background-position: 0px 105px;
   position: relative;
+  background-color: $light-filling;
 }
 
+#landing-inline {
+  padding-top: 30px;
+
+}
+
+#video-container {
+  margin-top: 30px;
+  margin-left: 15px;
+  // width: 100%;
+  // height: 100%;
+  // display: inline-block;
+  @include shadow;
+}
+
+
 #intro-paragraph {
-  margin-top: 100px;
-  max-width: 700px;
-  background: rgba(255,255,255,0.7);
+  // background: rgba(255,255,255,0.7);
   border-radius: 4px;
+  text-align: left;
+  margin-top: 30px;
+  margin-right: 15px;
   h1 {
-    font-size: 40px;
-    color: $heading-blue;
+    font-size: 46px;
+    color: $white;
   }
   h3 {
     font-size: 25px;
-    color: $heading-blue;
+    color: $white;
+    margin-left: 1px;
+    margin-top: 36px;
   }
   padding-left: 14px;
   padding-bottom: 4px;
@@ -27,7 +46,7 @@
 
 #get-started {
   margin-top:50px;
-  margin-left: 100px;
+  margin-left: 13px;
   font-size: 25px;
   color: white;
   background-color: $cta-green;
@@ -51,7 +70,7 @@
   bottom: 50px;
 
   .fa, a {
-    color: $dark-filling;
+    color: $white;
     opacity: 0.8;
     font-size: 24px;
   }
@@ -61,6 +80,7 @@
     text-decoration: none;
     opacity: 1;
   }
+
 }
 
 #section-2 {
@@ -194,4 +214,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   justify-content: center;
   text-align: center;
+}
+
+
+@media (max-width: 40em) {
+  #learn-more {
+    display: none;
+  }
 }
