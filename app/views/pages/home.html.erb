@@ -181,24 +181,20 @@
 
   <script type="text/javascript">
 
-    $( document ).ready(function() {
-      $('#landing-video').hover(function toggleControls() {
-          console.log("hover");
+    // $( document ).ready(function() {
+    //   $('#landing-video').hover(function toggleControls() {
+    //       console.log("hover");
 
-          if (this.hasAttribute("controls")) {
-              this.removeAttribute("controls")
-          } else {
-              this.setAttribute("controls", "controls")
-          }
-      });
+    //       if (this.hasAttribute("controls")) {
+    //           this.removeAttribute("controls")
+    //       } else {
+    //           this.setAttribute("controls", "controls")
+    //       }
+    //   });
 
 
       $('#landing-video').click(function () {
-         if ($("#landing-video").get(0).paused) {
              $("#landing-video").get(0).play();
-         } else {
-             $("#landing-video").get(0).pause();
-        }
       });
 
     });
